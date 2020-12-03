@@ -60,6 +60,12 @@
     </Compile>
     <Compile Include="Meeting.cs" />
     <Compile Include="Participant.cs" />
+    <Compile Include="participantDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="participantDisplay.Designer.cs">
+      <DependentUpon>participantDisplay.cs</DependentUpon>
+    </Compile>
     <Compile Include="Participants.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,6 +75,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Initiator.resx">
       <DependentUpon>Initiator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="participantDisplay.resx">
+      <DependentUpon>participantDisplay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
