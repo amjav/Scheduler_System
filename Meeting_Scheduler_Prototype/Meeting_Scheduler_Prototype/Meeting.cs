@@ -15,5 +15,17 @@ namespace Meeting_Scheduler_Prototype
         //list of participants that can attend the meeting
 
         public List<Participant> RequestAttend = new List<Participant>();
+
+        public string Location;
+
+        public Meeting(string location, List<DateTime>datehourrange, List<Participant> meetingattendees)
+        {
+            Location = location;
+            DateHourRange = datehourrange;
+            MeetingAttendees = meetingattendees;
+        }
+
+
+
     }
 }
