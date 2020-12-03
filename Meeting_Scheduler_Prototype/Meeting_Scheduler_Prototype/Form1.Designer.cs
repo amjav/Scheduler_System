@@ -32,12 +32,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.UserTyp = new System.Windows.Forms.ComboBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.meetingSchBox = new System.Windows.Forms.GroupBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
+            this.meetingSchBox = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.meetingSchBox.SuspendLayout();
@@ -46,7 +46,7 @@
             // PsName
             // 
             this.PsName.AutoSize = true;
-            this.PsName.Location = new System.Drawing.Point(9, 57);
+            this.PsName.Location = new System.Drawing.Point(9, 28);
             this.PsName.Name = "PsName";
             this.PsName.Size = new System.Drawing.Size(120, 17);
             this.PsName.TabIndex = 1;
@@ -65,7 +65,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(146, 54);
+            this.comboBox1.Location = new System.Drawing.Point(146, 25);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
@@ -74,7 +74,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.UserTyp);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.PsName);
             this.groupBox1.Controls.Add(this.comboBox1);
@@ -87,6 +87,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Details";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(143, 57);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 17);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "User Type";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 57);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 17);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "User Type:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
@@ -97,25 +117,6 @@
             this.listBox1.Size = new System.Drawing.Size(856, 180);
             this.listBox1.TabIndex = 5;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 30);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 17);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "User Type:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // UserTyp
-            // 
-            this.UserTyp.FormattingEnabled = true;
-            this.UserTyp.Location = new System.Drawing.Point(146, 19);
-            this.UserTyp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.UserTyp.Name = "UserTyp";
-            this.UserTyp.Size = new System.Drawing.Size(121, 24);
-            this.UserTyp.TabIndex = 5;
             // 
             // groupBox2
             // 
@@ -129,6 +130,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pending Meeting";
             // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 16;
+            this.listBox2.Location = new System.Drawing.Point(6, 26);
+            this.listBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(856, 196);
+            this.listBox2.TabIndex = 6;
+            // 
             // meetingSchBox
             // 
             this.meetingSchBox.Controls.Add(this.listBox1);
@@ -140,16 +151,6 @@
             this.meetingSchBox.TabIndex = 7;
             this.meetingSchBox.TabStop = false;
             this.meetingSchBox.Text = "Meeting Scheduled";
-            // 
-            // listBox2
-            // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 16;
-            this.listBox2.Location = new System.Drawing.Point(6, 26);
-            this.listBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(856, 196);
-            this.listBox2.TabIndex = 6;
             // 
             // Form1
             // 
@@ -180,10 +181,10 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox UserTyp;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox meetingSchBox;
         private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Label label2;
     }
 }
 
