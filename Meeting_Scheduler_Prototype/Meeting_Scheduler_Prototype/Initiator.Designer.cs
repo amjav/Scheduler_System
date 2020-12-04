@@ -31,6 +31,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.backButton1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -75,11 +76,22 @@
             this.label1.Text = "Confirmed Meeting Information";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // backButton1
+            // 
+            this.backButton1.Location = new System.Drawing.Point(34, 609);
+            this.backButton1.Name = "backButton1";
+            this.backButton1.Size = new System.Drawing.Size(128, 55);
+            this.backButton1.TabIndex = 3;
+            this.backButton1.Text = "Back";
+            this.backButton1.UseVisualStyleBackColor = true;
+            this.backButton1.Click += new System.EventHandler(this.backButton1_Click);
+            // 
             // Initiator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1249, 705);
+            this.Controls.Add(this.backButton1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -95,5 +107,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button backButton1;
     }
 }

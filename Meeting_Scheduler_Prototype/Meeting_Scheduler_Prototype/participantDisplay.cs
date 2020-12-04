@@ -16,5 +16,16 @@ namespace Meeting_Scheduler_Prototype
         {
             InitializeComponent();
         }
+
+        private void participantDisplay_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void backbutton1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1.form.Show();
+        }
     }
 }

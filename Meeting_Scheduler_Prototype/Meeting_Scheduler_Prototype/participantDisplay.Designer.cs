@@ -41,6 +41,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.backbutton1 = new System.Windows.Forms.Button();
             this.meetingSchBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -198,15 +199,27 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(856, 277);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
+            // backbutton1
+            // 
+            this.backbutton1.Location = new System.Drawing.Point(12, 613);
+            this.backbutton1.Name = "backbutton1";
+            this.backbutton1.Size = new System.Drawing.Size(109, 51);
+            this.backbutton1.TabIndex = 10;
+            this.backbutton1.Text = "Back";
+            this.backbutton1.UseVisualStyleBackColor = true;
+            this.backbutton1.Click += new System.EventHandler(this.backbutton1_Click);
+            // 
             // participantDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1187, 676);
+            this.Controls.Add(this.backbutton1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.meetingSchBox);
             this.Name = "participantDisplay";
             this.Text = "participantDisplay";
+            this.Load += new System.EventHandler(this.participantDisplay_Load);
             this.meetingSchBox.ResumeLayout(false);
             this.meetingSchBox.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -230,5 +243,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button backbutton1;
     }
 }
