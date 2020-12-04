@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace Meeting_Scheduler_Prototype
 {
 
@@ -20,6 +19,7 @@ namespace Meeting_Scheduler_Prototype
         //high flexibilty = can easily change their timetable to attend the meeting
         
        
+        List<Participant> allUsers = new List<Participant>();
 
         //lauren is the intiator
         Participant p1 = new Participant("Lauren", "low", true, "ps", true);
@@ -32,25 +32,23 @@ namespace Meeting_Scheduler_Prototype
         Participant p5 = new Participant("Rudolf", "high", false, "ps", false);
         Participant p6 = new Participant("Jack Skellington", "high", false, "ps", false);
 
-        //meetings
-        //location = "Owen 2234"
-        //list of dates and times
 
-        //create list 
+        static DateTime [] DateArray1 = new DateTime[]       
+            {
+                //yyyy/mm/dd/hh/mm/ss
+                new DateTime(2010, 10, 1, 12, 00, 00),
+                new DateTime(2010, 10, 2, 10, 00, 00),
+                new DateTime(2010, 10, 1, 15, 00, 00),
+                new DateTime(2010, 10, 3, 15, 30, 00),
+                new DateTime(2010, 10, 6, 15, 30, 00),
 
-        //List<DateTime[]> m1List = new List<DateTime[]>();
+            };
 
-        //m1List.Add(new DateTime(2020, 25, 12, 9, 0,0))
-        //m1List.Add(new DateTime(2020,10,12,7,30,0));
-        
-
-        //Meeting m1 = new Meeting("Owen 2234", List < DateTime > m1List {})
 
         //to run the duntions in the classes
         Participant p =  new Participant();
 
         //initiate List that stores all users
-        List<Participant> allUsers = new List<Participant>();
 
         string loginButt = "";
 
@@ -60,14 +58,30 @@ namespace Meeting_Scheduler_Prototype
         {
             //Button1.Enabled = false;
 
+            
+
             form = this;
 
             InitializeComponent();
             RunStart();
+            AddMeeting1();
+
+            
 
         }
 
-       
+        private void AddMeeting1()
+        {
+            Meeting meet1 = new Meeting(p1.GetName(),"Owen 225", DateArray1);
+            meet1.RequestAddPs(p2);
+            meet1.RequestAddPs(p4);
+            meet1.RequestAddPs(p5);
+
+            
+
+        }
+
+
         private void RunStart()
         {
 

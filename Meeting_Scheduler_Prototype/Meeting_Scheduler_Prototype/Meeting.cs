@@ -8,7 +8,7 @@ namespace Meeting_Scheduler_Prototype
 {
     class Meeting
     {
-        public List<DateTime> DateHourRange = new List<DateTime>();
+        public DateTime[] DateHourRange = new DateTime[5];
         //contains a range of date hours in which the meeting could be
 
         public List<Participant> MeetingAttendees = new List<Participant>();
@@ -17,14 +17,24 @@ namespace Meeting_Scheduler_Prototype
         public List<Participant> RequestAttend = new List<Participant>();
 
         public string Location;
+        public string Initiator;
 
-        public Meeting(string location, List<DateTime>datehourrange, List<Participant> meetingattendees)
+        public Meeting(string intiator, string location, DateTime[] datehourrange)
         {
+            Initiator = intiator;
             Location = location;
             DateHourRange = datehourrange;
-            MeetingAttendees = meetingattendees;
         }
 
+        public void RequestAddPs(Participant p)
+        {
+            RequestAttend.Add(p);
+        }
+
+        public void MeetingAttend (Participant p)
+        {
+            MeetingAttendees.Add(p);
+        }
 
 
     }
