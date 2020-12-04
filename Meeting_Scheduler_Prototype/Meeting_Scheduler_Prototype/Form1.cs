@@ -12,10 +12,14 @@ using System.Windows.Forms;
 
 namespace Meeting_Scheduler_Prototype
 {
+
+
     public partial class Form1 : Form
     {
         //low flexibility = not able to be very flexible in changing their timetable to compensate the meeting
         //high flexibilty = can easily change their timetable to attend the meeting
+        
+       
 
         //lauren is the intiator
         Participant p1 = new Participant("Lauren", "low", true, "ps", true);
@@ -50,12 +54,14 @@ namespace Meeting_Scheduler_Prototype
 
         string loginButt = "";
 
-        
-       
+        public static Form1 form;
+
         public Form1()
         {
             //Button1.Enabled = false;
-            
+
+            form = this;
+
             InitializeComponent();
             RunStart();
 

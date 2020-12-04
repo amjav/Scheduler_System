@@ -21,5 +21,12 @@ namespace Meeting_Scheduler_Prototype
         {
 
         }
+
+        private void backButton1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1.form.Show();
+            
+        }
     }
 }
