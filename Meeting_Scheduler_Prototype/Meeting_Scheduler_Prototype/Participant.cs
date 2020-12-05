@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Meeting_Scheduler_Prototype
 {
-    class Participant
+    public class Participant
     {
         private string Name;
         //public string Status;
