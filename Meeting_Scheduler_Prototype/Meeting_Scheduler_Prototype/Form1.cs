@@ -20,33 +20,25 @@ namespace Meeting_Scheduler_Prototype
         
        
         List<Participant> allUsers = new List<Participant>();
+        List<Meeting> MeetingsAll = new List<Meeting>();
+
 
         //lauren is the intiator
         Participant p1 = new Participant("Lauren", "low", true, "ps", true);
+        Participant p7 = new Participant("Santa Claus", "low", true, "ps", true);
 
 
         //participants
-        Participant p2 = new Participant("Amina", "low", false, "ps", false);
+        Participant p2 = new Participant("Mrs Claus", "low", false, "ps", false);
         Participant p3 = new Participant("Soraya", "high", true, "in", false);
         Participant p4 = new Participant("Sanaa", "high", false, "ps", false);
         Participant p5 = new Participant("Rudolf", "high", false, "ps", false);
         Participant p6 = new Participant("Jack Skellington", "high", false, "ps", false);
 
 
-        static DateTime [] DateArray1 = new DateTime[]       
-            {
-                //yyyy/mm/dd/hh/mm/ss
-                new DateTime(2010, 10, 1, 12, 00, 00),
-                new DateTime(2010, 10, 2, 10, 00, 00),
-                new DateTime(2010, 10, 1, 15, 00, 00),
-                new DateTime(2010, 10, 3, 15, 30, 00),
-                new DateTime(2010, 10, 6, 15, 30, 00),
-
-            };
-
-
         //to run the duntions in the classes
         Participant p =  new Participant();
+        Meeting m = new Meeting();
 
         //initiate List that stores all users
 
@@ -56,28 +48,69 @@ namespace Meeting_Scheduler_Prototype
 
         public Form1()
         {
-            //Button1.Enabled = false;
-
-            
-
             form = this;
 
             InitializeComponent();
-            RunStart();
             AddMeeting1();
+            AddMeeting2();
+            AddMeeting3();
+            RunStart();
+            
+        }
+
+        private void AddMeeting3()
+        {
+            List<string> slots = new List<string>();
+
+            slots.Add("S1");
+            slots.Add("S2");
+            slots.Add("S3");
+            slots.Add("S4");
+
+            Meeting m3 = new Meeting(p7.GetName(), "North Pole", "Rudolf's Nose Surgery", true, slots);
+
+            m3.RequestAddPs(p2);
+            m3.RequestAddPs(p6);
+
 
             
 
         }
 
+
+        private void AddMeeting2()
+        {
+            List<String> slot = new List<string>();
+            slot.Add("S1");
+            slot.Add("S2");
+            slot.Add("S3");
+            slot.Add("S4");
+
+            Meeting m2 = new Meeting(p7.GetName(), "North Pole", "Christmas Dinner", true, slot);
+            m2.RequestAddPs(p2);
+            m2.RequestAddPs(p6);
+
+
+
+        }
+
         private void AddMeeting1()
         {
-            Meeting meet1 = new Meeting(p1.GetName(),"Owen 225", DateArray1);
+            //true is a higher status than false
+
+            List<String> slot = new List<string>();
+
+            slot.Add("S1");
+            slot.Add("S2");
+            slot.Add("S3");
+            slot.Add("S4");
+            slot.Add("S5");
+
+            Meeting meet1 = new Meeting(p1.GetName(),"Owen 225", "Reindeer Route Planning", true, slot);
             meet1.RequestAddPs(p2);
             meet1.RequestAddPs(p4);
             meet1.RequestAddPs(p5);
 
-            
 
         }
 
@@ -92,6 +125,7 @@ namespace Meeting_Scheduler_Prototype
 
             //create all users list
             allUsers = p.AllPs();
+            MeetingsAll = m.returnAllList();
             
 
         }
@@ -110,19 +144,12 @@ namespace Meeting_Scheduler_Prototype
                     {
                         loginButt = "Initiator";
                         label2.Text = loginButt;
-
-                        //run initator form
-                        // Initiator.Show();
-                        //Initiator in = new Initiator();
-                        //in.
-
                     }
 
                     else
                     {
                         loginButt = "Participant";
                         label2.Text = loginButt;
-                        // -
                     }
 
                 }
@@ -183,7 +210,7 @@ namespace Meeting_Scheduler_Prototype
 
             if (loginButt == "Initiator")
             {
-                Initiator n = new Initiator();
+                Initiator n = new Initiator(allUsers, MeetingsAll);
                 this.Hide();
                 n.Show();
             }
