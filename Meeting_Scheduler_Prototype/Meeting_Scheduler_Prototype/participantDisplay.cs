@@ -27,5 +27,15 @@ namespace Meeting_Scheduler_Prototype
             this.Hide();
             Form1.form.Show();
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

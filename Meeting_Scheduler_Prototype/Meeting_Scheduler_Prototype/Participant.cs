@@ -16,6 +16,7 @@ namespace Meeting_Scheduler_Prototype
         private bool Initiator;
 
         public static List<Participant> users = new List<Participant>();
+       // List <Meeting>
 
         // Commented out status for now as we need to determine what it is?
 
