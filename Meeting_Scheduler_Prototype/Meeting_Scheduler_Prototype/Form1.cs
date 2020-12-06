@@ -21,7 +21,8 @@ namespace Meeting_Scheduler_Prototype
        
         List<Participant> allUsers = new List<Participant>();
         List<Meeting> MeetingsAll = new List<Meeting>();
-
+        List<Participant> RequestedAttendees = new List<Participant>();
+        List<Participant> MeetingAttendees = new List<Participant>();
 
         //lauren is the intiator
         Participant p1 = new Participant("Lauren", "low", true, "ps", true);
@@ -61,36 +62,40 @@ namespace Meeting_Scheduler_Prototype
         private void AddMeeting3()
         {
             List<string> slots = new List<string>();
+            List<Participant> requestAttendee = new List<Participant>();
+            List<Participant> meetingAttendee = new List<Participant>();
 
             slots.Add("S1");
             slots.Add("S2");
             slots.Add("S3");
             slots.Add("S4");
 
-            Meeting m3 = new Meeting(p7.GetName(), "North Pole", "Rudolf's Nose Surgery", true, slots);
+            requestAttendee.Add(p2);
+            requestAttendee.Add(p6);
 
-            m3.RequestAddPs(p2);
-            m3.RequestAddPs(p6);
-
-
-            
+            Meeting m3 = new Meeting(p7.GetName(), "North Pole", "Rudolf's Nose Surgery", true, slots, meetingAttendee, requestAttendee);
 
         }
 
 
         private void AddMeeting2()
         {
+
+
             List<String> slot = new List<string>();
+            List<Participant> requestAttendee = new List<Participant>();
+            List<Participant> meetingAttendee = new List<Participant>();
+
             slot.Add("S1");
             slot.Add("S2");
             slot.Add("S3");
             slot.Add("S4");
 
-            Meeting m2 = new Meeting(p7.GetName(), "North Pole", "Christmas Dinner", true, slot);
-            m2.RequestAddPs(p2);
-            m2.RequestAddPs(p6);
 
+            requestAttendee.Add(p2);
+            requestAttendee.Add(p6);
 
+            Meeting m2 = new Meeting(p7.GetName(), "North Pole", "Christmas Dinner", true, slot, meetingAttendee, requestAttendee);
 
         }
 
@@ -99,6 +104,8 @@ namespace Meeting_Scheduler_Prototype
             //true is a higher status than false
 
             List<String> slot = new List<string>();
+            List<Participant> requestAttendee = new List<Participant>();
+            List<Participant> meetingAttendee = new List<Participant>();
 
             slot.Add("S1");
             slot.Add("S2");
@@ -106,11 +113,12 @@ namespace Meeting_Scheduler_Prototype
             slot.Add("S4");
             slot.Add("S5");
 
-            Meeting meet1 = new Meeting(p1.GetName(),"Owen 225", "Reindeer Route Planning", true, slot);
-            meet1.RequestAddPs(p2);
-            meet1.RequestAddPs(p4);
-            meet1.RequestAddPs(p5);
+            requestAttendee.Add(p2);
+            requestAttendee.Add(p4);
+            requestAttendee.Add(p5);
 
+
+            Meeting meet1 = new Meeting(p1.GetName(),"Owen 225", "Reindeer Route Planning", true, slot, meetingAttendee, requestAttendee);
 
         }
 
@@ -146,12 +154,15 @@ namespace Meeting_Scheduler_Prototype
                         label2.Text = loginButt;
                     }
 
-                    else
+                    else if (par.getType() == false)
                     {
                         loginButt = "Participant";
                         label2.Text = loginButt;
                     }
-
+                    else
+                    {
+                        this.Close();
+                    }
                 }
 
             }
@@ -210,7 +221,7 @@ namespace Meeting_Scheduler_Prototype
 
             if (loginButt == "Initiator")
             {
-                Initiator n = new Initiator(allUsers, MeetingsAll);
+                Initiator n = new Initiator(allUsers, MeetingsAll, RequestedAttendees, MeetingAttendees);
                 this.Hide();
                 n.Show();
             }

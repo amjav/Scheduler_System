@@ -13,23 +13,27 @@ namespace Meeting_Scheduler_Prototype
         public List<string> MeetingSlot = new List<string>();
         //contains a range of date hours in which the meeting could be
 
-        public static List<Participant> MeetingAttendees = new List<Participant>();
+        public List<Participant> MeetingAttendees = new List<Participant>();
         //list of participants that can attend the meeting
 
-        public static List<Participant> RequestAttend = new List<Participant>();
+        public List<Participant> RequestAttend = new List<Participant>();
 
         public string Location;
         public string Initiator;
         string Title;
         bool Status;
 
-        public Meeting(string intiator, string location, string title, bool status, List<string> MeetingSlots)
+        public Meeting(string intiator, string location, string title, bool status, List<string> MeetingSlots, List <Participant> meetingattendees, List<Participant> requestattend)
         {
             Initiator = intiator;
             Location = location;
             Title = title;
             Status = status;
             MeetingSlot = MeetingSlots;
+
+            MeetingAttendees = meetingattendees;
+
+            RequestAttend = requestattend;
             AllMeetingList.Add(this);
         }
 
