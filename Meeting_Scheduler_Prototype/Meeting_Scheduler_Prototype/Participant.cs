@@ -16,7 +16,10 @@ namespace Meeting_Scheduler_Prototype
         private bool Initiator;
 
         public static List<Participant> users = new List<Participant>();
-       // List <Meeting>
+        public List<Meeting> InvitedMeetings = new List<Meeting>();
+        public List<Meeting> ScheduledMeetings = new List<Meeting>();
+
+        // List <Meeting>
 
         // Commented out status for now as we need to determine what it is?
 
@@ -28,10 +31,19 @@ namespace Meeting_Scheduler_Prototype
             Type = PsType;
             //Status = status;
             Initiator = initiator;
-            //add name to a list of users
+            ////add name to a list of users
+            //this.InvitedMeetings = InvitedMeetings;
+            //this.ScheduledMeetings = ScheduledMeetings;
             users.Add(this);
 
         }
+
+        public void AddToMeetingListInvited(Meeting m)
+        {
+            InvitedMeetings.Add(m);
+        }
+
+
 
         public Participant()
         {
@@ -65,14 +77,14 @@ namespace Meeting_Scheduler_Prototype
             return Importance;
         }
 
-        public string GetMeeting()
+        public List<Meeting> GetInvites()
         {
-            return null;
+            return InvitedMeetings;
         }
 
-        public string GetSchedule()
+        public List<Meeting> GetSchedule()
         {
-            return null;
+            return ScheduledMeetings;
         }
 
         public List<String> GetNames()

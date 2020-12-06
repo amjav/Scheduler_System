@@ -1,4 +1,4 @@
-﻿  using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections;
 using System.ComponentModel;
@@ -17,33 +17,66 @@ namespace Meeting_Scheduler_Prototype
     {
         //low flexibility = not able to be very flexible in changing their timetable to compensate the meeting
         //high flexibilty = can easily change their timetable to attend the meeting
-        
-       
+
+
         List<Participant> allUsers = new List<Participant>();
         List<Meeting> MeetingsAll = new List<Meeting>();
         List<Participant> RequestedAttendees = new List<Participant>();
         List<Participant> MeetingAttendees = new List<Participant>();
+        List<Meeting> InvitedMeetings = new List<Meeting>();
+
+
+
 
         //lauren is the intiator
+        //static List<Meeting> p1InvitedMeetings = new List<Meeting>();
+        //static List<Meeting> p1ScheduledMeetings = new List<Meeting>();
+
         Participant p1 = new Participant("Lauren", "low", true, "ps", true);
+
+        //static List<Meeting> p7InvitedMeetings = new List<Meeting>();
+        //static List<Meeting> p7ScheduledMeetings = new List<Meeting>();
+
         Participant p7 = new Participant("Santa Claus", "low", true, "ps", true);
 
 
         //participants
+        //static List<Meeting> p2InvitedMeetings = new List<Meeting>();
+        //static List<Meeting> p2ScheduledMeetings = new List<Meeting>();
+
         Participant p2 = new Participant("Mrs Claus", "low", false, "ps", false);
+
+        //static List<Meeting> p3InvitedMeetings = new List<Meeting>();
+        //static List<Meeting> p3ScheduledMeetings = new List<Meeting>();
+
         Participant p3 = new Participant("Soraya", "high", true, "in", false);
+
+        //static List<Meeting> p4InvitedMeetings = new List<Meeting>();
+        //static List<Meeting> p4ScheduledMeetings = new List<Meeting>();
+
         Participant p4 = new Participant("Sanaa", "high", false, "ps", false);
+
+        //static List<Meeting> p5InvitedMeetings = new List<Meeting>();
+        //static List<Meeting> p5ScheduledMeetings = new List<Meeting>();
+
         Participant p5 = new Participant("Rudolf", "high", false, "ps", false);
+
+        //static List<Meeting> p6InvitedMeetings = new List<Meeting>();
+        //static List<Meeting> p6ScheduledMeetings = new List<Meeting>();
+
         Participant p6 = new Participant("Jack Skellington", "high", false, "ps", false);
 
 
+
+
         //to run the duntions in the classes
-        Participant p =  new Participant();
+        Participant p = new Participant();
         Meeting m = new Meeting();
 
         //initiate List that stores all users
 
         string loginButt = "";
+        public string myString = "";
 
         public static Form1 form;
 
@@ -56,8 +89,10 @@ namespace Meeting_Scheduler_Prototype
             AddMeeting2();
             AddMeeting3();
             RunStart();
-            
+
         }
+
+
 
         private void AddMeeting3()
         {
@@ -73,7 +108,12 @@ namespace Meeting_Scheduler_Prototype
             requestAttendee.Add(p2);
             requestAttendee.Add(p6);
 
+
             Meeting m3 = new Meeting(p7.GetName(), "North Pole", "Rudolf's Nose Surgery", true, slots, meetingAttendee, requestAttendee);
+            p2.AddToMeetingListInvited(m3);
+            p6.AddToMeetingListInvited(m3);
+
+
 
         }
 
@@ -94,8 +134,13 @@ namespace Meeting_Scheduler_Prototype
 
             requestAttendee.Add(p2);
             requestAttendee.Add(p6);
+            requestAttendee.Add(p3);
 
             Meeting m2 = new Meeting(p7.GetName(), "North Pole", "Christmas Dinner", true, slot, meetingAttendee, requestAttendee);
+            p2.AddToMeetingListInvited(m2);
+            p6.AddToMeetingListInvited(m2);
+            p3.AddToMeetingListInvited(m2);
+
 
         }
 
@@ -118,7 +163,11 @@ namespace Meeting_Scheduler_Prototype
             requestAttendee.Add(p5);
 
 
-            Meeting meet1 = new Meeting(p1.GetName(),"Owen 225", "Reindeer Route Planning", true, slot, meetingAttendee, requestAttendee);
+            Meeting meet1 = new Meeting(p1.GetName(), "Owen 225", "Reindeer Route Planning", true, slot, meetingAttendee, requestAttendee);
+
+            p2.AddToMeetingListInvited(meet1);
+            p4.AddToMeetingListInvited(meet1);
+            p5.AddToMeetingListInvited(meet1);
 
         }
 
@@ -134,13 +183,14 @@ namespace Meeting_Scheduler_Prototype
             //create all users list
             allUsers = p.AllPs();
             MeetingsAll = m.returnAllList();
-            
+
 
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int current = comboBox1.SelectedIndex;
+            myString = comboBox1.SelectedItem.ToString();
             Button1.Enabled = true;
 
             foreach (Participant par in allUsers)
@@ -208,7 +258,7 @@ namespace Meeting_Scheduler_Prototype
         private void button1_Click(object sender, EventArgs e)
         {
 
-           
+
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -227,12 +277,12 @@ namespace Meeting_Scheduler_Prototype
             }
             else
             {
-                participantDisplay ps = new participantDisplay();
+                participantDisplay ps = new participantDisplay(myString, allUsers, MeetingsAll, InvitedMeetings, MeetingAttendees);
                 this.Hide();
                 ps.Show();
 
             }
-            
+
         }
     }
 }
