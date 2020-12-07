@@ -17,17 +17,18 @@ namespace Meeting_Scheduler_Prototype
         Meeting m = new Meeting();
         Participant p = new Participant();
 
-        List<Participant> AllUsers = new List<Participant>();
-        public List<Meeting> allMeetings = new List<Meeting>();
-        public List<Meeting> InvitedMeeting = new List<Meeting>();
-
+        List<Participant> AllUsers = new List<Participant>(20);
+        public List<Meeting> allMeetings = new List<Meeting>(20);
+        public List<Meeting> InvitedMeeting = new List<Meeting>(20);
+        Participant User;
         string UserName;
 
-        public participantDisplay(String name, List<Participant> allUsers, List<Meeting> MeetingAll, List<Meeting> invitedMeeting, List<Participant> MeetingAttendees)
+        public participantDisplay(String name, List<Participant> allUsers, List<Meeting> MeetingAll, List<Participant> MeetingAttendees, Participant user)
         {
-            AllUsers = p.AllPs();
+            User = user;
+           // AllUsers = p.AllPs();
             allMeetings = m.returnAllList();
-            InvitedMeeting = p.GetInvites();
+            InvitedMeeting = User.GetInvites();
             UserName = name;
             InitializeComponent();
             InitializeMeetings();
@@ -45,181 +46,219 @@ namespace Meeting_Scheduler_Prototype
                 {
                     Control c = this.tableLayoutPanel2.GetControlFromPosition(i, j);
 
-                    foreach(Participant part in AllUsers)
-                    {
-                            List<Meeting> currentMeet = new List<Meeting>();
+                    //foreach(Participant part in AllUsers)
+                    //{
+                    //        List<Meeting> currentMeet = new List<Meeting>();
 
-                            currentMeet = part.GetInvites();
-                        //comment for push
+                    //        currentMeet = part.GetInvites();
+
+                            
+                    //    //comment for push
+                    //}
+
+
+
+                    if (i < 4 && j == 0)
+                    {
+                        if (0 < InvitedMeeting.Count)
+                        {
+                            m1 = InvitedMeeting[0];
+
+                            if (i == 0)
+                            {
+                                c.Text = m1.GetInitiator();
+                            }
+
+                            if (i == 1)
+                            {
+                                c.Text = m1.GetTitle();
+                            }
+
+                            if (i == 2)
+                            {
+                                c.Text = m1.GetStatus().ToString();
+                            }
+
+                            if (i == 3)
+                            {
+                                //status is a bool needs converting to a string
+                                c.Text = m1.GetLocation();
+                            }
+
+                        }
+
                     }
 
-                    //        if (i < 4 && j == 1)
-                    //        {
-                    //            if (0 < InvitedMeeting.Count)
-                    //            {
-                    //                m1 = InvitedMeeting[0];
 
-                    //                if (i == 0)
-                    //                {
-                    //                    c.Text = m1.GetInitiator();
-                    //                }
-
-                    //                if (i == 1)
-                    //                {
-                    //                    c.Text = m1.GetTitle();
-                    //                }
-
-                    //                if (i == 2)
-                    //                {
-                    //                    c.Text = m1.GetStatus().ToString();
-                    //                }
-
-                    //                if (i == 3)
-                    //                {
-                    //                    //status is a bool needs converting to a string
-                    //                    c.Text = m1.GetLocation();
-                    //                }
-
-                    //            }
-
-                    //        }
+                    if (i == 4 && j == 0)
+                    {
+                        m1 = InvitedMeeting[0];
 
 
-                    //        if (i == 4 && j == 1)
-                    //        {
-                    //            m1 = InvitedMeeting[0];
+                        for (int k = 0; k < m1.GetSlot().Count; k++)
+                        {
+                            listBox1.Items.Add(m1.GetSlot()[k]);
+                        }
+
+                    }
+
+                    ////needs changing
+                    if (i == 5 && j == 0)
+                    {
+                        List<string> p1 = new List<string>();
+                        List<string> s1 = new List<string>();
+
+                        p1 = User.GetPreferredSlots();
+                        s1 = m1.GetSlot();
+
+                        for (int k = 0; k < p1.Count; k++)
+                        {
+                            for (int t = 0; t < s1.Count; t++)
+                            {
+                                if (p1[k] == s1[t])
+                                {
+                                    listBox2.Items.Add(p1[k]);
+                                }
+
+                            }
+
+                        }
+
+                    }
 
 
-                    //            for (int k = 0; k < m1.GetSlot().Count; k++)
-                    //            {
-                    //                listBox1.Items.Add(m1.GetSlot()[k]);
-                    //            }
+                    if (i < 4 && j == 1)
+                    {
+                        if (1 < InvitedMeeting.Count)
+                        {
+                            m1 = InvitedMeeting[1];
 
-                    //        }
+                            if (i == 0)
+                            {
+                                c.Text = m1.GetInitiator();
+                            }
 
-                    //        //needs changing
-                    //        if (i == 4 && j == 1)
-                    //        {
-                    //            List<Participant> p1 = new List<Participant>();
+                            if (i == 1)
+                            {
+                                c.Text = m1.GetTitle();
+                            }
 
-                    //            p1 = InvitedMeeting[0].GetRequestedPs();
+                            if (i == 2)
+                            {
+                                c.Text = m1.GetStatus().ToString();
+                            }
 
-                    //            for (int k = 0; k < p1.Count; k++)
+                            if (i == 3)
+                            {
+                                c.Text = m1.GetLocation();
+                            }
+                        }
+                    }
 
-                    //            {
-                    //                listBox2.Items.Add(p1[k].GetName());
-                    //            }
-
-                    //        }
-
-
-                    //        if (i < 4 && j == 2)
-                    //        {
-                    //            if (1 < InvitedMeeting.Count)
-                    //            {
-                    //                m1 = InvitedMeeting[1];
-
-                    //                if (i == 0)
-                    //                {
-                    //                    c.Text = m1.GetInitiator();
-                    //                }
-
-                    //                if (i == 1)
-                    //                {
-                    //                    c.Text = m1.GetTitle();
-                    //                }
-
-                    //                if (i == 2)
-                    //                {
-                    //                    c.Text = m1.GetStatus().ToString();
-                    //                }
-
-                    //                if (i == 3)
-                    //                {
-                    //                    c.Text = m1.GetLocation();
-                    //                }
-                    //            }
-                    //        }
-
-                    //        if (i == 4 && j == 2)
-                    //        {
-                    //            m1 = InvitedMeeting[1];
+                    if (i == 4 && j == 1)
+                    {
+                        if (1 < InvitedMeeting.Count)
+                        {
+                            m1 = InvitedMeeting[1];
 
 
-                    //            for (int k = 0; k < m1.GetSlot().Count; k++)
-                    //            {
-                    //                listBox5.Items.Add(m1.GetSlot()[k]);
-                    //            }
+                            for (int k = 0; k < m1.GetSlot().Count; k++)
+                            {
+                                listBox5.Items.Add(m1.GetSlot()[k]);
+                            }
+                        }
+                    }
 
-                    //        }
+                    if (i == 5 && j == 1)
+                    {
+                        List<string> p1 = new List<string>();
+                        List<string> s1 = new List<string>();
 
-                    //        if (i == 4 && j == 2)
-                    //        {
-                    //            List<Participant> p1 = new List<Participant>();
+                        p1 = User.GetPreferredSlots();
+                        s1 = m1.GetSlot();
 
-                    //            p1 = InvitedMeeting[1].GetRequestedPs();
+                        for (int k = 0; k < p1.Count; k++)
+                        {
+                            for (int t = 0; t < s1.Count; t++)
+                            {
+                                if (p1[k] == s1[t])
+                                {
+                                    listBox3.Items.Add(p1[k]);
+                                }
 
-                    //            for (int k = 0; k < p1.Count; k++)
+                            }
 
-                    //            {
-                    //                listBox3.Items.Add(p1[k].GetName());
-                    //            }
+                        }
 
-                    //        }
+                        //for (int k = 0; k < p1.Count; k++)
 
-                    //        if (i < 4 && j == 3)
-                    //        {
-                    //            if (2 < InvitedMeeting.Count)
-                    //            {
-                    //                m1 = InvitedMeeting[2];
+                        //{
+                        //    listBox2.Items.Add(p1[k]);
+                        //}
 
-                    //                if (i == 0)
-                    //                {
-                    //                    c.Text = m1.GetInitiator();
-                    //                }
+                    }
 
-                    //                if (i == 1)
-                    //                {
-                    //                    c.Text = m1.GetTitle();
-                    //                }
+                    if (i < 4 && j == 2)
+                    {
+                        if (2 < InvitedMeeting.Count)
+                        {
+                            m1 = InvitedMeeting[2];
 
-                    //                if (i == 2)
-                    //                {
-                    //                    c.Text = m1.GetStatus().ToString();
-                    //                }
+                            if (i == 0)
+                            {
+                                c.Text = m1.GetInitiator();
+                            }
 
-                    //                if (i == 3)
-                    //                {
-                    //                    c.Text = m1.GetLocation();
-                    //                }
-                    //            }
-                    //        }
+                            if (i == 1)
+                            {
+                                c.Text = m1.GetTitle();
+                            }
 
-                    //        if (i == 4 && j == 3)
-                    //        {
-                    //            m1 = InvitedMeeting[2];
+                            if (i == 2)
+                            {
+                                c.Text = m1.GetStatus().ToString();
+                            }
+
+                            if (i == 3)
+                            {
+                                c.Text = m1.GetLocation();
+                            }
+                        }
+                    }
+
+                    if (i == 4 && j == 2)
+                    {
+                        m1 = InvitedMeeting[2];
 
 
-                    //            for (int k = 0; k < m1.GetSlot().Count; k++)
-                    //            {
-                    //                listBox4.Items.Add(m1.GetSlot()[k]);
-                    //            }
+                        for (int k = 0; k < m1.GetSlot().Count; k++)
+                        {
+                            listBox4.Items.Add(m1.GetSlot()[k]);
+                        }
 
-                    //        }
+                    }
 
-                    //        if (i == 4 && j == 3)
-                    //        {
-                    //            List<Participant> p1 = new List<Participant>();
+                    if (i == 5 && j == 2)
+                    {
+                        List<string> p1 = new List<string>();
+                        List<string> s1 = new List<string>();
 
-                    //            p1 = InvitedMeeting[2].GetRequestedPs();
+                        p1 = User.GetPreferredSlots();
+                        s1 = m1.GetSlot();
 
-                    //            for (int k = 0; k < p1.Count; k++)
+                        for (int k = 0; k < p1.Count; k++)
+                        {
+                            for (int t = 0; t < s1.Count; t++)
+                            {
+                                if (p1[k] == s1[t])
+                                {
+                                    listBox8.Items.Add(p1[k]);
+                                }
 
-                    //            {
-                    //                listBox8.Items.Add(p1[k].GetName());
-                    //            }
+                            }
 
-                    //        }
+                        }
+                    }
 
                 }
             }

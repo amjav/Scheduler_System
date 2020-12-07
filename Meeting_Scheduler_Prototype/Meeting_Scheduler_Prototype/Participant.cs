@@ -18,12 +18,13 @@ namespace Meeting_Scheduler_Prototype
         public static List<Participant> users = new List<Participant>();
         public List<Meeting> InvitedMeetings = new List<Meeting>();
         public List<Meeting> ScheduledMeetings = new List<Meeting>();
+        public List<string> PreferredSlots = new List<string>();
 
         // List <Meeting>
 
         // Commented out status for now as we need to determine what it is?
 
-        public Participant(string name, string flex, bool importance,string PsType, bool initiator)
+        public Participant(string name, string flex, bool importance,string PsType, bool initiator, List<string> preferredSlots)
         {
             Name = name;
             Flexibility = flex;
@@ -31,9 +32,11 @@ namespace Meeting_Scheduler_Prototype
             Type = PsType;
             //Status = status;
             Initiator = initiator;
+            PreferredSlots = preferredSlots;
+            //create list of meetings participant has been invited to
+            InvitedMeetings = new List<Meeting>();
+            ScheduledMeetings = new List<Meeting>();
             ////add name to a list of users
-            //this.InvitedMeetings = InvitedMeetings;
-            //this.ScheduledMeetings = ScheduledMeetings;
             users.Add(this);
 
         }
@@ -43,7 +46,10 @@ namespace Meeting_Scheduler_Prototype
             InvitedMeetings.Add(m);
         }
 
-
+        public void AddToMeetingListScheduled(Meeting m)
+        {
+            ScheduledMeetings.Add(m);
+        }
 
         public Participant()
         {
@@ -85,6 +91,11 @@ namespace Meeting_Scheduler_Prototype
         public List<Meeting> GetSchedule()
         {
             return ScheduledMeetings;
+        }
+
+        public List<string> GetPreferredSlots()
+        {
+            return PreferredSlots;
         }
 
         public List<String> GetNames()
