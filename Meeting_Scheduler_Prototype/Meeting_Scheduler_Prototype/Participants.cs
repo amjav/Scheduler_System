@@ -10,7 +10,7 @@ namespace Meeting_Scheduler_Prototype
 
     {
 
-        public Participants(string name, string flex, bool importance, string PsType, bool initiator) : base( name,  flex,  importance, PsType,initiator)
+        public Participants(string name, string flex, bool importance, string PsType, bool initiator, List<string> preferredslots) : base( name,  flex,  importance, PsType,initiator, preferredslots)
         {
             
         }

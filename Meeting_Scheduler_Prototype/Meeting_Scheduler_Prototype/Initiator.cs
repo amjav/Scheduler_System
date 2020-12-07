@@ -82,28 +82,34 @@ namespace Meeting_Scheduler_Prototype
 
                         if (i == 4 && j == 1)
                         {
-                            m1 = allMeetings[0];
+                            
+                            
+                                m1 = allMeetings[0];
 
 
-                            for (int k = 0; k < m1.GetSlot().Count; k++)
+                                for (int k = 0; k < m1.GetSlot().Count; k++)
                                 {
                                     listBox1.Items.Add(m1.GetSlot()[k]);
                                 }
+                            
 
                         }
 
 
                         if (i == 4 && j == 1)
                         {
-                            List<Participant> p1 = new List<Participant>();
+                            
+                            
+                                List<Participant> p1 = new List<Participant>();
 
-                            p1 = allMeetings[0].GetRequestedPs();
+                                p1 = allMeetings[0].GetRequestedPs();
 
-                            for (int k = 0; k < p1.Count; k++)
+                                for (int k = 0; k < p1.Count; k++)
 
-                            {
-                                listBox2.Items.Add(p1[k].GetName());
-                            }
+                                {
+                                    listBox2.Items.Add(p1[k].GetName());
+                                }
+                           
 
                         }
 
@@ -138,27 +144,30 @@ namespace Meeting_Scheduler_Prototype
 
                     if (i == 4 && j == 2)
                     {
-                        m1 = allMeetings[1];
+                        
+                        
+                            m1 = allMeetings[1];
 
 
-                        for (int k = 0; k < m1.GetSlot().Count; k++)
-                        {
-                            listBox4.Items.Add(m1.GetSlot()[k]);
-                        }
-
+                            for (int k = 0; k < m1.GetSlot().Count; k++)
+                            {
+                                listBox4.Items.Add(m1.GetSlot()[k]);
+                            }
+                        
                     }
 
                     if (i == 4 && j == 2)
                     {
+                        
                         List<Participant> p1 = new List<Participant>();
 
-                        p1 = allMeetings[1].GetRequestedPs();
+                            p1 = allMeetings[1].GetRequestedPs();
 
-                        for (int k = 0; k < p1.Count; k++)
+                            for (int k = 0; k < p1.Count; k++)
 
-                        {
-                            listBox5.Items.Add(p1[k].GetName());
-                        }
+                            {
+                                listBox5.Items.Add(p1[k].GetName());
+                            }
 
                     }
 
@@ -192,6 +201,7 @@ namespace Meeting_Scheduler_Prototype
 
                     if (i == 4 && j == 3)
                     {
+                        
                         m1 = allMeetings[2];
 
 
@@ -199,20 +209,23 @@ namespace Meeting_Scheduler_Prototype
                         {
                             listBox7.Items.Add(m1.GetSlot()[k]);
                         }
+                        
 
                     }
 
                     if (i == 4 && j == 3)
                     {
+                        
+                      
                         List<Participant> p1 = new List<Participant>();
 
                         p1 = allMeetings[2].GetRequestedPs();
 
                         for (int k = 0; k < p1.Count; k++)
-
                         {
                             listBox8.Items.Add(p1[k].GetName());
                         }
+                      
 
                     }
 
