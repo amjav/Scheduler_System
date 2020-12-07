@@ -46,14 +46,19 @@ namespace Meeting_Scheduler_Prototype
             InvitedMeetings.Add(m);
         }
 
-        public void AddToMeetingListScheduled(Meeting m)
-        {
-            ScheduledMeetings.Add(m);
-        }
-
         public Participant()
         {
 
+        }
+
+        public void RemoveFromInivitedList(Meeting p)
+        {
+            InvitedMeetings.Remove(p);
+        }
+
+        public void AddToMeetingListScheduled(Meeting m)
+        {
+            ScheduledMeetings.Add(m);
         }
 
         public bool getType()

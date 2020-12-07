@@ -17,25 +17,26 @@ namespace Meeting_Scheduler_Prototype
         Meeting m = new Meeting();
         Participant p = new Participant();
 
-        List<Participant> AllUsers = new List<Participant>(20);
-        public List<Meeting> allMeetings = new List<Meeting>(20);
-        public List<Meeting> InvitedMeeting = new List<Meeting>(20);
+        public List<Meeting> allMeetings = new List<Meeting>();
+        public List<Meeting> InvitedMeeting = new List<Meeting>();
+        public List<Meeting> ScheduledMeeting = new List<Meeting>();
         Participant User;
-        string UserName;
 
-        public participantDisplay(String name, List<Participant> allUsers, List<Meeting> MeetingAll, List<Participant> MeetingAttendees, Participant user)
+
+        public participantDisplay(List<Participant> allUsers, List<Meeting> MeetingAll, List<Participant> MeetingAttendees, Participant user)
         {
             User = user;
-           // AllUsers = p.AllPs();
             allMeetings = m.returnAllList();
             InvitedMeeting = User.GetInvites();
-            UserName = name;
+            ScheduledMeeting = user.GetSchedule();
             InitializeComponent();
             InitializeMeetings();
+
         }
 
         public void InitializeMeetings()
         {
+            label52.Text = User.GetName();
             Meeting m1 = new Meeting();
             Participant p = new Participant();
 
@@ -46,45 +47,37 @@ namespace Meeting_Scheduler_Prototype
                 {
                     Control c = this.tableLayoutPanel2.GetControlFromPosition(i, j);
 
-                    //foreach(Participant part in AllUsers)
-                    //{
-                    //        List<Meeting> currentMeet = new List<Meeting>();
-
-                    //        currentMeet = part.GetInvites();
-
-                            
-                    //    //comment for push
-                    //}
-
-
+                    //ROW ONE
 
                     if (i < 4 && j == 0)
                     {
                         if (0 < InvitedMeeting.Count)
                         {
-                            m1 = InvitedMeeting[0];
-
-                            if (i == 0)
+                            if (InvitedMeeting.Count > 0 && InvitedMeeting[0] != null)
                             {
-                                c.Text = m1.GetInitiator();
-                            }
+                                m1 = InvitedMeeting[0];
 
-                            if (i == 1)
-                            {
-                                c.Text = m1.GetTitle();
-                            }
+                                if (i == 0)
+                                {
+                                    c.Text = m1.GetInitiator();
+                                }
 
-                            if (i == 2)
-                            {
-                                c.Text = m1.GetStatus().ToString();
-                            }
+                                if (i == 1)
+                                {
+                                    c.Text = m1.GetTitle();
+                                }
 
-                            if (i == 3)
-                            {
-                                //status is a bool needs converting to a string
-                                c.Text = m1.GetLocation();
-                            }
+                                if (i == 2)
+                                {
+                                    c.Text = m1.GetStatus().ToString();
+                                }
 
+                                if (i == 3)
+                                {
+
+                                    c.Text = m1.GetLocation();
+                                }
+                            }
                         }
 
                     }
@@ -92,17 +85,20 @@ namespace Meeting_Scheduler_Prototype
 
                     if (i == 4 && j == 0)
                     {
-                        m1 = InvitedMeeting[0];
-
-
-                        for (int k = 0; k < m1.GetSlot().Count; k++)
+                        if (InvitedMeeting.Count > 0 && InvitedMeeting[0] != null)
                         {
-                            listBox1.Items.Add(m1.GetSlot()[k]);
+                            m1 = InvitedMeeting[0];
+
+
+                            for (int k = 0; k < m1.GetSlot().Count; k++)
+                            {
+                                listBox1.Items.Add(m1.GetSlot()[k]);
+                            }
                         }
 
                     }
 
-                    ////needs changing
+
                     if (i == 5 && j == 0)
                     {
                         List<string> p1 = new List<string>();
@@ -126,31 +122,35 @@ namespace Meeting_Scheduler_Prototype
 
                     }
 
+                    //ROW 2
 
                     if (i < 4 && j == 1)
                     {
                         if (1 < InvitedMeeting.Count)
                         {
-                            m1 = InvitedMeeting[1];
-
-                            if (i == 0)
+                            if (InvitedMeeting.Count > 1 && InvitedMeeting[1] != null)
                             {
-                                c.Text = m1.GetInitiator();
-                            }
+                                m1 = InvitedMeeting[1];
 
-                            if (i == 1)
-                            {
-                                c.Text = m1.GetTitle();
-                            }
+                                if (i == 0)
+                                {
+                                    c.Text = m1.GetInitiator();
+                                }
 
-                            if (i == 2)
-                            {
-                                c.Text = m1.GetStatus().ToString();
-                            }
+                                if (i == 1)
+                                {
+                                    c.Text = m1.GetTitle();
+                                }
 
-                            if (i == 3)
-                            {
-                                c.Text = m1.GetLocation();
+                                if (i == 2)
+                                {
+                                    c.Text = m1.GetStatus().ToString();
+                                }
+
+                                if (i == 3)
+                                {
+                                    c.Text = m1.GetLocation();
+                                }
                             }
                         }
                     }
@@ -159,18 +159,21 @@ namespace Meeting_Scheduler_Prototype
                     {
                         if (1 < InvitedMeeting.Count)
                         {
-                            m1 = InvitedMeeting[1];
-
-
-                            for (int k = 0; k < m1.GetSlot().Count; k++)
+                            if (InvitedMeeting.Count > 1 && InvitedMeeting[1] != null)
                             {
-                                listBox5.Items.Add(m1.GetSlot()[k]);
+                                m1 = InvitedMeeting[1];
+
+                                for (int k = 0; k < m1.GetSlot().Count; k++)
+                                {
+                                    listBox5.Items.Add(m1.GetSlot()[k]);
+                                }
                             }
                         }
                     }
 
                     if (i == 5 && j == 1)
                     {
+
                         List<string> p1 = new List<string>();
                         List<string> s1 = new List<string>();
 
@@ -190,50 +193,54 @@ namespace Meeting_Scheduler_Prototype
 
                         }
 
-                        //for (int k = 0; k < p1.Count; k++)
-
-                        //{
-                        //    listBox2.Items.Add(p1[k]);
-                        //}
 
                     }
 
+                    //ROW 3
                     if (i < 4 && j == 2)
                     {
+
                         if (2 < InvitedMeeting.Count)
                         {
-                            m1 = InvitedMeeting[2];
 
-                            if (i == 0)
+                            if (InvitedMeeting.Count > 2 && InvitedMeeting[2] != null)
                             {
-                                c.Text = m1.GetInitiator();
-                            }
 
-                            if (i == 1)
-                            {
-                                c.Text = m1.GetTitle();
-                            }
+                                m1 = InvitedMeeting[2];
 
-                            if (i == 2)
-                            {
-                                c.Text = m1.GetStatus().ToString();
-                            }
+                                if (i == 0)
+                                {
+                                    c.Text = m1.GetInitiator();
+                                }
 
-                            if (i == 3)
-                            {
-                                c.Text = m1.GetLocation();
+                                if (i == 1)
+                                {
+                                    c.Text = m1.GetTitle();
+                                }
+
+                                if (i == 2)
+                                {
+                                    c.Text = m1.GetStatus().ToString();
+                                }
+
+                                if (i == 3)
+                                {
+                                    c.Text = m1.GetLocation();
+                                }
                             }
                         }
                     }
 
                     if (i == 4 && j == 2)
                     {
-                        m1 = InvitedMeeting[2];
-
-
-                        for (int k = 0; k < m1.GetSlot().Count; k++)
+                        if (InvitedMeeting.Count > 2 && InvitedMeeting[2] != null)
                         {
-                            listBox4.Items.Add(m1.GetSlot()[k]);
+                            m1 = InvitedMeeting[2];
+
+                            for (int k = 0; k < m1.GetSlot().Count; k++)
+                            {
+                                listBox4.Items.Add(m1.GetSlot()[k]);
+                            }
                         }
 
                     }
@@ -260,10 +267,334 @@ namespace Meeting_Scheduler_Prototype
                         }
                     }
 
+                    //ROW 4
+
+                    if (i < 4 && j == 3)
+                    {
+
+                        if (2 < InvitedMeeting.Count)
+                        {
+
+                            if (InvitedMeeting.Count > 3 && InvitedMeeting[3] != null)
+                            {
+
+                                m1 = InvitedMeeting[3];
+
+                                if (i == 0)
+                                {
+                                    c.Text = m1.GetInitiator();
+                                }
+
+                                if (i == 1)
+                                {
+                                    c.Text = m1.GetTitle();
+                                }
+
+                                if (i == 2)
+                                {
+                                    c.Text = m1.GetStatus().ToString();
+                                }
+
+                                if (i == 3)
+                                {
+                                    c.Text = m1.GetLocation();
+                                }
+                            }
+                        }
+                    }
+
+                    if (i == 4 && j == 3)
+                    {
+                        if (InvitedMeeting.Count > 3 && InvitedMeeting[3] != null)
+                        {
+                            m1 = InvitedMeeting[3];
+
+                            for (int k = 0; k < m1.GetSlot().Count; k++)
+                            {
+                                listBox4.Items.Add(m1.GetSlot()[k]);
+                            }
+                        }
+
+                    }
+
+                    if (i == 5 && j == 3)
+                    {
+                        List<string> p1 = new List<string>();
+                        List<string> s1 = new List<string>();
+
+                        p1 = User.GetPreferredSlots();
+                        s1 = m1.GetSlot();
+
+                        for (int k = 0; k < p1.Count; k++)
+                        {
+                            for (int t = 0; t < s1.Count; t++)
+                            {
+                                if (p1[k] == s1[t])
+                                {
+                                    listBox8.Items.Add(p1[k]);
+                                }
+
+                            }
+
+                        }
+                    }
+
+                    //ROW 5
+
+                    if (i < 4 && j == 4)
+                    {
+
+                        if (2 < InvitedMeeting.Count)
+                        {
+
+                            if (InvitedMeeting.Count > 4 && InvitedMeeting[4] != null)
+                            {
+
+                                m1 = InvitedMeeting[4];
+
+                                if (i == 0)
+                                {
+                                    c.Text = m1.GetInitiator();
+                                }
+
+                                if (i == 1)
+                                {
+                                    c.Text = m1.GetTitle();
+                                }
+
+                                if (i == 2)
+                                {
+                                    c.Text = m1.GetStatus().ToString();
+                                }
+
+                                if (i == 3)
+                                {
+                                    c.Text = m1.GetLocation();
+                                }
+                            }
+                        }
+                    }
+
+                    if (i == 4 && j == 4)
+                    {
+                        if (InvitedMeeting.Count > 4 && InvitedMeeting[4] != null)
+                        {
+                            m1 = InvitedMeeting[4];
+
+                            for (int k = 0; k < m1.GetSlot().Count; k++)
+                            {
+                                listBox4.Items.Add(m1.GetSlot()[k]);
+                            }
+                        }
+
+                    }
+
+                    if (i == 5 && j == 4)
+                    {
+                        List<string> p1 = new List<string>();
+                        List<string> s1 = new List<string>();
+
+                        p1 = User.GetPreferredSlots();
+                        s1 = m1.GetSlot();
+
+                        for (int k = 0; k < p1.Count; k++)
+                        {
+                            for (int t = 0; t < s1.Count; t++)
+                            {
+                                if (p1[k] == s1[t])
+                                {
+                                    listBox8.Items.Add(p1[k]);
+                                }
+
+                            }
+
+                        }
+
+                    }
                 }
             }
 
+            //TABLE LAYOUT PANEL 2
+            for (int i = 0; i <= this.tableLayoutPanel1.ColumnCount; i++)
+            {
+                for (int j = 0; j <= this.tableLayoutPanel1.RowCount; j++)
+                {
+                    Control c = this.tableLayoutPanel1.GetControlFromPosition(i, j);
+
+                    //ROW ONE
+
+                    if (i < 4 && j == 0)
+                    {
+                        if (0 < ScheduledMeeting.Count)
+                        {
+                            if (ScheduledMeeting.Count > 0 && ScheduledMeeting[0] != null)
+                            {
+                                m1 = ScheduledMeeting[0];
+
+                                if (i == 0)
+                                {
+                                    c.Text = m1.GetInitiator();
+                                }
+
+                                if (i == 1)
+                                {
+                                    c.Text = m1.GetTitle();
+                                }
+
+                                if (i == 2)
+                                {
+                                    c.Text = m1.GetStatus().ToString();
+                                }
+
+                                if (i == 3)
+                                {
+
+                                    c.Text = m1.GetLocation();
+                                }
+                            }
+                        }
+
+                    }
+
+                    //ROW TWO
+
+                    if (i < 4 && j == 1)
+                    {
+                        if (1 < ScheduledMeeting.Count)
+                        {
+                            if (ScheduledMeeting.Count > 1 && ScheduledMeeting[1] != null)
+                            {
+                                m1 = ScheduledMeeting[1];
+
+                                if (i == 0)
+                                {
+                                    c.Text = m1.GetInitiator();
+                                }
+
+                                if (i == 1)
+                                {
+                                    c.Text = m1.GetTitle();
+                                }
+
+                                if (i == 2)
+                                {
+                                    c.Text = m1.GetStatus().ToString();
+                                }
+
+                                if (i == 3)
+                                {
+
+                                    c.Text = m1.GetLocation();
+                                }
+                            }
+                        }
+                    }
+
+                    //ROW 3
+
+                    if (i < 4 && j == 2)
+                    {
+                        if (2 < ScheduledMeeting.Count)
+                        {
+                            if (ScheduledMeeting.Count > 2 && ScheduledMeeting[2] != null)
+                            {
+                                m1 = ScheduledMeeting[2];
+
+                                if (i == 0)
+                                {
+                                    c.Text = m1.GetInitiator();
+                                }
+
+                                if (i == 1)
+                                {
+                                    c.Text = m1.GetTitle();
+                                }
+
+                                if (i == 2)
+                                {
+                                    c.Text = m1.GetStatus().ToString();
+                                }
+
+                                if (i == 3)
+                                {
+
+                                    c.Text = m1.GetLocation();
+                                }
+                            }
+                        }
+                    }
+
+                    //ROW 4
+
+                    if (i < 4 && j == 3)
+                    {
+                        if (3 < ScheduledMeeting.Count)
+                        {
+                            if (ScheduledMeeting.Count > 3 && ScheduledMeeting[3] != null)
+                            {
+                                m1 = ScheduledMeeting[3];
+
+                                if (i == 0)
+                                {
+                                    c.Text = m1.GetInitiator();
+                                }
+
+                                if (i == 1)
+                                {
+                                    c.Text = m1.GetTitle();
+                                }
+
+                                if (i == 2)
+                                {
+                                    c.Text = m1.GetStatus().ToString();
+                                }
+
+                                if (i == 3)
+                                {
+
+                                    c.Text = m1.GetLocation();
+                                }
+                            }
+                        }
+                    }
+
+                    //ROW 5
+                    if (i < 4 && j == 4)
+                    {
+                        if (4 < ScheduledMeeting.Count)
+                        {
+                            if (ScheduledMeeting.Count > 4 && ScheduledMeeting[4] != null)
+                            {
+                                m1 = ScheduledMeeting[4];
+
+                                if (i == 0)
+                                {
+                                    c.Text = m1.GetInitiator();
+                                }
+
+                                if (i == 1)
+                                {
+                                    c.Text = m1.GetTitle();
+                                }
+
+                                if (i == 2)
+                                {
+                                    c.Text = m1.GetStatus().ToString();
+                                }
+
+                                if (i == 3)
+                                {
+
+                                    c.Text = m1.GetLocation();
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
         }
+    
 
         private void participantDisplay_Load(object sender, EventArgs e)
         {
@@ -284,6 +615,57 @@ namespace Meeting_Scheduler_Prototype
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void label37_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //comment. adds to scheduled list however the index changes mean that when accepting multiple meetings it errors.
+            Meeting m1 = new Meeting();
+            m1 = InvitedMeeting[0];
+            User.AddToMeetingListScheduled(m1);
+            User.RemoveFromInivitedList(m1);
+            InitializeMeetings();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Meeting m1 = new Meeting();
+            m1 = InvitedMeeting[1];
+            User.AddToMeetingListScheduled(m1);
+            User.RemoveFromInivitedList(m1);
+            InitializeMeetings();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Meeting m1 = new Meeting();
+            m1 = InvitedMeeting[2];
+            User.AddToMeetingListScheduled(m1);
+            User.RemoveFromInivitedList(m1);
+            InitializeMeetings();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Meeting m1 = new Meeting();
+            m1 = InvitedMeeting[3];
+            User.AddToMeetingListScheduled(m1);
+            User.RemoveFromInivitedList(m1);
+            InitializeMeetings();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Meeting m1 = new Meeting();
+            m1 = InvitedMeeting[4];
+            User.AddToMeetingListScheduled(m1);
+            User.RemoveFromInivitedList(m1);
+            InitializeMeetings();
         }
     }
 }
