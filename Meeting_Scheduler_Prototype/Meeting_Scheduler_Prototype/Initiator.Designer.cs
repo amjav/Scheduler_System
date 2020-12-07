@@ -46,6 +46,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -66,7 +67,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,6 +94,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Bisque;
             this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
             this.tableLayoutPanel1.ColumnCount = 7;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28601F));
@@ -158,8 +159,9 @@
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(176, 97);
             this.label20.TabIndex = 31;
-            this.label20.Text = "label20";
+            this.label20.Text = "N/A";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label20.Click += new System.EventHandler(this.label20_Click);
             // 
             // listBox12
             // 
@@ -259,7 +261,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(176, 94);
             this.label13.TabIndex = 12;
-            this.label13.Text = "label13";
+            this.label13.Text = "N/A";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label12
@@ -270,7 +272,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(176, 94);
             this.label12.TabIndex = 11;
-            this.label12.Text = "label12";
+            this.label12.Text = "N/A";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label11
@@ -281,13 +283,14 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(176, 94);
             this.label11.TabIndex = 10;
-            this.label11.Text = "label11";
+            this.label11.Text = "N/A";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label10.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(1115, 3);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(177, 94);
@@ -299,6 +302,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label9.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(930, 3);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(176, 94);
@@ -306,10 +310,24 @@
             this.label9.Text = "Requested Participants";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label8.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(745, 3);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(176, 94);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Time Slots";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(560, 3);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(176, 94);
@@ -325,7 +343,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(176, 97);
             this.label5.TabIndex = 4;
-            this.label5.Text = "label5";
+            this.label5.Text = "N/A";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
@@ -336,7 +354,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(175, 97);
             this.label4.TabIndex = 3;
-            this.label4.Text = "label4";
+            this.label4.Text = "N/A";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
@@ -347,7 +365,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(176, 97);
             this.label3.TabIndex = 2;
-            this.label3.Text = "label3";
+            this.label3.Text = "N/A";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -366,6 +384,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(191, 3);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(176, 94);
@@ -381,7 +400,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(176, 94);
             this.label14.TabIndex = 13;
-            this.label14.Text = "label14";
+            this.label14.Text = "N/A";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label15
@@ -392,7 +411,7 @@
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(176, 94);
             this.label15.TabIndex = 14;
-            this.label15.Text = "label15";
+            this.label15.Text = "N/A";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label16
@@ -403,7 +422,7 @@
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(176, 94);
             this.label16.TabIndex = 15;
-            this.label16.Text = "label16";
+            this.label16.Text = "N/A";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label17
@@ -414,7 +433,7 @@
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(176, 94);
             this.label17.TabIndex = 16;
-            this.label17.Text = "label17";
+            this.label17.Text = "N/A";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label18
@@ -425,7 +444,7 @@
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(176, 94);
             this.label18.TabIndex = 17;
-            this.label18.Text = "label18";
+            this.label18.Text = "N/A";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label19
@@ -436,7 +455,7 @@
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(176, 94);
             this.label19.TabIndex = 18;
-            this.label19.Text = "label19";
+            this.label19.Text = "N/A";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // listBox1
@@ -473,6 +492,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label21.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.Location = new System.Drawing.Point(376, 3);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(175, 94);
@@ -488,7 +508,7 @@
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(175, 94);
             this.label22.TabIndex = 33;
-            this.label22.Text = "label22";
+            this.label22.Text = "N/A";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label23
@@ -499,7 +519,7 @@
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(175, 94);
             this.label23.TabIndex = 34;
-            this.label23.Text = "label23";
+            this.label23.Text = "N/A";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label24
@@ -510,7 +530,7 @@
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(175, 94);
             this.label24.TabIndex = 35;
-            this.label24.Text = "label24";
+            this.label24.Text = "N/A";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button1
@@ -522,18 +542,6 @@
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Location = new System.Drawing.Point(745, 3);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(176, 94);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Time Slots";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // Initiator
             // 

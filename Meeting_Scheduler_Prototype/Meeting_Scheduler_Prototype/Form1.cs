@@ -23,53 +23,17 @@ namespace Meeting_Scheduler_Prototype
         List<Meeting> MeetingsAll = new List<Meeting>();
         List<Participant> RequestedAttendees = new List<Participant>();
         List<Participant> MeetingAttendees = new List<Participant>();
-        //private static List<Meeting> InvitedMeetings = new List<Meeting>();
-
-
-
-
-
 
         //lauren is the intiator
-        //static List<Meeting> p1InvitedMeetings = new List<Meeting>();
-        //static List<Meeting> p1ScheduledMeetings = new List<Meeting>();
-
         Participant p1 = new Participant("Lauren", "low", true, "ps", true, new List<string> { "S4", "S9", "S11" });
-
-        //static List<Meeting> p7InvitedMeetings = new List<Meeting>();
-        //static List<Meeting> p7ScheduledMeetings = new List<Meeting>();
-
         Participant p7 = new Participant("Santa Claus", "low", true, "ps", true, new List<string> { "S1", "S2", "S3" });
 
-
         //participants
-        //static List<Meeting> p2InvitedMeetings = new List<Meeting>();
-        //static List<Meeting> p2ScheduledMeetings = new List<Meeting>();
-
         Participant p2 = new Participant("Mrs Claus", "low", false, "ps", false, new List<string> {"S1","S2","S3"});
-
-        //static List<Meeting> p3InvitedMeetings = new List<Meeting>();
-        //static List<Meeting> p3ScheduledMeetings = new List<Meeting>();
-
         Participant p3 = new Participant("Soraya", "high", true, "in", false, new List<string> { "S10", "S5", "S8"});
-
-        //static List<Meeting> p4InvitedMeetings = new List<Meeting>();
-        //static List<Meeting> p4ScheduledMeetings = new List<Meeting>();
-
         Participant p4 = new Participant("Sanaa", "high", false, "ps", false, new List<string> { "S1", "S3", "S5" });
-
-        //static List<Meeting> p5InvitedMeetings = new List<Meeting>();
-        //static List<Meeting> p5ScheduledMeetings = new List<Meeting>();
-
         Participant p5 = new Participant("Rudolf", "high", false, "ps", false, new List<string> { "", "", "" });
-
-        //static List<Meeting> p6InvitedMeetings = new List<Meeting>();
-        //static List<Meeting> p6ScheduledMeetings = new List<Meeting>();
-
         Participant p6 = new Participant("Jack Skellington", "high", false, "ps", false, new List<string> { "", "", "" });
-
-
-
 
         //to run the duntions in the classes
         Participant p = new Participant();
@@ -95,8 +59,6 @@ namespace Meeting_Scheduler_Prototype
             RunStart();
 
         }
-
-
 
         private void AddMeeting3()
         {
@@ -195,7 +157,6 @@ namespace Meeting_Scheduler_Prototype
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int current = comboBox1.SelectedIndex;
-            myString = comboBox1.SelectedItem.ToString();
             Button1.Enabled = true;
 
             
@@ -286,7 +247,7 @@ namespace Meeting_Scheduler_Prototype
             }
             else
             {
-                participantDisplay ps = new participantDisplay(myString, allUsers, MeetingsAll, MeetingAttendees, User);
+                participantDisplay ps = new participantDisplay(allUsers, MeetingsAll, MeetingAttendees, User);
                 this.Hide();
                 ps.Show();
 
