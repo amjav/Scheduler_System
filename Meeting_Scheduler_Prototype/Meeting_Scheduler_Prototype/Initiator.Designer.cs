@@ -66,7 +66,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.NewMeeting = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -533,22 +533,22 @@
             this.label24.Text = "N/A";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // NewMeeting
             // 
-            this.button1.Location = new System.Drawing.Point(618, 625);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.NewMeeting.Location = new System.Drawing.Point(168, 609);
+            this.NewMeeting.Name = "NewMeeting";
+            this.NewMeeting.Size = new System.Drawing.Size(131, 55);
+            this.NewMeeting.TabIndex = 6;
+            this.NewMeeting.Text = "New Meeting";
+            this.NewMeeting.UseVisualStyleBackColor = true;
+            this.NewMeeting.Click += new System.EventHandler(this.button1_Click);
             // 
             // Initiator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1322, 705);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.NewMeeting);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.backButton1);
             this.Controls.Add(this.label1);
@@ -595,7 +595,7 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.ListBox listBox3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button NewMeeting;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
