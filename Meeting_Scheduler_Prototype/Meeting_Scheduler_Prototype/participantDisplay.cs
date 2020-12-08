@@ -22,9 +22,11 @@ namespace Meeting_Scheduler_Prototype
         public List<Meeting> allMeetings = new List<Meeting>();
         public List<Meeting> InvitedMeeting = new List<Meeting>();
         public List<Meeting> ScheduledMeeting = new List<Meeting>();
+        public List<Meeting> pendingMeet = new List<Meeting>();
         public static Participant User;
 
-        Meeting currentCancel = new Meeting();
+        
+
 
 
         public participantDisplay(List<Participant> allUsers, List<Meeting> MeetingAll, List<Participant> MeetingAttendees, Participant user)
@@ -33,6 +35,7 @@ namespace Meeting_Scheduler_Prototype
             allMeetings = m.returnAllList();
             InvitedMeeting = User.GetInvites();
             ScheduledMeeting = User.GetSchedule();
+            pendingMeet = user.GetPending();
             InitializeComponent();
             InitializeMeetings();
 
@@ -233,31 +236,32 @@ namespace Meeting_Scheduler_Prototype
                                 }
                             }
 
-                            else
+                        }
+
+                        else
+                        {
+                            if (i == 0)
                             {
-                                if (i == 0)
-                                {
-                                    c.Text = "N/A";
-                                }
-
-                                if (i == 1)
-                                {
-                                    c.Text = "N/A";
-                                }
-
-                                if (i == 2)
-                                {
-                                    c.Text = "N/A";
-                                }
-
-                                if (i == 3)
-                                {
-
-                                    c.Text = "N/A";
-                                }
-
-
+                                c.Text = "N/A";
                             }
+
+                            if (i == 1)
+                            {
+                                c.Text = "N/A";
+                            }
+
+                            if (i == 2)
+                            {
+                                c.Text = "N/A";
+                            }
+
+                            if (i == 3)
+                            {
+
+                                c.Text = "N/A";
+                            }
+
+
                         }
                     }
 
@@ -274,13 +278,11 @@ namespace Meeting_Scheduler_Prototype
                                         listBox5.Items.Add(m1.GetSlot()[k]);
                                     }
                                 }
-                                
-                                else
-                                {
-                                  listBox5.Items.Clear();
-                                }
-
-
+                               
+                            }
+                            else
+                            {
+                                listBox5.Items.Clear();
                             }
 
                         }
@@ -680,7 +682,8 @@ namespace Meeting_Scheduler_Prototype
                 }
             }
 
-            foreach(Meeting m in User.GetPending())
+            listBox9.Items.Clear();
+            foreach (Meeting m in User.GetPending())
             {
                 listBox9.Items.Add(m.GetTitle() + ", " + m.GetStatus() + ", " + m.GetLocation());
             }
@@ -911,6 +914,7 @@ namespace Meeting_Scheduler_Prototype
             {
                 InvitedMeeting = User.GetInvites();
                 ScheduledMeeting = User.GetSchedule();
+                pendingMeet = User.GetPending();
             }
 
             private void Schedule(Meeting m)
@@ -1158,20 +1162,30 @@ namespace Meeting_Scheduler_Prototype
 
         private void listBox9_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            int indexCancel = listBox9.SelectedIndex;
-            Type type = listBox9.Items.GetType();
-            currentCancel = (type)listBox9.Items[indexCancel];
-            CancelCon.Enabled = true;
+
+            DialogResult dialogResult = MessageBox.Show("Do you want to cancel this meeting?", "Cancel Meeting", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                //i created a pending meeting list which takes the getPending() as aparameter at the top this would then have the same indexes as the list
+                //as i would delete and add at the same time to the list. removed the cancel button and instead created messageboxes for the index instead
+                pendingMeet.RemoveAt(listBox9.SelectedIndex);
+                listBox9.Items.Clear();
+                UpdateLists();
+                InitializeMeetings();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                UpdateLists();
+                InitializeMeetings();
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void CancelCon_Click(object sender, EventArgs e)
         {
-            User.RemoveFromMeetingPending(currentCancel);
-            listBox9.Items.Clear();
-            UpdateLists();
-            InitializeMeetings();
-           
+
         }
     }
 }

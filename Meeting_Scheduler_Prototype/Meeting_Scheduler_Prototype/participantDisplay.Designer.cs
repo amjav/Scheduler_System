@@ -115,7 +115,6 @@ namespace Meeting_Scheduler_Prototype
             this.Meeting = new System.Windows.Forms.Label();
             this.listBox9 = new System.Windows.Forms.ListBox();
             this.label53 = new System.Windows.Forms.Label();
-            this.CancelCon = new System.Windows.Forms.Button();
             this.meetingSchBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -1104,7 +1103,7 @@ namespace Meeting_Scheduler_Prototype
             this.listBox9.ItemHeight = 16;
             this.listBox9.Location = new System.Drawing.Point(898, 117);
             this.listBox9.Name = "listBox9";
-            this.listBox9.Size = new System.Drawing.Size(330, 196);
+            this.listBox9.Size = new System.Drawing.Size(392, 196);
             this.listBox9.TabIndex = 13;
             this.listBox9.SelectedIndexChanged += new System.EventHandler(this.listBox9_SelectedIndexChanged);
             // 
@@ -1119,22 +1118,11 @@ namespace Meeting_Scheduler_Prototype
             this.label53.TabIndex = 14;
             this.label53.Text = "Meetings Awaiting Confirmation";
             // 
-            // CancelCon
-            // 
-            this.CancelCon.Location = new System.Drawing.Point(1234, 239);
-            this.CancelCon.Name = "CancelCon";
-            this.CancelCon.Size = new System.Drawing.Size(80, 74);
-            this.CancelCon.TabIndex = 15;
-            this.CancelCon.Text = "Cancel";
-            this.CancelCon.UseVisualStyleBackColor = true;
-            this.CancelCon.Click += new System.EventHandler(this.CancelCon_Click);
-            // 
             // participantDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1322, 676);
-            this.Controls.Add(this.CancelCon);
             this.Controls.Add(this.label53);
             this.Controls.Add(this.listBox9);
             this.Controls.Add(this.Meeting);
@@ -1244,6 +1232,5 @@ namespace Meeting_Scheduler_Prototype
         private System.Windows.Forms.Label Meeting;
         private ListBox listBox9;
         private Label label53;
-        private Button CancelCon;
     }
 }
