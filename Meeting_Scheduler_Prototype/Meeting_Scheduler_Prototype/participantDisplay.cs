@@ -24,6 +24,8 @@ namespace Meeting_Scheduler_Prototype
         public List<Meeting> ScheduledMeeting = new List<Meeting>();
         public static Participant User;
 
+        
+
 
         public participantDisplay(List<Participant> allUsers, List<Meeting> MeetingAll, List<Participant> MeetingAttendees, Participant user)
         {
@@ -48,6 +50,23 @@ namespace Meeting_Scheduler_Prototype
 
         public void InitializeMeetings()
         {
+            //disable Accept buttons
+            button1.Enabled = false;
+            button3.Enabled = false;
+            button5.Enabled = false;
+            button7.Enabled = false;
+            button9.Enabled = false;
+
+            //disable decline buttons
+            button2.Enabled = false;
+            button4.Enabled = false;
+            button6.Enabled = false;
+            button8.Enabled = false;
+            button10.Enabled = false;
+
+
+
+
             label52.Text = User.GetName();
             Meeting m1 = new Meeting();
             Participant p = new Participant();
@@ -65,6 +84,9 @@ namespace Meeting_Scheduler_Prototype
                     {
                         if (0 < InvitedMeeting.Count)
                         {
+                            button1.Enabled = true;
+                            button2.Enabled = true;
+
                             if (InvitedMeeting[0] != null)
                             {
                                 m1 = InvitedMeeting[0];
@@ -91,30 +113,30 @@ namespace Meeting_Scheduler_Prototype
                                 }
                             }
 
-                            else
+
+                        }
+                        else
+                        {
+                            if (i == 0)
                             {
-                                if (i == 0)
-                                {
-                                    c.Text = "N/A";
-                                }
-
-                                if (i == 1)
-                                {
-                                    c.Text = "N/A";
-                                }
-
-                                if (i == 2)
-                                {
-                                    c.Text = "N/A";
-                                }
-
-                                if (i == 3)
-                                {
-
-                                    c.Text = "N/A";
-                                }
+                                c.Text = "N/A";
                             }
 
+                            if (i == 1)
+                            {
+                                c.Text = "N/A";
+                            }
+
+                            if (i == 2)
+                            {
+                                c.Text = "N/A";
+                            }
+
+                            if (i == 3)
+                            {
+
+                                c.Text = "N/A";
+                            }
                         }
 
 
@@ -148,23 +170,31 @@ namespace Meeting_Scheduler_Prototype
 
                     if (i == 5 && j == 0)
                     {
-                        List<string> p1 = new List<string>();
-                        List<string> s1 = new List<string>();
-
-                        p1 = User.GetPreferredSlots();
-                        s1 = m1.GetSlot();
-
-                        for (int k = 0; k < p1.Count; k++)
+                        if (0 < InvitedMeeting.Count)
                         {
-                            for (int t = 0; t < s1.Count; t++)
+
+                            List<string> p1 = new List<string>();
+                            List<string> s1 = new List<string>();
+
+                            p1 = User.GetPreferredSlots();
+                            s1 = m1.GetSlot();
+
+                            for (int k = 0; k < p1.Count; k++)
                             {
-                                if (p1[k] == s1[t])
+                                for (int t = 0; t < s1.Count; t++)
                                 {
-                                    listBox2.Items.Add(p1[k]);
+                                    if (p1[k] == s1[t])
+                                    {
+                                        listBox2.Items.Add(p1[k]);
+                                    }
+
                                 }
 
                             }
-
+                        }
+                        else
+                        {
+                            listBox2.Items.Clear();
                         }
 
                     }
@@ -175,6 +205,9 @@ namespace Meeting_Scheduler_Prototype
                     {
                         if (1 < InvitedMeeting.Count)
                         {
+                            button3.Enabled = true;
+                            button4.Enabled = true;
+
                             if (InvitedMeeting[1] != null)
                             {
                                 m1 = InvitedMeeting[1];
@@ -290,6 +323,8 @@ namespace Meeting_Scheduler_Prototype
 
                         if (2 < InvitedMeeting.Count)
                         {
+                            button5.Enabled = true;
+                            button6.Enabled = true;
 
                             if (InvitedMeeting[2] != null)
                             {
@@ -406,6 +441,8 @@ namespace Meeting_Scheduler_Prototype
 
                         if (3 < InvitedMeeting.Count)
                         {
+                            button7.Enabled = true;
+                            button8.Enabled = true;
 
                             if (InvitedMeeting[3] != null)
                             {
@@ -529,6 +566,8 @@ namespace Meeting_Scheduler_Prototype
 
                         if (4 < InvitedMeeting.Count)
                         {
+                            button9.Enabled = true;
+                            button10.Enabled = true;
 
                             if (InvitedMeeting[4] != null)
                             {
@@ -1071,5 +1110,51 @@ namespace Meeting_Scheduler_Prototype
 
                 button9.Enabled = false;
             }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Meeting m1 = new Meeting();
+            m1 = InvitedMeeting[0];
+            User.RemoveFromInivitedList(m1);
+            UpdateLists();
+            InitializeMeetings();
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Meeting m1 = new Meeting();
+            m1 = InvitedMeeting[1];
+            User.RemoveFromInivitedList(m1);
+            UpdateLists();
+            InitializeMeetings();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Meeting m1 = new Meeting();
+            m1 = InvitedMeeting[2];
+            User.RemoveFromInivitedList(m1);
+            UpdateLists();
+            InitializeMeetings();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Meeting m1 = new Meeting();
+            m1 = InvitedMeeting[3];
+            User.RemoveFromInivitedList(m1);
+            UpdateLists();
+            InitializeMeetings();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Meeting m1 = new Meeting();
+            m1 = InvitedMeeting[4];
+            User.RemoveFromInivitedList(m1);
+            UpdateLists();
+            InitializeMeetings();
         }
     }
+}

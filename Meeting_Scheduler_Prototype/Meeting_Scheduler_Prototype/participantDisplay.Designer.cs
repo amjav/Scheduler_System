@@ -615,6 +615,7 @@ namespace Meeting_Scheduler_Prototype
             this.button10.TabIndex = 50;
             this.button10.Text = "Decline";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button9
             // 
@@ -636,6 +637,7 @@ namespace Meeting_Scheduler_Prototype
             this.button8.TabIndex = 48;
             this.button8.Text = "Decline";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
@@ -657,6 +659,7 @@ namespace Meeting_Scheduler_Prototype
             this.button6.TabIndex = 46;
             this.button6.Text = "Decline";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -678,6 +681,7 @@ namespace Meeting_Scheduler_Prototype
             this.button4.TabIndex = 44;
             this.button4.Text = "Decline";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -699,6 +703,7 @@ namespace Meeting_Scheduler_Prototype
             this.button2.TabIndex = 42;
             this.button2.Text = "Decline";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
