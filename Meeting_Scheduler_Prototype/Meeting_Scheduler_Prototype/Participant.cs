@@ -17,6 +17,7 @@ namespace Meeting_Scheduler_Prototype
 
         public static List<Participant> users = new List<Participant>();
         public List<Meeting> InvitedMeetings = new List<Meeting>();
+        public List<Meeting> PendingMeetings = new List<Meeting>();
         public List<Meeting> ScheduledMeetings = new List<Meeting>();
         public List<string> PreferredSlots = new List<string>();
 
@@ -35,6 +36,9 @@ namespace Meeting_Scheduler_Prototype
             PreferredSlots = preferredSlots;
             //create list of meetings participant has been invited to
             InvitedMeetings = new List<Meeting>();
+            //
+            PendingMeetings = new List<Meeting>();
+            // create list of meetings participant has been Scheduled to attend
             ScheduledMeetings = new List<Meeting>();
             ////add name to a list of users
             users.Add(this);
@@ -46,6 +50,15 @@ namespace Meeting_Scheduler_Prototype
             InvitedMeetings.Add(m);
         }
 
+        public void AddtoMeetingPending (Meeting m)
+        {
+            PendingMeetings.Add(m);
+        }
+
+        public void RemoveFromMeetingPending(Meeting m)
+        {
+            PendingMeetings.Remove(m);
+        }
         public Participant()
         {
 
@@ -93,6 +106,10 @@ namespace Meeting_Scheduler_Prototype
             return InvitedMeetings;
         }
 
+        public List<Meeting> GetPending()
+        {
+            return PendingMeetings;
+        }
         public List<Meeting> GetSchedule()
         {
             return ScheduledMeetings;

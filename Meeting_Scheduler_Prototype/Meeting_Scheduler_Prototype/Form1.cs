@@ -43,14 +43,23 @@ namespace Meeting_Scheduler_Prototype
 
         string loginButt = "";
         public string myString = "";
+        int current;
         Participant User;
+        
+
+        // form instances
+        public static List<Form> forms = new List<Form>();
 
         public static Form1 form;
+
+        public Form Pcurrent = null;
         
 
         public Form1()
         {
             form = this;
+
+            
 
             InitializeComponent();
             AddMeeting1();
@@ -75,7 +84,7 @@ namespace Meeting_Scheduler_Prototype
             requestAttendee.Add(p6);
 
 
-            Meeting m3 = new Meeting(p7.GetName(), "North Pole", "Rudolf's Nose Surgery", true, slots, meetingAttendee, requestAttendee);
+            Meeting m3 = new Meeting(p7.GetName(), "North Pole", "Rudolf's Nose Surgery", "Pending", slots, meetingAttendee, requestAttendee);
 
             p2.AddToMeetingListInvited(m3);
             p6.AddToMeetingListInvited(m3);
@@ -103,7 +112,7 @@ namespace Meeting_Scheduler_Prototype
             requestAttendee.Add(p6);
             requestAttendee.Add(p3);
 
-            Meeting m2 = new Meeting(p7.GetName(), "North Pole", "Christmas Dinner", true, slot, meetingAttendee, requestAttendee);
+            Meeting m2 = new Meeting(p7.GetName(), "North Pole", "Christmas Dinner", "Pending", slot, meetingAttendee, requestAttendee);
             p2.AddToMeetingListInvited(m2);
             p6.AddToMeetingListInvited(m2);
             p3.AddToMeetingListInvited(m2);
@@ -130,7 +139,7 @@ namespace Meeting_Scheduler_Prototype
             requestAttendee.Add(p5);
 
 
-            Meeting meet1 = new Meeting(p1.GetName(), "Owen 225", "Reindeer Route Planning", true, slot, meetingAttendee, requestAttendee);
+            Meeting meet1 = new Meeting(p1.GetName(), "Owen 225", "Reindeer Route Planning", "Pending", slot, meetingAttendee, requestAttendee);
 
             p2.AddToMeetingListInvited(meet1);
             p4.AddToMeetingListInvited(meet1);
@@ -156,16 +165,17 @@ namespace Meeting_Scheduler_Prototype
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int current = comboBox1.SelectedIndex;
+            current = comboBox1.SelectedIndex;
             Button1.Enabled = true;
 
-            
+            //make current global.
 
             foreach (Participant par in allUsers)
             {
 
                 if (current == allUsers.IndexOf(par))
                 {
+                    //current = user index 
                     if (par.getType() == true)
                     {
                         loginButt = "Initiator";
@@ -189,6 +199,65 @@ namespace Meeting_Scheduler_Prototype
 
         }
 
+
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+            
+
+            if (loginButt == "Initiator")
+            {
+                Initiator n = new Initiator(allUsers, MeetingsAll, RequestedAttendees, MeetingAttendees);
+                this.Hide();
+                n.Show();
+            }
+
+            else
+            {
+
+                foreach (Form f in Application.OpenForms)
+                {
+                   participantDisplay ps;
+
+                    Type F = typeof(participantDisplay);
+
+                    if (f.GetType() == F)
+                    {
+                        //Application.OpenForms.OfType<participantDisplay>().to;
+
+                        ps = (participantDisplay)f;
+
+                        //current = participant type(of the selected index)
+                        if (ps.GetUser() == allUsers[current])
+                        {
+                            Pcurrent = ps.GetThis();
+
+                        }
+                        else
+                        {
+                            Pcurrent = null;
+                        }    
+
+                    }
+                }
+
+                if (Pcurrent != null)
+                {
+                    this.Hide();
+                    Pcurrent.Show();
+                }
+                else
+                {
+                    participantDisplay ps = new participantDisplay(allUsers, MeetingsAll, MeetingAttendees, User);
+                    forms.Add(ps);
+                    this.Hide();
+                    ps.Show();
+                    Pcurrent = ps;
+                }
+
+            }
+            
+
+        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -233,25 +302,6 @@ namespace Meeting_Scheduler_Prototype
 
         private void label4_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void Button1_Click_1(object sender, EventArgs e)
-        {
-
-            if (loginButt == "Initiator")
-            {
-                Initiator n = new Initiator(allUsers, MeetingsAll, RequestedAttendees, MeetingAttendees);
-                this.Hide();
-                n.Show();
-            }
-            else
-            {
-                participantDisplay ps = new participantDisplay(allUsers, MeetingsAll, MeetingAttendees, User);
-                this.Hide();
-                ps.Show();
-
-            }
 
         }
     }

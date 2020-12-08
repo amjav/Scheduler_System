@@ -21,9 +21,9 @@ namespace Meeting_Scheduler_Prototype
         public string Location;
         public string Initiator;
         string Title;
-        bool Status;
+        string Status;
 
-        public Meeting(string intiator, string location, string title, bool status, List<string> MeetingSlots, List <Participant> meetingattendees, List<Participant> requestattend)
+        public Meeting(string intiator, string location, string title, string status, List<string> MeetingSlots, List <Participant> meetingattendees, List<Participant> requestattend)
         {
             Initiator = intiator;
             Location = location;
@@ -94,9 +94,16 @@ namespace Meeting_Scheduler_Prototype
             return Title;
         }
 
-        public bool GetStatus()
+        public string GetStatus()
         {
             return Status;
+        }
+
+        public void SetAllAccepted()
+        {
+           Status = "All confirmed";
+
+          
         }
     }
 }

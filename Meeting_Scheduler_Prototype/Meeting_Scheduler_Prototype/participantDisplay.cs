@@ -14,13 +14,15 @@ namespace Meeting_Scheduler_Prototype
 
 
     {
+        public Form PDisplay;
+
         Meeting m = new Meeting();
         Participant p = new Participant();
 
         public List<Meeting> allMeetings = new List<Meeting>();
         public List<Meeting> InvitedMeeting = new List<Meeting>();
         public List<Meeting> ScheduledMeeting = new List<Meeting>();
-        Participant User;
+        public static Participant User;
 
 
         public participantDisplay(List<Participant> allUsers, List<Meeting> MeetingAll, List<Participant> MeetingAttendees, Participant user)
@@ -28,10 +30,20 @@ namespace Meeting_Scheduler_Prototype
             User = user;
             allMeetings = m.returnAllList();
             InvitedMeeting = User.GetInvites();
-            ScheduledMeeting = user.GetSchedule();
+            ScheduledMeeting = User.GetSchedule();
             InitializeComponent();
             InitializeMeetings();
 
+        }
+
+        public Participant GetUser()
+        {
+            return User;
+        }
+
+        public Form GetThis()
+        {
+            return PDisplay;
         }
 
         public void InitializeMeetings()
@@ -69,7 +81,7 @@ namespace Meeting_Scheduler_Prototype
 
                                 if (i == 2)
                                 {
-                                    c.Text = m1.GetStatus().ToString();
+                                    c.Text = CheckStatus(m1);
                                 }
 
                                 if (i == 3)
@@ -443,7 +455,7 @@ namespace Meeting_Scheduler_Prototype
 
                                 if (i == 2)
                                 {
-                                    c.Text = m1.GetStatus().ToString();
+                                    c.Text = CheckStatus(m1);
                                 }
 
                                 if (i == 3)
@@ -594,7 +606,83 @@ namespace Meeting_Scheduler_Prototype
                 }
             }
         }
-    
+
+        private string CheckStatus(Meeting m1)
+        {
+            List<Participant> RequestedPs = m1.GetRequestedPs();
+            List<bool> allpending = new List<bool>();
+
+            foreach (Participant p in RequestedPs)
+            {
+                List<Meeting> Pending = p.GetPending();
+
+                if (Pending.Contains(m1))
+                {
+                    allpending.Add(true);
+                }
+                else
+                {
+                    allpending.Add(false);
+                }
+
+            }
+
+            if (!allpending.Contains(false))
+            {
+                m1.SetAllAccepted();
+                return "All Accepted";
+            }
+            else if (User.GetPending().Contains(m1))
+            {
+                return "Awaiting Other Participants";
+            }
+            else
+            {
+                return "Pending";
+            }
+        }
+
+        public void UpdateLists()
+        {
+            InvitedMeeting = User.GetInvites();
+            ScheduledMeeting = User.GetSchedule();
+        }
+
+        private void Schedule(Meeting m)
+        {
+
+            string 
+
+           // bool allpending = true;
+            //List <Participant> RequestedPs = m.GetRequestedPs();
+            //List<bool> allpending = new List<bool>();
+
+            //foreach (Participant p in RequestedPs)
+            //{
+            //    List<Meeting> Pending = p.GetPending();
+
+            //    if(Pending.Contains(m))
+            //    {
+            //        allpending.Add(true);
+            //    }
+            //    else
+            //    {
+            //        allpending.Add(false);
+            //    }
+
+            //}
+
+            //if (!allpending.Contains(false))
+            //{
+            //    foreach (Participant p in RequestedPs)
+            //    {
+            //        User.AddToMeetingListScheduled(m);
+            //        User.RemoveFromMeetingPending(m);
+            //    }
+
+            //    InitializeMeetings();
+            //}
+        }
 
         private void participantDisplay_Load(object sender, EventArgs e)
         {
@@ -603,6 +691,7 @@ namespace Meeting_Scheduler_Prototype
 
         private void backbutton1_Click(object sender, EventArgs e)
         {
+            PDisplay = this;
             this.Hide();
             Form1.form.Show();
         }
@@ -624,48 +713,139 @@ namespace Meeting_Scheduler_Prototype
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Accept button for row 1
             //comment. adds to scheduled list however the index changes mean that when accepting multiple meetings it errors.
+
+
             Meeting m1 = new Meeting();
+
             m1 = InvitedMeeting[0];
-            User.AddToMeetingListScheduled(m1);
+
+            User.AddtoMeetingPending(m1);
+
+            int m1Index = User.GetPending().IndexOf(m1);
+
+            m1 = User.GetPending()[m1Index];
+
             User.RemoveFromInivitedList(m1);
+
+            //string status = CheckStatus(m1);
+
+            Schedule(m1);
+
+            //User.AddToMeetingListScheduled(m1);
+            //User.RemoveFromInivitedList(m1);
+
+            UpdateLists();
             InitializeMeetings();
+
+            button1.Enabled = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            // Accept button for row 2
             Meeting m1 = new Meeting();
-            m1 = InvitedMeeting[1];
-            User.AddToMeetingListScheduled(m1);
+            m1 = InvitedMeeting[0];
+
+            User.AddtoMeetingPending(m1);
+
+            int m1Index = User.GetPending().IndexOf(m1);
+
+            m1 = User.GetPending()[m1Index];
+
             User.RemoveFromInivitedList(m1);
+
+            string status = CheckStatus(m1);
+
+            Schedule(m1);
+
+            //User.AddToMeetingListScheduled(m1);
+            //User.RemoveFromInivitedList(m1);
+
+            UpdateLists();
             InitializeMeetings();
+
+            button3.Enabled = false;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
+            // Accept button for row 3
             Meeting m1 = new Meeting();
-            m1 = InvitedMeeting[2];
-            User.AddToMeetingListScheduled(m1);
+            m1 = InvitedMeeting[0];
+
+            User.AddtoMeetingPending(m1);
+
+            int m1Index = User.GetPending().IndexOf(m1);
+
+            m1 = User.GetPending()[m1Index];
+
             User.RemoveFromInivitedList(m1);
+
+            string status = CheckStatus(m1);
+
+            Schedule(m1);
+
+            //User.AddToMeetingListScheduled(m1);
+            //User.RemoveFromInivitedList(m1);
+
+            UpdateLists();
             InitializeMeetings();
+
+            button5.Enabled = false;
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             Meeting m1 = new Meeting();
-            m1 = InvitedMeeting[3];
-            User.AddToMeetingListScheduled(m1);
+            m1 = InvitedMeeting[0];
+
+            User.AddtoMeetingPending(m1);
+
+            int m1Index = User.GetPending().IndexOf(m1);
+
+            m1 = User.GetPending()[m1Index];
+
             User.RemoveFromInivitedList(m1);
+
+            string status = CheckStatus(m1);
+
+            Schedule(m1);
+
+            //User.AddToMeetingListScheduled(m1);
+            //User.RemoveFromInivitedList(m1);
+
+            UpdateLists();
             InitializeMeetings();
+
+            button7.Enabled = false;
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
             Meeting m1 = new Meeting();
-            m1 = InvitedMeeting[4];
-            User.AddToMeetingListScheduled(m1);
+            m1 = InvitedMeeting[0];
+
+            User.AddtoMeetingPending(m1);
+
+            int m1Index = User.GetPending().IndexOf(m1);
+
+            m1 = User.GetPending()[m1Index];
+
             User.RemoveFromInivitedList(m1);
+
+            string status = CheckStatus(m1);
+
+            Schedule(m1);
+
+            //User.AddToMeetingListScheduled(m1);
+            //User.RemoveFromInivitedList(m1);
+
+            UpdateLists();
             InitializeMeetings();
+
+            button9.Enabled = false;
         }
     }
 }
