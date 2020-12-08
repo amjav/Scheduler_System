@@ -24,7 +24,7 @@ namespace Meeting_Scheduler_Prototype
         public List<Meeting> ScheduledMeeting = new List<Meeting>();
         public static Participant User;
 
-        
+        Meeting currentCancel = new Meeting();
 
 
         public participantDisplay(List<Participant> allUsers, List<Meeting> MeetingAll, List<Participant> MeetingAttendees, Participant user)
@@ -679,6 +679,11 @@ namespace Meeting_Scheduler_Prototype
 
                 }
             }
+
+            foreach(Meeting m in User.GetPending())
+            {
+                listBox9.Items.Add(m.GetTitle() + ", " + m.GetStatus() + ", " + m.GetLocation());
+            }
         }
 
             private void UpdateScheduleTable()
@@ -1002,7 +1007,6 @@ namespace Meeting_Scheduler_Prototype
                 UpdateLists();
                 InitializeMeetings();
 
-                button1.Enabled = false;
             }
 
             private void button3_Click(object sender, EventArgs e)
@@ -1029,7 +1033,6 @@ namespace Meeting_Scheduler_Prototype
                 UpdateLists();
                 InitializeMeetings();
 
-                button3.Enabled = false;
             }
 
             private void button5_Click(object sender, EventArgs e)
@@ -1056,7 +1059,6 @@ namespace Meeting_Scheduler_Prototype
                 UpdateLists();
                 InitializeMeetings();
 
-                button5.Enabled = false;
             }
 
             private void button7_Click(object sender, EventArgs e)
@@ -1082,7 +1084,6 @@ namespace Meeting_Scheduler_Prototype
                 UpdateLists();
                 InitializeMeetings();
 
-                button7.Enabled = false;
             }
 
             private void button9_Click(object sender, EventArgs e)
@@ -1107,8 +1108,6 @@ namespace Meeting_Scheduler_Prototype
 
                 UpdateLists();
                 InitializeMeetings();
-
-                button9.Enabled = false;
             }
 
         private void button2_Click(object sender, EventArgs e)
@@ -1155,6 +1154,24 @@ namespace Meeting_Scheduler_Prototype
             User.RemoveFromInivitedList(m1);
             UpdateLists();
             InitializeMeetings();
+        }
+
+        private void listBox9_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            int indexCancel = listBox9.SelectedIndex;
+            Type type = listBox9.Items.GetType();
+            currentCancel = (type)listBox9.Items[indexCancel];
+            CancelCon.Enabled = true;
+        }
+
+        private void CancelCon_Click(object sender, EventArgs e)
+        {
+            User.RemoveFromMeetingPending(currentCancel);
+            listBox9.Items.Clear();
+            UpdateLists();
+            InitializeMeetings();
+           
         }
     }
 }
