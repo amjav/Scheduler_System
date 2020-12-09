@@ -834,8 +834,7 @@ namespace Meeting_Scheduler_Prototype
             List<Participant> meetingAttendee = new List<Participant>();
 
             List<string> meetingSlots = new List<string>();
-            //DialogResult dialogResult = MessageBox.Show("Add a Meeting Slot?", "Cancel Meeting", MessageBoxButtons.YesNo);
-            //DialogResult requestAttendeeDialog = MessageBox.Show("Add a Meeting Slot?", "Cancel Meeting", MessageBoxButtons.YesNo);
+        
             bool AnsStat = false;
 
             do
@@ -875,6 +874,15 @@ namespace Meeting_Scheduler_Prototype
 
 
             Meeting m = new Meeting(User.GetName(), Location, MeetingTitle, status, meetingSlots, meetingAttendee, requestAttendee);
+            
+
+            foreach (Participant v in requestAttendee)
+            {
+                v.AddToMeetingListInvited(m);
+
+            }
+
+
             allMeetings.Add(m);
             UpdateLists();
             InitializeMeetings();
@@ -896,6 +904,134 @@ namespace Meeting_Scheduler_Prototype
         }
 
         private void label26_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string s =  button3.Text
+            
+           DialogResult result =  MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle + " in slot " + s " ?", MessageBoxButtons.YesNo)
+
+            if(result == DialogResult.Yes)
+            {
+                allMeetings[0].SetAllAccepted();
+
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button24_Click(object sender, EventArgs e)
         {
 
         }

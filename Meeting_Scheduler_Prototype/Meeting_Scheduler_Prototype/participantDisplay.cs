@@ -50,6 +50,8 @@ namespace Meeting_Scheduler_Prototype
 
         public void InitializeMeetings()
         {
+            UpdateLists();
+
             //disable Accept buttons
             button1.Enabled = false;
             button3.Enabled = false;

@@ -25,7 +25,6 @@ C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\Scheduler_System\Mee
 C:\Users\Maxio\Source\Repos\amjav\Scheduler_System\Meeting_Scheduler_Prototype\Meeting_Scheduler_Prototype\bin\Debug\Meeting_Scheduler_Prototype.exe.config
 C:\Users\Maxio\Source\Repos\amjav\Scheduler_System\Meeting_Scheduler_Prototype\Meeting_Scheduler_Prototype\bin\Debug\Meeting_Scheduler_Prototype.exe
 C:\Users\Maxio\Source\Repos\amjav\Scheduler_System\Meeting_Scheduler_Prototype\Meeting_Scheduler_Prototype\bin\Debug\Meeting_Scheduler_Prototype.pdb
-C:\Users\Maxio\Source\Repos\amjav\Scheduler_System\Meeting_Scheduler_Prototype\Meeting_Scheduler_Prototype\obj\Debug\Meeting_Scheduler_Prototype.csprojAssemblyReference.cache
 C:\Users\Maxio\Source\Repos\amjav\Scheduler_System\Meeting_Scheduler_Prototype\Meeting_Scheduler_Prototype\obj\Debug\Meeting_Scheduler_Prototype.Form1.resources
 C:\Users\Maxio\Source\Repos\amjav\Scheduler_System\Meeting_Scheduler_Prototype\Meeting_Scheduler_Prototype\obj\Debug\Meeting_Scheduler_Prototype.Initiator.resources
 C:\Users\Maxio\Source\Repos\amjav\Scheduler_System\Meeting_Scheduler_Prototype\Meeting_Scheduler_Prototype\obj\Debug\Meeting_Scheduler_Prototype.participantDisplay.resources
@@ -34,3 +33,4 @@ C:\Users\Maxio\Source\Repos\amjav\Scheduler_System\Meeting_Scheduler_Prototype\M
 C:\Users\Maxio\Source\Repos\amjav\Scheduler_System\Meeting_Scheduler_Prototype\Meeting_Scheduler_Prototype\obj\Debug\Meeting_Scheduler_Prototype.csproj.CoreCompileInputs.cache
 C:\Users\Maxio\Source\Repos\amjav\Scheduler_System\Meeting_Scheduler_Prototype\Meeting_Scheduler_Prototype\obj\Debug\Meeting_Scheduler_Prototype.exe
 C:\Users\Maxio\Source\Repos\amjav\Scheduler_System\Meeting_Scheduler_Prototype\Meeting_Scheduler_Prototype\obj\Debug\Meeting_Scheduler_Prototype.pdb
+C:\Users\Maxio\Source\Repos\amjav\Scheduler_System\Meeting_Scheduler_Prototype\Meeting_Scheduler_Prototype\obj\Debug\Meeting_Scheduler_Prototype.csprojAssemblyReference.cache

@@ -103,7 +103,7 @@ namespace Meeting_Scheduler_Prototype
 
         public void SetAllAccepted()
         {
-           Status = "All confirmed";
+           Status = "Scheduled";
 
           
         }
