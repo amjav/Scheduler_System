@@ -21,10 +21,12 @@ namespace Meeting_Scheduler_Prototype
         public List<Meeting> allMeetings = new List<Meeting>();
         public List<Participant> requestPs = new List<Participant>();
         public List<Participant> meetingAttendees = new List<Participant>();
+        public static Participant User;
 
 
-        public Initiator(List<Participant> allUsers, List<Meeting> MeetingAll, List <Participant> RequestedAttendees, List <Participant> MeetingAttendees)
+        public Initiator(List<Participant> allUsers, List<Meeting> MeetingAll, List <Participant> RequestedAttendees, List <Participant> MeetingAttendees, Participant user)
         {
+            User = user;
             AllUsers = p.AllPs();
             allMeetings = m.returnAllList();
             requestPs = m.GetRequestedPs();
@@ -44,6 +46,21 @@ namespace Meeting_Scheduler_Prototype
 
         public void InitializeMeetings()
         {
+            //clear listBoxes
+            listBox1.Items.Clear();
+            listBox2.Items.Clear();
+            listBox3.Items.Clear();
+            listBox4.Items.Clear();
+            listBox5.Items.Clear();
+            listBox6.Items.Clear();
+            listBox7.Items.Clear();
+            listBox8.Items.Clear();
+            listBox9.Items.Clear();
+            listBox10.Items.Clear();
+            listBox11.Items.Clear();
+            listBox12.Items.Clear();
+
+
             Meeting m1 = new Meeting();
             Participant p = new Participant();
 
@@ -637,12 +654,12 @@ namespace Meeting_Scheduler_Prototype
 
                             for (int k = 0; k < m1.GetSlot().Count; k++)
                             {
-                                listBox4.Items.Add(m1.GetSlot()[k]);
+                                listBox10.Items.Add(m1.GetSlot()[k]);
                             }
                         }
                         else
                         {
-                            listBox4.Items.Clear();
+                            listBox10.Items.Clear();
                         }
 
                     }
@@ -763,10 +780,14 @@ namespace Meeting_Scheduler_Prototype
             foreach (List<string> s in allslots)
             {
                 // needs to compare preferred slots with meeting slots
-                //if( s.All !=)
-                Matchedslots = slots.Intersect(s).ToList();
-
-                slots = Matchedslots;
+                if( s.Contains(null) || s.Contains(" ")){
+                    continue;
+                }
+                else
+                {
+                    Matchedslots = slots.Intersect(s).ToList();
+                    slots = Matchedslots;
+                }
                
             } 
 
@@ -805,7 +826,58 @@ namespace Meeting_Scheduler_Prototype
         //New Meeting Button
         private void button1_Click(object sender, EventArgs e)
         {
-           
+            string MeetingTitle = Microsoft.VisualBasic.Interaction.InputBox("Title of meeting?", "Title", "Default Text");
+            string Location = Microsoft.VisualBasic.Interaction.InputBox("Location of meeting?", "Title", "Default Text");
+            string status = Microsoft.VisualBasic.Interaction.InputBox("Status of meeting?", "Title", "Default Text");
+
+            List<Participant> requestAttendee = new List<Participant>();
+            List<Participant> meetingAttendee = new List<Participant>();
+
+            List<string> meetingSlots = new List<string>();
+            //DialogResult dialogResult = MessageBox.Show("Add a Meeting Slot?", "Cancel Meeting", MessageBoxButtons.YesNo);
+            //DialogResult requestAttendeeDialog = MessageBox.Show("Add a Meeting Slot?", "Cancel Meeting", MessageBoxButtons.YesNo);
+            bool AnsStat = false;
+
+            do
+            {
+                DialogResult dialogResult = MessageBox.Show("Add a Meeting Slot?", "Cancel Meeting", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    string slot = Microsoft.VisualBasic.Interaction.InputBox("Slot name?", "Title", "Default Text");
+                    meetingSlots.Add(slot);
+                }
+
+                else if (dialogResult == DialogResult.No)
+                {
+                    AnsStat = true;
+                }
+
+            } while (!AnsStat);
+
+            foreach (Participant par in AllUsers)
+            {
+                if(par.returnInitiator() == true)
+                {
+                    continue;
+                }
+                else{
+
+                    DialogResult requestAttendeeDialog = MessageBox.Show("Add " + par.GetName() + " to Meeting?", "Cancel Meeting", MessageBoxButtons.YesNo);
+
+                    if (requestAttendeeDialog == DialogResult.Yes)
+                    {
+                        requestAttendee.Add(par);
+                    }
+                }
+                
+            }
+
+
+            Meeting m = new Meeting(User.GetName(), Location, MeetingTitle, status, meetingSlots, meetingAttendee, requestAttendee);
+            allMeetings.Add(m);
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void label8_Click(object sender, EventArgs e)
