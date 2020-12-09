@@ -20,6 +20,7 @@ namespace Meeting_Scheduler_Prototype
         List<Participant> AllUsers = new List<Participant>();
         public List<Meeting> allMeetings = new List<Meeting>();
         public List<Participant> requestPs = new List<Participant>();
+        public List<Participant> meetingAttendees = new List<Participant>();
 
 
         public Initiator(List<Participant> allUsers, List<Meeting> MeetingAll, List <Participant> RequestedAttendees, List <Participant> MeetingAttendees)
@@ -27,17 +28,26 @@ namespace Meeting_Scheduler_Prototype
             AllUsers = p.AllPs();
             allMeetings = m.returnAllList();
             requestPs = m.GetRequestedPs();
+            meetingAttendees = m.GetMeetingAttendees();
             InitializeComponent();
             InitializeMeetings();
             
         }
 
-        
+        public void UpdateLists()
+        {
+            AllUsers = p.AllPs();
+            allMeetings = m.returnAllList();
+            requestPs = m.GetRequestedPs();
+            meetingAttendees = m.GetMeetingAttendees();
+        }
 
         public void InitializeMeetings()
         {
             Meeting m1 = new Meeting();
             Participant p = new Participant();
+
+            UpdateLists();
 
             //TableLayoutControlCollection controls = tableLayoutPanel1.Controls;
 
@@ -54,7 +64,7 @@ namespace Meeting_Scheduler_Prototype
                     {
                         if (0 < allMeetings.Count)
                         {
-                            if (allMeetings.Count > 0 && allMeetings[0] != null)
+                            if (allMeetings[0] != null)
                             {
                                 m1 = allMeetings[0];
 
@@ -80,20 +90,27 @@ namespace Meeting_Scheduler_Prototype
                                 }
                             }
                         }
-
-                    }
-
-
-                    if (i == 4 && j == 1)
-                    {
-                        if (allMeetings.Count > 0 && allMeetings[0] != null)
+                        else
                         {
-                            m1 = allMeetings[0];
-
-
-                            for (int k = 0; k < m1.GetSlot().Count; k++)
+                            if (i == 0)
                             {
-                                listBox1.Items.Add(m1.GetSlot()[k]);
+                                c.Text = "N/A";
+                            }
+
+                            if (i == 1)
+                            {
+                                c.Text = "N/A";
+                            }
+
+                            if (i == 2)
+                            {
+                                c.Text = "N/A";
+                            }
+
+                            if (i == 3)
+                            {
+
+                                c.Text = "N/A";
                             }
                         }
 
@@ -101,6 +118,29 @@ namespace Meeting_Scheduler_Prototype
 
 
                     if (i == 4 && j == 1)
+                    {
+                        if(0< allMeetings.Count)
+                        {
+                            if (allMeetings[0] != null)
+                            {
+                                m1 = allMeetings[0];
+
+
+                                for (int k = 0; k < m1.GetSlot().Count; k++)
+                                {
+                                    listBox1.Items.Add(m1.GetSlot()[k]);
+                                }
+                            }
+
+                        }
+                        else
+                        {
+                            listBox1.Items.Clear();
+                        }
+                    }
+
+
+                    if (i == 5 && j == 1)
                     {
 
                         List<Participant> p1 = new List<Participant>();
@@ -116,7 +156,74 @@ namespace Meeting_Scheduler_Prototype
                                 listBox2.Items.Add(p1[k].GetName());
                             }
                         }
+                        else
+                        {
+                            listBox2.Items.Clear();
+                        }
 
+                    }
+
+                    if (i == 6 && j == 1)
+                    {
+                        List<Participant> p1 = new List<Participant>();
+                        if (0 < allMeetings.Count){
+
+                            if (allMeetings[0] != null)
+                            {
+
+                                p1 = allMeetings[0].GetMeetingAttendees();
+
+                                for (int k = 0; k < p1.Count; k++)
+
+                                {
+                                    listBox3.Items.Add(p1[k].GetName());
+                                }
+                            }
+                        }
+                      
+                    }
+
+                    if(i == 7 && j == 1)
+                    {
+                        List<Control> b = new List<Control>();
+
+                        for (int r = 0; r < flowLayoutPanel1.Controls.Count; r++)
+                        {
+                            b.Add(flowLayoutPanel1.Controls[r]);
+                        }
+
+                        List<string> p1 = new List<string>();
+                        if (0 < allMeetings.Count)
+                        {
+                            if (allMeetings[0] != null)
+                            {
+                                int s = 0;
+
+                                p1 = CheckSlots(allMeetings[0]);
+
+                                foreach (string a in p1)
+                                {
+                                    b[s].Text = a;
+                                    s++;
+                                }
+
+
+
+                                for (int w = p1.Count; w < flowLayoutPanel1.Controls.Count; w++)
+                                {
+                                    b[w].Enabled = false;
+                                    b[w].Text = "-";
+                                }
+                            }
+                        }
+                        else
+                        {
+                            for (int w = 0; w < flowLayoutPanel1.Controls.Count; w++)
+                            {
+                                b[w].Enabled = false;
+                                b[w].Text = "-";
+                            }
+                        }
                     }
 
 
@@ -125,7 +232,7 @@ namespace Meeting_Scheduler_Prototype
                     {
                         if (1 < allMeetings.Count)
                         {
-                            if (allMeetings.Count > 1 && allMeetings[1] != null)
+                            if (allMeetings[1] != null)
                             {
 
                                 m1 = allMeetings[1];
@@ -151,9 +258,32 @@ namespace Meeting_Scheduler_Prototype
                                 }
                             }
                         }
+                        else
+                        {
+                            if (i == 0)
+                            {
+                                c.Text = "N/A";
+                            }
+
+                            if (i == 1)
+                            {
+                                c.Text = "N/A";
+                            }
+
+                            if (i == 2)
+                            {
+                                c.Text = "N/A";
+                            }
+
+                            if (i == 3)
+                            {
+
+                                c.Text = "N/A";
+                            }
+                        }
                     }
 
-                    if (i == 4 && j == 2)
+                    if (i == 5 && j == 2)
                     {
                         if (allMeetings.Count > 1 && allMeetings[1] != null)
                         {
@@ -165,26 +295,108 @@ namespace Meeting_Scheduler_Prototype
                                 listBox4.Items.Add(m1.GetSlot()[k]);
                             }
                         }
-
-                    }
-
-                    if (i == 4 && j == 2)
-                    {
-
-                        List<Participant> p1 = new List<Participant>();
-                        if (allMeetings.Count > 1 && allMeetings[1] != null)
+                        else
                         {
-
-                            p1 = allMeetings[1].GetRequestedPs();
-
-                            for (int k = 0; k < p1.Count; k++)
-
-                            {
-                                listBox5.Items.Add(p1[k].GetName());
-                            }
+                            listBox4.Items.Clear();
                         }
 
                     }
+
+                    if (i == 6 && j == 2)
+                    {
+
+                        List<Participant> p1 = new List<Participant>();
+                        if (1 < allMeetings.Count)
+                        {
+                            if (allMeetings[1] != null)
+                            {
+
+                                p1 = allMeetings[1].GetRequestedPs();
+
+                                for (int k = 0; k < p1.Count; k++)
+
+                                {
+                                    listBox5.Items.Add(p1[k].GetName());
+                                }
+                            }
+                        }
+                        else
+                        {
+                            listBox5.Items.Clear();
+                        }
+
+                    }
+
+                    if (i == 7 && j == 1)
+                    {
+
+                        List<Participant> p1 = new List<Participant>();
+
+                        if (1 < allMeetings.Count){
+
+                            if (allMeetings[1] != null)
+                            {
+
+                                p1 = allMeetings[1].GetMeetingAttendees();
+
+                                for (int k = 0; k < p1.Count; k++)
+
+                                {
+                                    listBox3.Items.Add(p1[k].GetName());
+                                }
+                            }
+                        }
+                        else
+                        {
+                            listBox3.Items.Clear();
+                        }
+
+                    }
+
+                    if (i == 8 && j == 1)
+                    {
+                        List<Control> b = new List<Control>();
+
+                        for (int r = 0; r < flowLayoutPanel2.Controls.Count; r++)
+                        {
+                            b.Add(flowLayoutPanel2.Controls[r]);
+                        }
+
+                        List<string> p1 = new List<string>();
+                        if (1 < allMeetings.Count)
+                        {
+
+                            if (allMeetings[1] != null)
+                            {
+
+                                int s = 0;
+
+                                p1 = CheckSlots(allMeetings[1]);
+
+                                foreach (string a in p1)
+                                {
+                                    b[s].Text = a;
+                                    s++;
+                                }
+
+
+                                for (int w = p1.Count; w < flowLayoutPanel2.Controls.Count; w++)
+                                {
+                                    b[w].Enabled = false;
+                                    b[w].Text = "-";
+                                }
+                            }
+                        }
+                        else 
+                        {
+                            for (int w = 0; w < flowLayoutPanel2.Controls.Count; w++)
+                            {
+                                b[w].Enabled = false;
+                                b[w].Text = "-";
+                            }
+                        }
+                    }
+
 
 
                     //ROW 3
@@ -192,7 +404,7 @@ namespace Meeting_Scheduler_Prototype
                     {
                         if (2 < allMeetings.Count)
                         {
-                            if (allMeetings.Count > 2 && allMeetings[2] != null)
+                            if (allMeetings[2] != null)
                             {
                                 m1 = allMeetings[2];
 
@@ -217,6 +429,31 @@ namespace Meeting_Scheduler_Prototype
                                 }
                             }
                         }
+                        
+                            else
+                            {
+                                if (i == 0)
+                                {
+                                    c.Text = "N/A";
+                                }
+
+                                if (i == 1)
+                                {
+                                    c.Text = "N/A";
+                                }
+
+                                if (i == 2)
+                                {
+                                    c.Text = "N/A";
+                                }
+
+                                if (i == 3)
+                                {
+
+                                    c.Text = "N/A";
+                                }
+                            }
+                        
                     }
 
                     if (i == 4 && j == 3)
@@ -232,9 +469,13 @@ namespace Meeting_Scheduler_Prototype
                             }
 
                         }
+                        else
+                        {
+                            listBox7.Items.Clear();
+                        }
                     }
 
-                    if (i == 4 && j == 3)
+                    if (i == 5 && j == 3)
                     {
 
 
@@ -249,16 +490,94 @@ namespace Meeting_Scheduler_Prototype
                                 listBox8.Items.Add(p1[k].GetName());
                             }
                         }
+                        else
+                        {
+                            listBox8.Items.Clear();
+                        }
 
 
                     }
+
+                    if (i == 6 && j == 1)
+                    {
+
+                        List<Participant> p1 = new List<Participant>();
+                        if(2< allMeetings.Count)
+                        {
+
+                            if (allMeetings[2] != null)
+                            {
+
+                                p1 = allMeetings[2].GetMeetingAttendees();
+
+                                for (int k = 0; k < p1.Count; k++)
+
+                                {
+                                    listBox9.Items.Add(p1[k].GetName());
+                                }
+                            }
+                        }
+                        else
+                        {
+                            listBox9.Items.Clear();
+                        }
+
+                    }
+
+                    if (i == 7 && j == 1)
+                    {
+                        List<Control> b = new List<Control>();
+
+                        for (int r = 0; r < flowLayoutPanel3.Controls.Count; r++)
+                        {
+                            b.Add(flowLayoutPanel3.Controls[r]);
+                        }
+
+                        List<string> p1 = new List<string>();
+
+                        if (2 < allMeetings.Count)
+                        {
+                            if (allMeetings[2] != null)
+                            {
+
+
+                                int s = 0;
+
+                                p1 = CheckSlots(allMeetings[2]);
+
+                                foreach (string a in p1)
+                                {
+                                    b[s].Text = a;
+                                    s++;
+                                }
+
+                                for (int w = p1.Count; w < flowLayoutPanel3.Controls.Count; w++)
+                                {
+                                    b[w].Enabled = false;
+                                    b[w].Text = "-";
+                                }
+                            }
+                        }
+                        else
+                        {
+
+                            for (int w = 0; w < flowLayoutPanel4.Controls.Count; w++)
+                            {
+                                b[w].Enabled = false;
+                                b[w].Text = "-";
+                            }
+
+                        }
+                    }
+                    
+
 
                     //ROW 4
                     if (i < 4 && j == 4)
                     {
                         if (3 < allMeetings.Count)
                         {
-                            if (allMeetings.Count > 3 && allMeetings[3] != null)
+                            if (allMeetings[3] != null)
                             {
 
                                 m1 = allMeetings[3];
@@ -284,6 +603,29 @@ namespace Meeting_Scheduler_Prototype
                                 }
                             }
                         }
+                        else
+                        {
+                            if (i == 0)
+                            {
+                                c.Text = "N/A";
+                            }
+
+                            if (i == 1)
+                            {
+                                c.Text = "N/A";
+                            }
+
+                            if (i == 2)
+                            {
+                                c.Text = "N/A";
+                            }
+
+                            if (i == 3)
+                            {
+
+                                c.Text = "N/A";
+                            }
+                        }
                     }
 
                     if (i == 4 && j == 4)
@@ -298,10 +640,14 @@ namespace Meeting_Scheduler_Prototype
                                 listBox4.Items.Add(m1.GetSlot()[k]);
                             }
                         }
+                        else
+                        {
+                            listBox4.Items.Clear();
+                        }
 
                     }
 
-                    if (i == 4 && j == 4)
+                    if (i == 5 && j == 4)
                     {
 
                         List<Participant> p1 = new List<Participant>();
@@ -313,80 +659,118 @@ namespace Meeting_Scheduler_Prototype
                             for (int k = 0; k < p1.Count; k++)
 
                             {
-                                listBox5.Items.Add(p1[k].GetName());
+                                listBox11.Items.Add(p1[k].GetName());
                             }
                         }
-
-                    }
-
-                    //ROW 5
-                    if (i < 4 && j == 5)
-                    {
-                        if (4 < allMeetings.Count)
+                        else
                         {
-                            if (allMeetings.Count > 4 && allMeetings[4] != null)
-                            {
-
-                                m1 = allMeetings[4];
-
-                                if (i == 0)
-                                {
-                                    c.Text = m1.GetInitiator();
-                                }
-
-                                if (i == 1)
-                                {
-                                    c.Text = m1.GetTitle();
-                                }
-
-                                if (i == 2)
-                                {
-                                    c.Text = m1.GetLocation();
-                                }
-
-                                if (i == 3)
-                                {
-                                    c.Text = m1.GetStatus().ToString();
-                                }
-                            }
-                        }
-                    }
-
-                    if (i == 4 && j == 5)
-                    {
-                        if (allMeetings.Count > 4 && allMeetings[4] != null)
-                        {
-                            m1 = allMeetings[4];
-
-
-                            for (int k = 0; k < m1.GetSlot().Count; k++)
-                            {
-                                listBox4.Items.Add(m1.GetSlot()[k]);
-                            }
+                            listBox11.Items.Clear();
                         }
 
                     }
-
-                    if (i == 4 && j == 5)
+                    if (i == 6 && j == 1)
                     {
 
                         List<Participant> p1 = new List<Participant>();
-                        if (allMeetings.Count > 4 && allMeetings[4] != null)
+                        if (3 < allMeetings.Count)
                         {
-                            p1 = allMeetings[4].GetRequestedPs();
-
-                            for (int k = 0; k < p1.Count; k++)
-
+                            if (allMeetings[3] != null)
                             {
-                                listBox5.Items.Add(p1[k].GetName());
-                            }
 
+                                p1 = allMeetings[3].GetMeetingAttendees();
+
+                                for (int k = 0; k < p1.Count; k++)
+
+                                {
+                                    listBox12.Items.Add(p1[k].GetName());
+                                }
+                            }
                         }
 
                     }
+
+                    if (i == 7 && j == 1)
+                    {
+                        List<Control> b = new List<Control>();
+                        List<string> p1 = new List<string>();
+
+
+                        for (int r = 0; r < flowLayoutPanel4.Controls.Count; r++)
+                        {
+                            b.Add(flowLayoutPanel4.Controls[r]);
+                        }
+
+                        if (3 < allMeetings.Count)
+                        {
+
+                            if (allMeetings[3] != null)
+                            {
+         
+
+                                int s = 0;
+
+                                p1 = CheckSlots(allMeetings[3]);
+
+                                foreach (string a in p1)
+                                {
+                                    b[s].Text = a;
+                                    s++;
+                                }
+
+                                for (int w = p1.Count; w < flowLayoutPanel4.Controls.Count; w++)
+                                {
+                                    b[w].Enabled = false;
+                                    b[w].Text = "-";
+                                }
+
+                            }
+                        }
+                       
+                        else
+                        {
+                            
+                            for (int w = 0; w < flowLayoutPanel4.Controls.Count; w++)
+                            {
+                                b[w].Enabled = false;
+                                b[w].Text = "-";
+                            }
+                            
+                        }
+                    }
+                    
                 }
             }
 
+        }
+
+        public List<string> CheckSlots(Meeting m)
+        {
+            
+            List<string> Matchedslots = new List<string>();
+
+            List<Participant> mAttendees = m.GetMeetingAttendees();
+            List<string> slots = m.GetSlot();
+
+            List<List<string>> allslots = new List<List<string>>();
+
+            for (int z = 0; z < mAttendees.Count; z++)
+            {
+                allslots.Add(mAttendees[z].GetPreferredSlots());
+            }
+
+          
+
+            foreach (List<string> s in allslots)
+            {
+                // needs to compare preferred slots with meeting slots
+                //if( s.All !=)
+                Matchedslots = slots.Intersect(s).ToList();
+
+                slots = Matchedslots;
+               
+            } 
+
+                return Matchedslots;
         }
 
 
@@ -418,6 +802,7 @@ namespace Meeting_Scheduler_Prototype
             
         }
 
+        //New Meeting Button
         private void button1_Click(object sender, EventArgs e)
         {
            
@@ -429,6 +814,16 @@ namespace Meeting_Scheduler_Prototype
         }
 
         private void label20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label26_Click(object sender, EventArgs e)
         {
 
         }
