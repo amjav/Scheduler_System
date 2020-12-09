@@ -84,7 +84,7 @@ namespace Meeting_Scheduler_Prototype
                     }
 
 
-                    if (i == 4 && j == 1)
+                    if (i == 5 && j == 1)
                     {
                         if (allMeetings.Count > 0 && allMeetings[0] != null)
                         {
@@ -100,7 +100,7 @@ namespace Meeting_Scheduler_Prototype
                     }
 
 
-                    if (i == 4 && j == 1)
+                    if (i == 6 && j == 1)
                     {
 
                         List<Participant> p1 = new List<Participant>();
@@ -117,6 +117,59 @@ namespace Meeting_Scheduler_Prototype
                             }
                         }
 
+                    }
+
+                    if (i == 7 && j == 1)
+                    {
+
+                        List<Participant> p1 = new List<Participant>();
+
+                        if (allMeetings[0] != null)
+                        {
+
+                            p1 = allMeetings[0].GetMeetingAttendees();
+
+                            for (int k = 0; k < p1.Count; k++)
+
+                            {
+                                listBox3.Items.Add(p1[k].GetName());
+                            }
+                        }
+                      
+
+                    }
+
+                    if(i == 8 && j == 1)
+                    {
+                        if (allMeetings[0] != null)
+                        {
+                            List<Control> b = new List<Control>();
+
+                            for (int r = 0; r < flowLayoutPanel1.Controls.Count; r++)
+                            {
+                                b.Add(flowLayoutPanel1.Controls[r]);
+                            }
+
+                            List<string> p1 = new List<string>();
+
+                            int s = 0;
+
+                            p1 = allMeetings[0].GetSlot();
+
+                            foreach (string a in p1)
+                            {
+                                b[s].Text = a;
+                                s++;
+                            }
+
+                            
+
+                            for (int w = p1.Count; w < flowLayoutPanel1.Controls.Count; w++)
+                            {
+                                b[w].Enabled = false;
+                                b[w].Text = "-";
+                            }
+                        }
                     }
 
 
@@ -390,6 +443,7 @@ namespace Meeting_Scheduler_Prototype
         }
 
 
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -430,6 +484,16 @@ namespace Meeting_Scheduler_Prototype
         }
 
         private void label20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label26_Click(object sender, EventArgs e)
         {
 
         }

@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Meeting_Scheduler_Prototype
@@ -35,9 +30,11 @@ namespace Meeting_Scheduler_Prototype
             allMeetings = m.returnAllList();
             InvitedMeeting = User.GetInvites();
             ScheduledMeeting = User.GetSchedule();
-            pendingMeet = user.GetPending();
+            pendingMeet = User.GetPending();
             InitializeComponent();
             InitializeMeetings();
+            UpdateScheduleTable();
+
 
         }
 
@@ -66,8 +63,6 @@ namespace Meeting_Scheduler_Prototype
             button6.Enabled = false;
             button8.Enabled = false;
             button10.Enabled = false;
-
-
 
 
             label52.Text = User.GetName();
@@ -707,7 +702,7 @@ namespace Meeting_Scheduler_Prototype
                         {
                             if (0 < ScheduledMeeting.Count)
                             {
-                                if (ScheduledMeeting.Count > 0 && ScheduledMeeting[0] != null)
+                                if (ScheduledMeeting[0] != null)
                                 {
                                     m1 = ScheduledMeeting[0];
 
@@ -742,7 +737,7 @@ namespace Meeting_Scheduler_Prototype
                         {
                             if (1 < ScheduledMeeting.Count)
                             {
-                                if (ScheduledMeeting.Count > 1 && ScheduledMeeting[1] != null)
+                                if (ScheduledMeeting[1] != null)
                                 {
                                     m1 = ScheduledMeeting[1];
 
@@ -776,7 +771,7 @@ namespace Meeting_Scheduler_Prototype
                         {
                             if (2 < ScheduledMeeting.Count)
                             {
-                                if (ScheduledMeeting.Count > 2 && ScheduledMeeting[2] != null)
+                                if (ScheduledMeeting[2] != null)
                                 {
                                     m1 = ScheduledMeeting[2];
 
@@ -810,7 +805,7 @@ namespace Meeting_Scheduler_Prototype
                         {
                             if (3 < ScheduledMeeting.Count)
                             {
-                                if (ScheduledMeeting.Count > 3 && ScheduledMeeting[3] != null)
+                                if (ScheduledMeeting[3] != null)
                                 {
                                     m1 = ScheduledMeeting[3];
 
@@ -843,7 +838,7 @@ namespace Meeting_Scheduler_Prototype
                         {
                             if (4 < ScheduledMeeting.Count)
                             {
-                                if (ScheduledMeeting.Count > 4 && ScheduledMeeting[4] != null)
+                                if (ScheduledMeeting[4] != null)
                                 {
                                     m1 = ScheduledMeeting[4];
 
@@ -948,7 +943,7 @@ namespace Meeting_Scheduler_Prototype
                         User.AddToMeetingListScheduled(m);
                         User.RemoveFromMeetingPending(m);
                     }
-
+                    UpdateLists();
                     InitializeMeetings();
                 }
             }
@@ -990,6 +985,8 @@ namespace Meeting_Scheduler_Prototype
 
                 m1 = InvitedMeeting[0];
 
+                m1.AddMeetingAttend(User);        
+
                 User.AddtoMeetingPending(m1);
 
                 //get the index of getpendingList 0 and set it to m1Index
@@ -1021,6 +1018,8 @@ namespace Meeting_Scheduler_Prototype
 
                 User.AddtoMeetingPending(m1);
 
+                m1.AddMeetingAttend(User);
+
                 int m1Index = User.GetPending().IndexOf(m1);
 
                 m1 = User.GetPending()[m1Index];
@@ -1029,7 +1028,7 @@ namespace Meeting_Scheduler_Prototype
 
                 string status = CheckStatus(m1);
 
-                //Schedule(m1);
+                Schedule(m1);
 
                 //User.AddToMeetingListScheduled(m1);
                 //User.RemoveFromInivitedList(m1);
@@ -1047,6 +1046,8 @@ namespace Meeting_Scheduler_Prototype
 
                 User.AddtoMeetingPending(m1);
 
+                m1.AddMeetingAttend(User);
+
                 int m1Index = User.GetPending().IndexOf(m1);
 
                 m1 = User.GetPending()[m1Index];
@@ -1055,7 +1056,7 @@ namespace Meeting_Scheduler_Prototype
 
                 string status = CheckStatus(m1);
 
-                //Schedule(m1);
+                Schedule(m1);
 
                 //User.AddToMeetingListScheduled(m1);
                 //User.RemoveFromInivitedList(m1);
@@ -1072,6 +1073,8 @@ namespace Meeting_Scheduler_Prototype
 
                 User.AddtoMeetingPending(m1);
 
+                m1.AddMeetingAttend(User);
+
                 int m1Index = User.GetPending().IndexOf(m1);
 
                 m1 = User.GetPending()[m1Index];
@@ -1080,7 +1083,7 @@ namespace Meeting_Scheduler_Prototype
 
                 string status = CheckStatus(m1);
 
-                //Schedule(m1);
+                Schedule(m1);
 
                 //User.AddToMeetingListScheduled(m1);
                 //User.RemoveFromInivitedList(m1);
@@ -1097,6 +1100,8 @@ namespace Meeting_Scheduler_Prototype
 
                 User.AddtoMeetingPending(m1);
 
+                m1.AddMeetingAttend(User);
+
                 int m1Index = User.GetPending().IndexOf(m1);
 
                 m1 = User.GetPending()[m1Index];
@@ -1105,7 +1110,7 @@ namespace Meeting_Scheduler_Prototype
 
                 string status = CheckStatus(m1);
 
-                //Schedule(m1);
+                Schedule(m1);
 
                 //User.AddToMeetingListScheduled(m1);
                 //User.RemoveFromInivitedList(m1);

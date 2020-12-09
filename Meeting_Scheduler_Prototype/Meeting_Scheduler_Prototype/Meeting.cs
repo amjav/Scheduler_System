@@ -34,6 +34,8 @@ namespace Meeting_Scheduler_Prototype
             MeetingAttendees = meetingattendees;
 
             RequestAttend = requestattend;
+
+            
             AllMeetingList.Add(this);
         }
 
@@ -68,7 +70,7 @@ namespace Meeting_Scheduler_Prototype
             RequestAttend.Add(p);
         }
 
-        public void MeetingAttend (Participant p)
+        public void AddMeetingAttend (Participant p)
         {
             MeetingAttendees.Add(p);
         }

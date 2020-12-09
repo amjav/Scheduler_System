@@ -138,6 +138,7 @@ namespace Meeting_Scheduler_Prototype
             this.meetingSchBox.TabIndex = 8;
             this.meetingSchBox.TabStop = false;
             this.meetingSchBox.Text = "Meeting Scheduled";
+            this.meetingSchBox.UseWaitCursor = true;
             // 
             // label5
             // 
@@ -147,6 +148,7 @@ namespace Meeting_Scheduler_Prototype
             this.label5.Size = new System.Drawing.Size(62, 17);
             this.label5.TabIndex = 7;
             this.label5.Text = "Location";
+            this.label5.UseWaitCursor = true;
             // 
             // label6
             // 
@@ -156,6 +158,7 @@ namespace Meeting_Scheduler_Prototype
             this.label6.Size = new System.Drawing.Size(67, 17);
             this.label6.TabIndex = 8;
             this.label6.Text = "Time Slot";
+            this.label6.UseWaitCursor = true;
             // 
             // label7
             // 
@@ -165,6 +168,7 @@ namespace Meeting_Scheduler_Prototype
             this.label7.Size = new System.Drawing.Size(35, 17);
             this.label7.TabIndex = 9;
             this.label7.Text = "Title";
+            this.label7.UseWaitCursor = true;
             // 
             // label8
             // 
@@ -174,6 +178,7 @@ namespace Meeting_Scheduler_Prototype
             this.label8.Size = new System.Drawing.Size(54, 17);
             this.label8.TabIndex = 10;
             this.label8.Text = "Initiator";
+            this.label8.UseWaitCursor = true;
             // 
             // tableLayoutPanel1
             // 
@@ -220,6 +225,7 @@ namespace Meeting_Scheduler_Prototype
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(856, 271);
             this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.UseWaitCursor = true;
             // 
             // label34
             // 
@@ -231,6 +237,7 @@ namespace Meeting_Scheduler_Prototype
             this.label34.TabIndex = 24;
             this.label34.Text = "N/A";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label34.UseWaitCursor = true;
             // 
             // label33
             // 
@@ -242,6 +249,7 @@ namespace Meeting_Scheduler_Prototype
             this.label33.TabIndex = 23;
             this.label33.Text = "N/A";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label33.UseWaitCursor = true;
             // 
             // label32
             // 
@@ -253,6 +261,7 @@ namespace Meeting_Scheduler_Prototype
             this.label32.TabIndex = 22;
             this.label32.Text = "N/A";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label32.UseWaitCursor = true;
             // 
             // label31
             // 
@@ -264,6 +273,7 @@ namespace Meeting_Scheduler_Prototype
             this.label31.TabIndex = 21;
             this.label31.Text = "N/A";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label31.UseWaitCursor = true;
             // 
             // label30
             // 
@@ -275,6 +285,7 @@ namespace Meeting_Scheduler_Prototype
             this.label30.TabIndex = 20;
             this.label30.Text = "N/A";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label30.UseWaitCursor = true;
             // 
             // label29
             // 
@@ -286,6 +297,7 @@ namespace Meeting_Scheduler_Prototype
             this.label29.TabIndex = 19;
             this.label29.Text = "N/A";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label29.UseWaitCursor = true;
             // 
             // label28
             // 
@@ -297,6 +309,7 @@ namespace Meeting_Scheduler_Prototype
             this.label28.TabIndex = 18;
             this.label28.Text = "N/A";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label28.UseWaitCursor = true;
             // 
             // label27
             // 
@@ -308,6 +321,7 @@ namespace Meeting_Scheduler_Prototype
             this.label27.TabIndex = 17;
             this.label27.Text = "N/A";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label27.UseWaitCursor = true;
             // 
             // label26
             // 
@@ -319,6 +333,7 @@ namespace Meeting_Scheduler_Prototype
             this.label26.TabIndex = 16;
             this.label26.Text = "N/A";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label26.UseWaitCursor = true;
             // 
             // label25
             // 
@@ -330,6 +345,7 @@ namespace Meeting_Scheduler_Prototype
             this.label25.TabIndex = 15;
             this.label25.Text = "N/A";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label25.UseWaitCursor = true;
             // 
             // label24
             // 
@@ -341,6 +357,7 @@ namespace Meeting_Scheduler_Prototype
             this.label24.TabIndex = 14;
             this.label24.Text = "N/A";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label24.UseWaitCursor = true;
             // 
             // label23
             // 
@@ -352,6 +369,7 @@ namespace Meeting_Scheduler_Prototype
             this.label23.TabIndex = 13;
             this.label23.Text = "N/A";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label23.UseWaitCursor = true;
             // 
             // label22
             // 
@@ -363,6 +381,7 @@ namespace Meeting_Scheduler_Prototype
             this.label22.TabIndex = 12;
             this.label22.Text = "N/A";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label22.UseWaitCursor = true;
             // 
             // label21
             // 
@@ -374,6 +393,7 @@ namespace Meeting_Scheduler_Prototype
             this.label21.TabIndex = 11;
             this.label21.Text = "N/A";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label21.UseWaitCursor = true;
             // 
             // label20
             // 
@@ -385,6 +405,7 @@ namespace Meeting_Scheduler_Prototype
             this.label20.TabIndex = 10;
             this.label20.Text = "N/A";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label20.UseWaitCursor = true;
             // 
             // label19
             // 
@@ -396,6 +417,7 @@ namespace Meeting_Scheduler_Prototype
             this.label19.TabIndex = 9;
             this.label19.Text = "N/A";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label19.UseWaitCursor = true;
             // 
             // label18
             // 
@@ -407,6 +429,7 @@ namespace Meeting_Scheduler_Prototype
             this.label18.TabIndex = 8;
             this.label18.Text = "N/A";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label18.UseWaitCursor = true;
             // 
             // label17
             // 
@@ -418,6 +441,7 @@ namespace Meeting_Scheduler_Prototype
             this.label17.TabIndex = 7;
             this.label17.Text = "N/A";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label17.UseWaitCursor = true;
             // 
             // label16
             // 
@@ -429,6 +453,7 @@ namespace Meeting_Scheduler_Prototype
             this.label16.TabIndex = 6;
             this.label16.Text = "N/A";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label16.UseWaitCursor = true;
             // 
             // label15
             // 
@@ -440,6 +465,7 @@ namespace Meeting_Scheduler_Prototype
             this.label15.TabIndex = 5;
             this.label15.Text = "N/A";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label15.UseWaitCursor = true;
             // 
             // label14
             // 
@@ -451,6 +477,7 @@ namespace Meeting_Scheduler_Prototype
             this.label14.TabIndex = 4;
             this.label14.Text = "N/A";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label14.UseWaitCursor = true;
             // 
             // label13
             // 
@@ -462,6 +489,7 @@ namespace Meeting_Scheduler_Prototype
             this.label13.TabIndex = 3;
             this.label13.Text = "N/A";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label13.UseWaitCursor = true;
             // 
             // label3
             // 
@@ -473,6 +501,7 @@ namespace Meeting_Scheduler_Prototype
             this.label3.TabIndex = 2;
             this.label3.Text = "N/A";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.UseWaitCursor = true;
             // 
             // label2
             // 
@@ -484,6 +513,7 @@ namespace Meeting_Scheduler_Prototype
             this.label2.TabIndex = 1;
             this.label2.Text = "N/A";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.UseWaitCursor = true;
             // 
             // label1
             // 
@@ -495,6 +525,7 @@ namespace Meeting_Scheduler_Prototype
             this.label1.TabIndex = 0;
             this.label1.Text = "N/A";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.UseWaitCursor = true;
             // 
             // groupBox2
             // 
@@ -514,6 +545,7 @@ namespace Meeting_Scheduler_Prototype
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pending Meeting";
+            this.groupBox2.UseWaitCursor = true;
             // 
             // label37
             // 
@@ -523,6 +555,7 @@ namespace Meeting_Scheduler_Prototype
             this.label37.Size = new System.Drawing.Size(107, 17);
             this.label37.TabIndex = 13;
             this.label37.Text = "Available Times";
+            this.label37.UseWaitCursor = true;
             this.label37.Click += new System.EventHandler(this.label37_Click);
             // 
             // label12
@@ -533,6 +566,7 @@ namespace Meeting_Scheduler_Prototype
             this.label12.Size = new System.Drawing.Size(102, 17);
             this.label12.TabIndex = 9;
             this.label12.Text = "Meeting Status";
+            this.label12.UseWaitCursor = true;
             // 
             // label4
             // 
@@ -542,6 +576,7 @@ namespace Meeting_Scheduler_Prototype
             this.label4.Size = new System.Drawing.Size(93, 17);
             this.label4.TabIndex = 6;
             this.label4.Text = "Meeting Slots";
+            this.label4.UseWaitCursor = true;
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // tableLayoutPanel2
@@ -606,6 +641,7 @@ namespace Meeting_Scheduler_Prototype
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.05793F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1145, 277);
             this.tableLayoutPanel2.TabIndex = 1;
+            this.tableLayoutPanel2.UseWaitCursor = true;
             this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
             // button10
@@ -617,6 +653,7 @@ namespace Meeting_Scheduler_Prototype
             this.button10.TabIndex = 50;
             this.button10.Text = "Decline";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.UseWaitCursor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button9
@@ -628,6 +665,7 @@ namespace Meeting_Scheduler_Prototype
             this.button9.TabIndex = 49;
             this.button9.Text = "Accept";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.UseWaitCursor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
@@ -639,6 +677,7 @@ namespace Meeting_Scheduler_Prototype
             this.button8.TabIndex = 48;
             this.button8.Text = "Decline";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.UseWaitCursor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
@@ -650,6 +689,7 @@ namespace Meeting_Scheduler_Prototype
             this.button7.TabIndex = 47;
             this.button7.Text = "Accept";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.UseWaitCursor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
@@ -661,6 +701,7 @@ namespace Meeting_Scheduler_Prototype
             this.button6.TabIndex = 46;
             this.button6.Text = "Decline";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.UseWaitCursor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
@@ -672,6 +713,7 @@ namespace Meeting_Scheduler_Prototype
             this.button5.TabIndex = 45;
             this.button5.Text = "Accept";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseWaitCursor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
@@ -683,6 +725,7 @@ namespace Meeting_Scheduler_Prototype
             this.button4.TabIndex = 44;
             this.button4.Text = "Decline";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseWaitCursor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
@@ -694,6 +737,7 @@ namespace Meeting_Scheduler_Prototype
             this.button3.TabIndex = 43;
             this.button3.Text = "Accept";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseWaitCursor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
@@ -705,6 +749,7 @@ namespace Meeting_Scheduler_Prototype
             this.button2.TabIndex = 42;
             this.button2.Text = "Decline";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseWaitCursor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
@@ -716,6 +761,7 @@ namespace Meeting_Scheduler_Prototype
             this.button1.TabIndex = 11;
             this.button1.Text = "Accept";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseWaitCursor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label47
@@ -728,6 +774,7 @@ namespace Meeting_Scheduler_Prototype
             this.label47.TabIndex = 41;
             this.label47.Text = "N/A";
             this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label47.UseWaitCursor = true;
             // 
             // label46
             // 
@@ -739,6 +786,7 @@ namespace Meeting_Scheduler_Prototype
             this.label46.TabIndex = 40;
             this.label46.Text = "N/A";
             this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label46.UseWaitCursor = true;
             // 
             // label42
             // 
@@ -750,6 +798,7 @@ namespace Meeting_Scheduler_Prototype
             this.label42.TabIndex = 39;
             this.label42.Text = "N/A";
             this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label42.UseWaitCursor = true;
             // 
             // label41
             // 
@@ -761,6 +810,7 @@ namespace Meeting_Scheduler_Prototype
             this.label41.TabIndex = 38;
             this.label41.Text = "N/A";
             this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label41.UseWaitCursor = true;
             // 
             // listBox3
             // 
@@ -771,6 +821,7 @@ namespace Meeting_Scheduler_Prototype
             this.listBox3.Name = "listBox3";
             this.listBox3.Size = new System.Drawing.Size(119, 47);
             this.listBox3.TabIndex = 30;
+            this.listBox3.UseWaitCursor = true;
             // 
             // listBox2
             // 
@@ -781,6 +832,7 @@ namespace Meeting_Scheduler_Prototype
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(119, 45);
             this.listBox2.TabIndex = 29;
+            this.listBox2.UseWaitCursor = true;
             // 
             // label57
             // 
@@ -792,6 +844,7 @@ namespace Meeting_Scheduler_Prototype
             this.label57.TabIndex = 21;
             this.label57.Text = "N/A";
             this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label57.UseWaitCursor = true;
             // 
             // label56
             // 
@@ -803,6 +856,7 @@ namespace Meeting_Scheduler_Prototype
             this.label56.TabIndex = 20;
             this.label56.Text = "N/A";
             this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label56.UseWaitCursor = true;
             // 
             // label55
             // 
@@ -814,6 +868,7 @@ namespace Meeting_Scheduler_Prototype
             this.label55.TabIndex = 19;
             this.label55.Text = "N/A";
             this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label55.UseWaitCursor = true;
             // 
             // label54
             // 
@@ -825,6 +880,7 @@ namespace Meeting_Scheduler_Prototype
             this.label54.TabIndex = 18;
             this.label54.Text = "N/A";
             this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label54.UseWaitCursor = true;
             // 
             // label50
             // 
@@ -836,6 +892,7 @@ namespace Meeting_Scheduler_Prototype
             this.label50.TabIndex = 14;
             this.label50.Text = "N/A";
             this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label50.UseWaitCursor = true;
             // 
             // label49
             // 
@@ -847,6 +904,7 @@ namespace Meeting_Scheduler_Prototype
             this.label49.TabIndex = 13;
             this.label49.Text = "N/A";
             this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label49.UseWaitCursor = true;
             // 
             // label48
             // 
@@ -858,6 +916,7 @@ namespace Meeting_Scheduler_Prototype
             this.label48.TabIndex = 12;
             this.label48.Text = "N/A";
             this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label48.UseWaitCursor = true;
             // 
             // label45
             // 
@@ -869,6 +928,7 @@ namespace Meeting_Scheduler_Prototype
             this.label45.TabIndex = 9;
             this.label45.Text = "N/A";
             this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label45.UseWaitCursor = true;
             // 
             // label44
             // 
@@ -880,6 +940,7 @@ namespace Meeting_Scheduler_Prototype
             this.label44.TabIndex = 8;
             this.label44.Text = "N/A";
             this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label44.UseWaitCursor = true;
             // 
             // label43
             // 
@@ -891,6 +952,7 @@ namespace Meeting_Scheduler_Prototype
             this.label43.TabIndex = 7;
             this.label43.Text = "N/A";
             this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label43.UseWaitCursor = true;
             // 
             // label39
             // 
@@ -902,6 +964,7 @@ namespace Meeting_Scheduler_Prototype
             this.label39.TabIndex = 3;
             this.label39.Text = "N/A";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label39.UseWaitCursor = true;
             // 
             // label38
             // 
@@ -913,6 +976,7 @@ namespace Meeting_Scheduler_Prototype
             this.label38.TabIndex = 2;
             this.label38.Text = "N/A";
             this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label38.UseWaitCursor = true;
             // 
             // label36
             // 
@@ -924,6 +988,7 @@ namespace Meeting_Scheduler_Prototype
             this.label36.TabIndex = 1;
             this.label36.Text = "N/A";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label36.UseWaitCursor = true;
             // 
             // label35
             // 
@@ -935,6 +1000,7 @@ namespace Meeting_Scheduler_Prototype
             this.label35.TabIndex = 0;
             this.label35.Text = "N/A";
             this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label35.UseWaitCursor = true;
             // 
             // label40
             // 
@@ -946,6 +1012,7 @@ namespace Meeting_Scheduler_Prototype
             this.label40.TabIndex = 4;
             this.label40.Text = "N/A";
             this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label40.UseWaitCursor = true;
             // 
             // listBox1
             // 
@@ -956,6 +1023,7 @@ namespace Meeting_Scheduler_Prototype
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(150, 45);
             this.listBox1.TabIndex = 28;
+            this.listBox1.UseWaitCursor = true;
             // 
             // listBox5
             // 
@@ -966,6 +1034,7 @@ namespace Meeting_Scheduler_Prototype
             this.listBox5.Name = "listBox5";
             this.listBox5.Size = new System.Drawing.Size(150, 47);
             this.listBox5.TabIndex = 32;
+            this.listBox5.UseWaitCursor = true;
             // 
             // label51
             // 
@@ -977,6 +1046,7 @@ namespace Meeting_Scheduler_Prototype
             this.label51.TabIndex = 15;
             this.label51.Text = "N/A";
             this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label51.UseWaitCursor = true;
             // 
             // listBox4
             // 
@@ -987,6 +1057,7 @@ namespace Meeting_Scheduler_Prototype
             this.listBox4.Name = "listBox4";
             this.listBox4.Size = new System.Drawing.Size(150, 43);
             this.listBox4.TabIndex = 31;
+            this.listBox4.UseWaitCursor = true;
             // 
             // listBox6
             // 
@@ -997,6 +1068,7 @@ namespace Meeting_Scheduler_Prototype
             this.listBox6.Name = "listBox6";
             this.listBox6.Size = new System.Drawing.Size(150, 45);
             this.listBox6.TabIndex = 33;
+            this.listBox6.UseWaitCursor = true;
             // 
             // listBox8
             // 
@@ -1007,6 +1079,7 @@ namespace Meeting_Scheduler_Prototype
             this.listBox8.Name = "listBox8";
             this.listBox8.Size = new System.Drawing.Size(119, 43);
             this.listBox8.TabIndex = 35;
+            this.listBox8.UseWaitCursor = true;
             // 
             // listBox7
             // 
@@ -1017,6 +1090,7 @@ namespace Meeting_Scheduler_Prototype
             this.listBox7.Name = "listBox7";
             this.listBox7.Size = new System.Drawing.Size(119, 45);
             this.listBox7.TabIndex = 34;
+            this.listBox7.UseWaitCursor = true;
             // 
             // listBox11
             // 
@@ -1027,6 +1101,7 @@ namespace Meeting_Scheduler_Prototype
             this.listBox11.Name = "listBox11";
             this.listBox11.Size = new System.Drawing.Size(119, 49);
             this.listBox11.TabIndex = 37;
+            this.listBox11.UseWaitCursor = true;
             // 
             // listBox10
             // 
@@ -1037,6 +1112,7 @@ namespace Meeting_Scheduler_Prototype
             this.listBox10.Name = "listBox10";
             this.listBox10.Size = new System.Drawing.Size(150, 49);
             this.listBox10.TabIndex = 36;
+            this.listBox10.UseWaitCursor = true;
             // 
             // label9
             // 
@@ -1046,6 +1122,7 @@ namespace Meeting_Scheduler_Prototype
             this.label9.Size = new System.Drawing.Size(62, 17);
             this.label9.TabIndex = 11;
             this.label9.Text = "Location";
+            this.label9.UseWaitCursor = true;
             // 
             // label11
             // 
@@ -1055,6 +1132,7 @@ namespace Meeting_Scheduler_Prototype
             this.label11.Size = new System.Drawing.Size(35, 17);
             this.label11.TabIndex = 12;
             this.label11.Text = "Title";
+            this.label11.UseWaitCursor = true;
             // 
             // label10
             // 
@@ -1064,6 +1142,7 @@ namespace Meeting_Scheduler_Prototype
             this.label10.Size = new System.Drawing.Size(54, 17);
             this.label10.TabIndex = 11;
             this.label10.Text = "Initiator";
+            this.label10.UseWaitCursor = true;
             // 
             // backbutton1
             // 
@@ -1073,6 +1152,7 @@ namespace Meeting_Scheduler_Prototype
             this.backbutton1.TabIndex = 10;
             this.backbutton1.Text = "Back";
             this.backbutton1.UseVisualStyleBackColor = true;
+            this.backbutton1.UseWaitCursor = true;
             this.backbutton1.Click += new System.EventHandler(this.backbutton1_Click);
             // 
             // label52
@@ -1085,6 +1165,7 @@ namespace Meeting_Scheduler_Prototype
             this.label52.Size = new System.Drawing.Size(112, 42);
             this.label52.TabIndex = 11;
             this.label52.Text = "Name";
+            this.label52.UseWaitCursor = true;
             // 
             // Meeting
             // 
@@ -1096,6 +1177,7 @@ namespace Meeting_Scheduler_Prototype
             this.Meeting.Size = new System.Drawing.Size(309, 42);
             this.Meeting.TabIndex = 12;
             this.Meeting.Text = "Meeting Schedule";
+            this.Meeting.UseWaitCursor = true;
             // 
             // listBox9
             // 
@@ -1105,6 +1187,7 @@ namespace Meeting_Scheduler_Prototype
             this.listBox9.Name = "listBox9";
             this.listBox9.Size = new System.Drawing.Size(392, 196);
             this.listBox9.TabIndex = 13;
+            this.listBox9.UseWaitCursor = true;
             this.listBox9.SelectedIndexChanged += new System.EventHandler(this.listBox9_SelectedIndexChanged);
             // 
             // label53
@@ -1117,6 +1200,7 @@ namespace Meeting_Scheduler_Prototype
             this.label53.Size = new System.Drawing.Size(412, 31);
             this.label53.TabIndex = 14;
             this.label53.Text = "Meetings Awaiting Confirmation";
+            this.label53.UseWaitCursor = true;
             // 
             // participantDisplay
             // 
@@ -1131,6 +1215,7 @@ namespace Meeting_Scheduler_Prototype
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.meetingSchBox);
             this.Name = "participantDisplay";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "participantDisplay";
             this.Load += new System.EventHandler(this.participantDisplay_Load);
             this.meetingSchBox.ResumeLayout(false);
