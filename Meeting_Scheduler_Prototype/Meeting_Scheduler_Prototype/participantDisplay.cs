@@ -690,6 +690,7 @@ namespace Meeting_Scheduler_Prototype
                 Meeting m1 = new Meeting();
                 Participant p = new Participant();
                 //TABLE LAYOUT PANEL 2
+
                 for (int i = 0; i <= this.tableLayoutPanel1.ColumnCount; i++)
                 {
                     for (int j = 0; j <= this.tableLayoutPanel1.RowCount; j++)
@@ -728,6 +729,29 @@ namespace Meeting_Scheduler_Prototype
                                     }
                                 }
                             }
+                            else
+                            {
+                                if (i == 0)
+                                {
+                                    c.Text = "N/A";
+                                }
+
+                                if (i == 1)
+                                {
+                                    c.Text = "N/A";
+                                }
+
+                                if (i == 2)
+                                {
+                                    c.Text = "N/A";
+                                }
+
+                                if (i == 3)
+                                {
+
+                                    c.Text = "N/A";
+                                }
+                            }
 
                         }
 
@@ -753,7 +777,7 @@ namespace Meeting_Scheduler_Prototype
 
                                     if (i == 2)
                                     {
-                                        c.Text = m1.GetStatus().ToString();
+                                        c.Text = CheckStatus(m1);
                                     }
 
                                     if (i == 3)
@@ -761,6 +785,29 @@ namespace Meeting_Scheduler_Prototype
 
                                         c.Text = m1.GetLocation();
                                     }
+                                }
+                            }
+                            else
+                            {
+                                if (i == 0)
+                                {
+                                    c.Text = "N/A";
+                                }
+
+                                if (i == 1)
+                                {
+                                    c.Text = "N/A";
+                                }
+
+                                if (i == 2)
+                                {
+                                    c.Text = "N/A";
+                                }
+
+                                if (i == 3)
+                                {
+
+                                    c.Text = "N/A";
                                 }
                             }
                         }
@@ -787,7 +834,7 @@ namespace Meeting_Scheduler_Prototype
 
                                     if (i == 2)
                                     {
-                                        c.Text = m1.GetStatus().ToString();
+                                        c.Text = CheckStatus(m1);
                                     }
 
                                     if (i == 3)
@@ -795,6 +842,30 @@ namespace Meeting_Scheduler_Prototype
 
                                         c.Text = m1.GetLocation();
                                     }
+                                }
+                            }
+
+                            else
+                            {
+                                if (i == 0)
+                                {
+                                    c.Text = "N/A";
+                                }
+
+                                if (i == 1)
+                                {
+                                    c.Text = "N/A";
+                                }
+
+                                if (i == 2)
+                                {
+                                    c.Text = "N/A";
+                                }
+
+                                if (i == 3)
+                                {
+
+                                    c.Text = "N/A";
                                 }
                             }
                         }
@@ -821,7 +892,7 @@ namespace Meeting_Scheduler_Prototype
 
                                     if (i == 2)
                                     {
-                                        c.Text = m1.GetStatus().ToString();
+                                        c.Text = CheckStatus(m1);
                                     }
 
                                     if (i == 3)
@@ -829,6 +900,30 @@ namespace Meeting_Scheduler_Prototype
 
                                         c.Text = m1.GetLocation();
                                     }
+                                }
+                            }
+
+                            else
+                            {
+                                if (i == 0)
+                                {
+                                    c.Text = "N/A";
+                                }
+
+                                if (i == 1)
+                                {
+                                    c.Text = "N/A";
+                                }
+
+                                if (i == 2)
+                                {
+                                    c.Text = "N/A";
+                                }
+
+                                if (i == 3)
+                                {
+
+                                    c.Text = "N/A";
                                 }
                             }
                         }
@@ -854,7 +949,7 @@ namespace Meeting_Scheduler_Prototype
 
                                     if (i == 2)
                                     {
-                                        c.Text = m1.GetStatus().ToString();
+                                        c.Text = CheckStatus(m1);
                                     }
 
                                     if (i == 3)
@@ -862,6 +957,29 @@ namespace Meeting_Scheduler_Prototype
 
                                         c.Text = m1.GetLocation();
                                     }
+                                }
+                            }
+                            else
+                            {
+                                if (i == 0)
+                                {
+                                    c.Text = "N/A";
+                                }
+
+                                if (i == 1)
+                                {
+                                    c.Text = "N/A";
+                                }
+
+                                if (i == 2)
+                                {
+                                    c.Text = "N/A";
+                                }
+
+                                if (i == 3)
+                                {
+
+                                    c.Text = "N/A";
                                 }
                             }
                         }
@@ -1000,7 +1118,7 @@ namespace Meeting_Scheduler_Prototype
 
                 //string status = CheckStatus(m1);
 
-                //Schedule(m1);
+                Schedule(m1);
 
                 //User.AddToMeetingListScheduled(m1);
                 //User.RemoveFromInivitedList(m1);
