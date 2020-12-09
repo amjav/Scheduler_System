@@ -721,7 +721,7 @@ namespace Meeting_Scheduler_Prototype
 
                                     if (i == 2)
                                     {
-                                        c.Text = CheckStatus(m1);
+                                        c.Text = m1.GetScheduledSlot(); 
                                     }
 
                                     if (i == 3)
@@ -779,7 +779,7 @@ namespace Meeting_Scheduler_Prototype
 
                                     if (i == 2)
                                     {
-                                        c.Text = CheckStatus(m1);
+                                        c.Text = m1.GetScheduledSlot();
                                     }
 
                                     if (i == 3)
@@ -836,8 +836,8 @@ namespace Meeting_Scheduler_Prototype
 
                                     if (i == 2)
                                     {
-                                        c.Text = CheckStatus(m1);
-                                    }
+                                        c.Text = m1.GetScheduledSlot();
+                                }
 
                                     if (i == 3)
                                     {
@@ -894,7 +894,7 @@ namespace Meeting_Scheduler_Prototype
 
                                     if (i == 2)
                                     {
-                                        c.Text = CheckStatus(m1);
+                                        c.Text = m1.GetScheduledSlot();
                                     }
 
                                     if (i == 3)
@@ -951,7 +951,7 @@ namespace Meeting_Scheduler_Prototype
 
                                     if (i == 2)
                                     {
-                                        c.Text = CheckStatus(m1);
+                                        c.Text = m1.GetScheduledSlot();
                                     }
 
                                     if (i == 3)

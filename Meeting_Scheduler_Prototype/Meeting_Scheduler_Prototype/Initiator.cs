@@ -218,19 +218,23 @@ namespace Meeting_Scheduler_Prototype
 
                                 p1 = CheckSlots(allMeetings[0]);
 
-                                foreach (string a in p1)
-                                {
-                                    b[s].Text = a;
-                                    s++;
-                                }
+                                
+                                    foreach (string a in p1)
+                                    {
+                                        b[s].Text = a;
+                                        s++;
+                                    }
+                                     
+                                    for (int w = p1.Count; w < flowLayoutPanel1.Controls.Count; w++)
+                                    {
+                                        b[w].Enabled = false;
+                                        b[w].Text = "-";
+                                    }
 
+                                
 
+                                
 
-                                for (int w = p1.Count; w < flowLayoutPanel1.Controls.Count; w++)
-                                {
-                                    b[w].Enabled = false;
-                                    b[w].Text = "-";
-                                }
                             }
                         }
                         else
@@ -556,8 +560,6 @@ namespace Meeting_Scheduler_Prototype
                         {
                             if (allMeetings[2] != null)
                             {
-
-
                                 int s = 0;
 
                                 p1 = CheckSlots(allMeetings[2]);
@@ -766,6 +768,9 @@ namespace Meeting_Scheduler_Prototype
             List<string> Matchedslots = new List<string>();
 
             List<Participant> mAttendees = m.GetMeetingAttendees();
+
+            List<Participant> NotAvailable = m.GetUnavailable();
+
             List<string> slots = m.GetSlot();
 
             List<List<string>> allslots = new List<List<string>>();
@@ -775,12 +780,24 @@ namespace Meeting_Scheduler_Prototype
                 allslots.Add(mAttendees[z].GetPreferredSlots());
             }
 
-          
+            foreach(Participant par in mAttendees)
+            {
+                if (par.GetPreferredSlots().Contains(null))
+                {
+                    m.AddUnavailable(par);
+                }
+            }
+
+            foreach(Participant par in NotAvailable)
+            {
+                m.RemoveAttendee(par);
+            }
 
             foreach (List<string> s in allslots)
             {
                 // needs to compare preferred slots with meeting slots
                 if( s.Contains(null) || s.Contains(" ")){
+                   
                     continue;
                 }
                 else
@@ -791,7 +808,17 @@ namespace Meeting_Scheduler_Prototype
                
             } 
 
+            if(m.GetStatus() == "Scheduled")
+            {
+                Matchedslots.Clear();
                 return Matchedslots;
+            }
+            else
+            {
+                return Matchedslots;
+
+            }
+
         }
 
 
@@ -910,130 +937,767 @@ namespace Meeting_Scheduler_Prototype
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string s =  button3.Text
-            
-           DialogResult result =  MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle + " in slot " + s " ?", MessageBoxButtons.YesNo)
+            string s = button3.Text;
+
+            Meeting m = allMeetings[0];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+            foreach (Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
 
             if(result == DialogResult.Yes)
-            {
-                allMeetings[0].SetAllAccepted();
+            { 
+                
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+                
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
 
             }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            string s = button2.Text;
 
+            Meeting m = allMeetings[0];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+            foreach (Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
+
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
+            string s = button5.Text;
 
+            Meeting m = allMeetings[0];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+            foreach (Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+               
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
+
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            string s = button1.Text;
 
+            Meeting m = allMeetings[0];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+            foreach (Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
+
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            string s = button4.Text;
 
+            Meeting m = allMeetings[0];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+            foreach (Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
+
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
+            string s = button6.Text;
 
+            Meeting m = allMeetings[0];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+            foreach (Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
+
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
+            string s = button7.Text;
 
+            Meeting m = allMeetings[1];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+            foreach (Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
+
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
+            string s = button8.Text;
 
+            Meeting m = allMeetings[1];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+
+            foreach(Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
+
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
+            string s = button9.Text;
 
+            Meeting m = allMeetings[1];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+            foreach (Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
+
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
+            string s = button10.Text;
 
+            Meeting m = allMeetings[1];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+            foreach (Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
+
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
+            string s = button11.Text;
 
+            Meeting m = allMeetings[1];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+            foreach (Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
+
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
+            string s = button12.Text;
 
+            Meeting m = allMeetings[1];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+            foreach (Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
+
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
+            string s = button7.Text;
 
+            Meeting m = allMeetings[2];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+            foreach (Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
+
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void button14_Click(object sender, EventArgs e)
         {
+            string s = button14.Text;
 
+            Meeting m = allMeetings[2];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+            foreach (Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
+
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
+            string s = button15.Text;
 
+            Meeting m = allMeetings[2];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+            foreach (Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
+
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void button16_Click(object sender, EventArgs e)
         {
+            string s = button16.Text;
 
+            Meeting m = allMeetings[2];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+            foreach (Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
+
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void button17_Click(object sender, EventArgs e)
         {
+            string s = button17.Text;
 
+            Meeting m = allMeetings[2];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+            foreach (Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
+
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void button18_Click(object sender, EventArgs e)
         {
+            string s = button18.Text;
 
+            Meeting m = allMeetings[2];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+            foreach (Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
+
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void button19_Click(object sender, EventArgs e)
         {
+            string s = button19.Text;
 
+            Meeting m = allMeetings[3];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+            foreach (Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
+
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void button20_Click(object sender, EventArgs e)
         {
+            string s = button20.Text;
 
+            Meeting m = allMeetings[3];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+            foreach (Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
+
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void button21_Click(object sender, EventArgs e)
         {
+            string s = button21.Text;
 
+            Meeting m = allMeetings[3];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+            foreach (Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
+
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void button22_Click(object sender, EventArgs e)
         {
+            string s = button22.Text;
 
+            Meeting m = allMeetings[3];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+            foreach (Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
+
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void button23_Click(object sender, EventArgs e)
         {
+            string s = button23.Text;
 
+            Meeting m = allMeetings[3];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+            foreach (Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
+
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
 
         private void button24_Click(object sender, EventArgs e)
         {
+            string s = button24.Text;
 
+            Meeting m = allMeetings[3];
+            List<Participant> NotAvailable = new List<Participant>();
+            NotAvailable = m.GetUnavailable();
+            foreach (Participant par in NotAvailable)
+            {
+                MessageBox.Show("Participant " + par.GetName() + " cannot make the meeting and will be removed if this slot is selected!");
+            }
+
+            DialogResult result = MessageBox.Show("Do you want to schedule meeting " + allMeetings[0].GetTitle() + " in slot " + s + " ?", "Button", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                
+                m.SetAllAccepted();
+                m.SetScheduledSlot(s);
+
+                foreach (Participant par in m.GetMeetingAttendees())
+                {
+                    par.AddToMeetingListScheduled(m);
+                    par.RemoveFromMeetingPending(m);
+                }
+
+            }
+
+            UpdateLists();
+            InitializeMeetings();
         }
     }
 }

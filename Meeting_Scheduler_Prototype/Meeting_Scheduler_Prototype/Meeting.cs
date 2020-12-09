@@ -18,10 +18,14 @@ namespace Meeting_Scheduler_Prototype
 
         public List<Participant> RequestAttend = new List<Participant>();
 
+        public List<Participant> NotAvailable = new List<Participant>();
+
+
         public string Location;
         public string Initiator;
         string Title;
         string Status;
+        string Scheduledslot;
 
         public Meeting(string intiator, string location, string title, string status, List<string> MeetingSlots, List <Participant> meetingattendees, List<Participant> requestattend)
         {
@@ -42,6 +46,21 @@ namespace Meeting_Scheduler_Prototype
         public Meeting()
         {
             //empty constructor to intialise.
+        }
+
+        public void RemoveAttendee (Participant par)
+        {
+            MeetingAttendees.Remove(par);
+        }
+
+        public void AddUnavailable(Participant p)
+        {
+            NotAvailable.Add(p);
+        }
+
+        public List<Participant> GetUnavailable()
+        {
+            return NotAvailable;
         }
 
         public List<string> GetSlot()
@@ -99,6 +118,16 @@ namespace Meeting_Scheduler_Prototype
         public string GetStatus()
         {
             return Status;
+        }
+
+        public void SetScheduledSlot(String s)
+        {
+             Scheduledslot = s;
+        }
+
+        public string GetScheduledSlot()
+        {
+            return Scheduledslot;
         }
 
         public void SetAllAccepted()

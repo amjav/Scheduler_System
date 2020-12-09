@@ -29,7 +29,7 @@ namespace Meeting_Scheduler_Prototype
         Participant p7 = new Participant("Santa Claus", "low", true, "in", true, new List<string> { "S1", "S2", "S3" });
 
         //participants
-        Participant p2 = new Participant("Mrs Claus", "low", false, "ps", false, new List<string> {"S1","S2","S3"});
+        Participant p2 = new Participant("Mrs Claus", "low", true, "ps", false, new List<string> {"S1","S2","S3"});
         Participant p3 = new Participant("Soraya", "high", true, "ps", false, new List<string> { "S10", "S5", "S8"});
         Participant p4 = new Participant("Sanaa", "high", false, "ps", false, new List<string> { "S1", "S3", "S5" });
         Participant p5 = new Participant("Rudolf", "high", false, "ps", false, new List<string> { null, null, null });

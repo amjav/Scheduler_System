@@ -45,6 +45,8 @@ namespace Meeting_Scheduler_Prototype
 
         }
 
+       
+
         public bool returnInitiator()
         {
             return Initiator;
