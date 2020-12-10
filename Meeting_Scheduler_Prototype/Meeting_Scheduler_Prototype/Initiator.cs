@@ -64,6 +64,7 @@ namespace Meeting_Scheduler_Prototype
             listBox11.Items.Clear();
             listBox12.Items.Clear();
 
+            label26.Text = User.GetPsType() + " " + User.GetName();
 
             Meeting m1 = new Meeting();
             Participant p = new Participant();
@@ -941,7 +942,7 @@ namespace Meeting_Scheduler_Prototype
             }
 
 
-            allMeetings.Add(m);
+            //allMeetings.Add(m);
             UpdateLists();
             InitializeMeetings();
         }

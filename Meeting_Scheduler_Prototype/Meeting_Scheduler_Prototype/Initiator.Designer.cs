@@ -96,6 +96,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.NewMeeting = new System.Windows.Forms.Button();
+            this.label26 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -108,7 +109,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.LightCoral;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(522, 9);
+            this.label1.Location = new System.Drawing.Point(866, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(377, 44);
             this.label1.TabIndex = 2;
@@ -906,11 +907,23 @@
             this.NewMeeting.UseVisualStyleBackColor = true;
             this.NewMeeting.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.BackColor = System.Drawing.Color.LightCoral;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(26, 22);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(223, 44);
+            this.label26.TabIndex = 7;
+            this.label26.Text = "Information";
+            // 
             // Initiator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1346, 705);
+            this.Controls.Add(this.label26);
             this.Controls.Add(this.NewMeeting);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.backButton1);
@@ -998,5 +1011,6 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Label label26;
     }
 }
