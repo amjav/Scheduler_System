@@ -37,27 +37,22 @@ namespace Meeting_Scheduler_Prototype
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label34 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -143,7 +138,7 @@ namespace Meeting_Scheduler_Prototype
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(561, 28);
+            this.label5.Location = new System.Drawing.Point(715, 29);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 17);
             this.label5.TabIndex = 7;
@@ -153,7 +148,7 @@ namespace Meeting_Scheduler_Prototype
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(400, 29);
+            this.label6.Location = new System.Drawing.Point(510, 29);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 17);
             this.label6.TabIndex = 8;
@@ -163,7 +158,7 @@ namespace Meeting_Scheduler_Prototype
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(218, 29);
+            this.label7.Location = new System.Drawing.Point(302, 28);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(35, 17);
             this.label7.TabIndex = 9;
@@ -183,33 +178,27 @@ namespace Meeting_Scheduler_Prototype
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
-            this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.label34, 4, 4);
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.Controls.Add(this.label33, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.label32, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.label31, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.label30, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label29, 4, 3);
             this.tableLayoutPanel1.Controls.Add(this.label28, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.label27, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.label26, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label25, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label24, 4, 2);
             this.tableLayoutPanel1.Controls.Add(this.label23, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.label22, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.label21, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label20, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label19, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.label18, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.label17, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label16, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label15, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label14, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.label13, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label3, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
@@ -222,30 +211,17 @@ namespace Meeting_Scheduler_Prototype
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(856, 271);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.UseWaitCursor = true;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label34.Location = new System.Drawing.Point(686, 215);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(164, 53);
-            this.label34.TabIndex = 24;
-            this.label34.Text = "N/A";
-            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label34.UseWaitCursor = true;
             // 
             // label33
             // 
             this.label33.AutoSize = true;
             this.label33.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label33.Location = new System.Drawing.Point(516, 215);
+            this.label33.Location = new System.Drawing.Point(645, 215);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(161, 53);
+            this.label33.Size = new System.Drawing.Size(205, 53);
             this.label33.TabIndex = 23;
             this.label33.Text = "N/A";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -255,9 +231,9 @@ namespace Meeting_Scheduler_Prototype
             // 
             this.label32.AutoSize = true;
             this.label32.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label32.Location = new System.Drawing.Point(346, 215);
+            this.label32.Location = new System.Drawing.Point(432, 215);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(161, 53);
+            this.label32.Size = new System.Drawing.Size(204, 53);
             this.label32.TabIndex = 22;
             this.label32.Text = "N/A";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -267,9 +243,9 @@ namespace Meeting_Scheduler_Prototype
             // 
             this.label31.AutoSize = true;
             this.label31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label31.Location = new System.Drawing.Point(176, 215);
+            this.label31.Location = new System.Drawing.Point(219, 215);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(161, 53);
+            this.label31.Size = new System.Drawing.Size(204, 53);
             this.label31.TabIndex = 21;
             this.label31.Text = "N/A";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -281,31 +257,19 @@ namespace Meeting_Scheduler_Prototype
             this.label30.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label30.Location = new System.Drawing.Point(6, 215);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(161, 53);
+            this.label30.Size = new System.Drawing.Size(204, 53);
             this.label30.TabIndex = 20;
             this.label30.Text = "N/A";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label30.UseWaitCursor = true;
             // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label29.Location = new System.Drawing.Point(686, 162);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(164, 50);
-            this.label29.TabIndex = 19;
-            this.label29.Text = "N/A";
-            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label29.UseWaitCursor = true;
-            // 
             // label28
             // 
             this.label28.AutoSize = true;
             this.label28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label28.Location = new System.Drawing.Point(516, 162);
+            this.label28.Location = new System.Drawing.Point(645, 162);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(161, 50);
+            this.label28.Size = new System.Drawing.Size(205, 50);
             this.label28.TabIndex = 18;
             this.label28.Text = "N/A";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -315,9 +279,9 @@ namespace Meeting_Scheduler_Prototype
             // 
             this.label27.AutoSize = true;
             this.label27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label27.Location = new System.Drawing.Point(346, 162);
+            this.label27.Location = new System.Drawing.Point(432, 162);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(161, 50);
+            this.label27.Size = new System.Drawing.Size(204, 50);
             this.label27.TabIndex = 17;
             this.label27.Text = "N/A";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -327,9 +291,9 @@ namespace Meeting_Scheduler_Prototype
             // 
             this.label26.AutoSize = true;
             this.label26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label26.Location = new System.Drawing.Point(176, 162);
+            this.label26.Location = new System.Drawing.Point(219, 162);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(161, 50);
+            this.label26.Size = new System.Drawing.Size(204, 50);
             this.label26.TabIndex = 16;
             this.label26.Text = "N/A";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -341,31 +305,19 @@ namespace Meeting_Scheduler_Prototype
             this.label25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label25.Location = new System.Drawing.Point(6, 162);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(161, 50);
+            this.label25.Size = new System.Drawing.Size(204, 50);
             this.label25.TabIndex = 15;
             this.label25.Text = "N/A";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label25.UseWaitCursor = true;
             // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label24.Location = new System.Drawing.Point(686, 109);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(164, 50);
-            this.label24.TabIndex = 14;
-            this.label24.Text = "N/A";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label24.UseWaitCursor = true;
-            // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label23.Location = new System.Drawing.Point(516, 109);
+            this.label23.Location = new System.Drawing.Point(645, 109);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(161, 50);
+            this.label23.Size = new System.Drawing.Size(205, 50);
             this.label23.TabIndex = 13;
             this.label23.Text = "N/A";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -375,9 +327,9 @@ namespace Meeting_Scheduler_Prototype
             // 
             this.label22.AutoSize = true;
             this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label22.Location = new System.Drawing.Point(346, 109);
+            this.label22.Location = new System.Drawing.Point(432, 109);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(161, 50);
+            this.label22.Size = new System.Drawing.Size(204, 50);
             this.label22.TabIndex = 12;
             this.label22.Text = "N/A";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -387,9 +339,9 @@ namespace Meeting_Scheduler_Prototype
             // 
             this.label21.AutoSize = true;
             this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label21.Location = new System.Drawing.Point(176, 109);
+            this.label21.Location = new System.Drawing.Point(219, 109);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(161, 50);
+            this.label21.Size = new System.Drawing.Size(204, 50);
             this.label21.TabIndex = 11;
             this.label21.Text = "N/A";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -401,31 +353,19 @@ namespace Meeting_Scheduler_Prototype
             this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label20.Location = new System.Drawing.Point(6, 109);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(161, 50);
+            this.label20.Size = new System.Drawing.Size(204, 50);
             this.label20.TabIndex = 10;
             this.label20.Text = "N/A";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label20.UseWaitCursor = true;
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label19.Location = new System.Drawing.Point(686, 56);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(164, 50);
-            this.label19.TabIndex = 9;
-            this.label19.Text = "N/A";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label19.UseWaitCursor = true;
-            // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label18.Location = new System.Drawing.Point(516, 56);
+            this.label18.Location = new System.Drawing.Point(645, 56);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(161, 50);
+            this.label18.Size = new System.Drawing.Size(205, 50);
             this.label18.TabIndex = 8;
             this.label18.Text = "N/A";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -435,9 +375,9 @@ namespace Meeting_Scheduler_Prototype
             // 
             this.label17.AutoSize = true;
             this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label17.Location = new System.Drawing.Point(346, 56);
+            this.label17.Location = new System.Drawing.Point(432, 56);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(161, 50);
+            this.label17.Size = new System.Drawing.Size(204, 50);
             this.label17.TabIndex = 7;
             this.label17.Text = "N/A";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -447,9 +387,9 @@ namespace Meeting_Scheduler_Prototype
             // 
             this.label16.AutoSize = true;
             this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label16.Location = new System.Drawing.Point(176, 56);
+            this.label16.Location = new System.Drawing.Point(219, 56);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(161, 50);
+            this.label16.Size = new System.Drawing.Size(204, 50);
             this.label16.TabIndex = 6;
             this.label16.Text = "N/A";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -461,31 +401,19 @@ namespace Meeting_Scheduler_Prototype
             this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label15.Location = new System.Drawing.Point(6, 56);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(161, 50);
+            this.label15.Size = new System.Drawing.Size(204, 50);
             this.label15.TabIndex = 5;
             this.label15.Text = "N/A";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label15.UseWaitCursor = true;
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label14.Location = new System.Drawing.Point(686, 3);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(164, 50);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "N/A";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label14.UseWaitCursor = true;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label13.Location = new System.Drawing.Point(516, 3);
+            this.label13.Location = new System.Drawing.Point(645, 3);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(161, 50);
+            this.label13.Size = new System.Drawing.Size(205, 50);
             this.label13.TabIndex = 3;
             this.label13.Text = "N/A";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -495,9 +423,9 @@ namespace Meeting_Scheduler_Prototype
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(346, 3);
+            this.label3.Location = new System.Drawing.Point(432, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(161, 50);
+            this.label3.Size = new System.Drawing.Size(204, 50);
             this.label3.TabIndex = 2;
             this.label3.Text = "N/A";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -507,9 +435,9 @@ namespace Meeting_Scheduler_Prototype
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(176, 3);
+            this.label2.Location = new System.Drawing.Point(219, 3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(161, 50);
+            this.label2.Size = new System.Drawing.Size(204, 50);
             this.label2.TabIndex = 1;
             this.label2.Text = "N/A";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -521,7 +449,7 @@ namespace Meeting_Scheduler_Prototype
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Location = new System.Drawing.Point(6, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 50);
+            this.label1.Size = new System.Drawing.Size(204, 50);
             this.label1.TabIndex = 0;
             this.label1.Text = "N/A";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1216,7 +1144,7 @@ namespace Meeting_Scheduler_Prototype
             this.Controls.Add(this.meetingSchBox);
             this.Name = "participantDisplay";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "participantDisplay";
+            this.Text = "Participant Display";
             this.Load += new System.EventHandler(this.participantDisplay_Load);
             this.meetingSchBox.ResumeLayout(false);
             this.meetingSchBox.PerformLayout();
@@ -1247,27 +1175,22 @@ namespace Meeting_Scheduler_Prototype
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button backbutton1;
-        private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

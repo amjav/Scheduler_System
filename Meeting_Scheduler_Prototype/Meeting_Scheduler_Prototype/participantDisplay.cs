@@ -50,6 +50,8 @@ namespace Meeting_Scheduler_Prototype
 
         public void InitializeMeetings()
         {
+            UpdateLists();
+
             //disable Accept buttons
             button1.Enabled = false;
             button3.Enabled = false;
@@ -719,7 +721,7 @@ namespace Meeting_Scheduler_Prototype
 
                                     if (i == 2)
                                     {
-                                        c.Text = CheckStatus(m1);
+                                        c.Text = m1.GetScheduledSlot(); 
                                     }
 
                                     if (i == 3)
@@ -777,7 +779,7 @@ namespace Meeting_Scheduler_Prototype
 
                                     if (i == 2)
                                     {
-                                        c.Text = CheckStatus(m1);
+                                        c.Text = m1.GetScheduledSlot();
                                     }
 
                                     if (i == 3)
@@ -834,8 +836,8 @@ namespace Meeting_Scheduler_Prototype
 
                                     if (i == 2)
                                     {
-                                        c.Text = CheckStatus(m1);
-                                    }
+                                        c.Text = m1.GetScheduledSlot();
+                                }
 
                                     if (i == 3)
                                     {
@@ -892,7 +894,7 @@ namespace Meeting_Scheduler_Prototype
 
                                     if (i == 2)
                                     {
-                                        c.Text = CheckStatus(m1);
+                                        c.Text = m1.GetScheduledSlot();
                                     }
 
                                     if (i == 3)
@@ -949,7 +951,7 @@ namespace Meeting_Scheduler_Prototype
 
                                     if (i == 2)
                                     {
-                                        c.Text = CheckStatus(m1);
+                                        c.Text = m1.GetScheduledSlot();
                                     }
 
                                     if (i == 3)
@@ -1230,8 +1232,6 @@ namespace Meeting_Scheduler_Prototype
 
                 Schedule(m1);
 
-                //User.AddToMeetingListScheduled(m1);
-                //User.RemoveFromInivitedList(m1);
 
                 UpdateLists();
                 InitializeMeetings();

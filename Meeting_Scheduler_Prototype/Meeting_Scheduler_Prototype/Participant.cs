@@ -45,6 +45,13 @@ namespace Meeting_Scheduler_Prototype
 
         }
 
+       
+
+        public bool returnInitiator()
+        {
+            return Initiator;
+        }
+
         public void AddToMeetingListInvited(Meeting m)
         {
             InvitedMeetings.Add(m);
@@ -85,11 +92,6 @@ namespace Meeting_Scheduler_Prototype
             return Name;
         }
 
-
-        //public string GetStatus()
-        //{
-        //    return Status;
-        //}
 
         public string GetFlexibility()
         {
@@ -137,9 +139,5 @@ namespace Meeting_Scheduler_Prototype
             return users;
         }
 
-        public void search(string name)
-        {
-            //a paramater name would be taken in and looped through participants for a match?
-        }
     }
 }
