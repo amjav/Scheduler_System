@@ -1232,8 +1232,6 @@ namespace Meeting_Scheduler_Prototype
 
                 Schedule(m1);
 
-                //User.AddToMeetingListScheduled(m1);
-                //User.RemoveFromInivitedList(m1);
 
                 UpdateLists();
                 InitializeMeetings();

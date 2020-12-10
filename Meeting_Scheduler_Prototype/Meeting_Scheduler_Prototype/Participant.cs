@@ -93,11 +93,6 @@ namespace Meeting_Scheduler_Prototype
         }
 
 
-        //public string GetStatus()
-        //{
-        //    return Status;
-        //}
-
         public string GetFlexibility()
         {
             return Flexibility;
@@ -144,9 +139,5 @@ namespace Meeting_Scheduler_Prototype
             return users;
         }
 
-        public void search(string name)
-        {
-            //a paramater name would be taken in and looped through participants for a match?
-        }
     }
 }

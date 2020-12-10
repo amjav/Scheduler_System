@@ -15,8 +15,6 @@ namespace Meeting_Scheduler_Prototype
 
     public partial class Form1 : Form
     {
-        //low flexibility = not able to be very flexible in changing their timetable to compensate the meeting
-        //high flexibilty = can easily change their timetable to attend the meeting
 
 
         List<Participant> allUsers = new List<Participant>();
@@ -80,13 +78,13 @@ namespace Meeting_Scheduler_Prototype
             slots.Add("S3");
             slots.Add("S4");
 
-            requestAttendee.Add(p2);
+            requestAttendee.Add(p5);
             requestAttendee.Add(p6);
 
 
             Meeting m3 = new Meeting(p7.GetName(), "North Pole", "Rudolf's Nose Surgery", "Pending", slots, meetingAttendee, requestAttendee);
 
-            p2.AddToMeetingListInvited(m3);
+            p5.AddToMeetingListInvited(m3);
             p6.AddToMeetingListInvited(m3);
 
             
@@ -122,8 +120,6 @@ namespace Meeting_Scheduler_Prototype
 
         private void AddMeeting1()
         {
-            //true is a higher status than false
-
             List<String> slot = new List<string>();
             List<Participant> requestAttendee = new List<Participant>();
             List<Participant> meetingAttendee = new List<Participant>();
@@ -222,11 +218,11 @@ namespace Meeting_Scheduler_Prototype
 
                     if (f.GetType() == F)
                     {
-                        //Application.OpenForms.OfType<participantDisplay>().to;
+                       
 
                         ps = (participantDisplay)f;
 
-                        //current = participant type(of the selected index)
+                        
                         if (ps.GetUser() == allUsers[current])
                         {
                             Pcurrent = ps.GetThis();

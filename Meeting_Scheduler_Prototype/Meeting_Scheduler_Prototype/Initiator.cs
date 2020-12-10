@@ -19,6 +19,8 @@ namespace Meeting_Scheduler_Prototype
 
         List<Participant> AllUsers = new List<Participant>();
         public List<Meeting> allMeetings = new List<Meeting>();
+        public List<Meeting> CancelMeeting = new List<Meeting>();
+
         public List<Participant> requestPs = new List<Participant>();
         public List<Participant> meetingAttendees = new List<Participant>();
         public static Participant User;
@@ -44,6 +46,8 @@ namespace Meeting_Scheduler_Prototype
             meetingAttendees = m.GetMeetingAttendees();
         }
 
+        
+
         public void InitializeMeetings()
         {
             //clear listBoxes
@@ -64,9 +68,37 @@ namespace Meeting_Scheduler_Prototype
             Meeting m1 = new Meeting();
             Participant p = new Participant();
 
-            UpdateLists();
+            foreach(Meeting m in allMeetings)
+            {
+                if(CheckImportance(m) == false)
+                {
+                    MessageBox.Show(m.GetTitle() + " will be cancelled as there is no important participant attending");
 
-            //TableLayoutControlCollection controls = tableLayoutPanel1.Controls;
+                    CancelMeeting.Add(m);
+                    //allMeetings.Remove(m);
+
+                    foreach(Participant par in AllUsers)
+                    {
+                        if (par.GetInvites().Contains(m))
+                        {
+                            par.RemoveFromInivitedList(m);
+                        }
+
+                        if (par.GetPending().Contains(m))
+                        {
+                            par.RemoveFromMeetingPending(m);
+                        }
+
+                    }
+                }
+            }
+
+            foreach(Meeting m in CancelMeeting)
+            {
+                allMeetings.Remove(m);
+            }
+
+            UpdateLists();
 
             for (int i = 0; i <= this.tableLayoutPanel1.ColumnCount; i++)
             {
@@ -795,7 +827,6 @@ namespace Meeting_Scheduler_Prototype
 
             foreach (List<string> s in allslots)
             {
-                // needs to compare preferred slots with meeting slots
                 if( s.Contains(null) || s.Contains(" ")){
                    
                     continue;
@@ -935,6 +966,33 @@ namespace Meeting_Scheduler_Prototype
 
         }
 
+
+
+        public bool CheckImportance(Meeting m)
+        {
+            bool attendance = false;
+
+            List<Participant> meetingPart = m.GetRequestedPs();
+
+            foreach(Participant par in meetingPart)
+            {
+                if(par.GetImportance() == true)
+                {
+                    List<string> slots = par.GetPreferredSlots();
+
+                    foreach (string slot in slots)
+                    {
+                        if (m.GetSlot().Contains(slot))
+                        {
+                            attendance = true;
+                        }
+                    }
+                }
+            }
+
+            return attendance;
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             string s = button3.Text;
@@ -944,6 +1002,7 @@ namespace Meeting_Scheduler_Prototype
             string l = m.GetLocation();
 
             bool criteria = true;
+
 
             foreach(Meeting meet in allMeetings)
             {
@@ -955,12 +1014,19 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
                         }
                     }
                 }
             }
 
-            if(criteria != false) { 
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
+            }
+
+            if (criteria != false) { 
                 List<Participant> NotAvailable = new List<Participant>();
                 NotAvailable = m.GetUnavailable();
                 foreach (Participant par in NotAvailable)
@@ -1010,12 +1076,20 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
+                            
                         }
                     }
                 }
             }
 
-            if(criteria == true) { 
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
+            }
+
+            if (criteria == true) { 
 
                 List<Participant> NotAvailable = new List<Participant>();
                 NotAvailable = m.GetUnavailable();
@@ -1065,12 +1139,20 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
+                           
                         }
                     }
                 }
             }
 
-            if(criteria == true){
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
+            }
+
+            if (criteria == true){
 
                 List<Participant> NotAvailable = new List<Participant>();
                 NotAvailable = m.GetUnavailable();
@@ -1120,9 +1202,16 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
                         }
                     }
                 }
+            }
+
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
             }
 
 
@@ -1176,12 +1265,19 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
                         }
                     }
                 }
             }
 
-            if(criteria == true)
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
+            }
+
+            if (criteria == true)
             {
 
                 List<Participant> NotAvailable = new List<Participant>();
@@ -1232,12 +1328,19 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
                         }
                     }
                 }
             }
 
-            if(criteria == true)
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
+            }
+
+            if (criteria == true)
             {
 
             List<Participant> NotAvailable = new List<Participant>();
@@ -1288,12 +1391,20 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
                         }
                     }
                 }
             }
 
-            if(criteria == true)
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
+            }
+
+
+            if (criteria == true)
             {
 
                 List<Participant> NotAvailable = new List<Participant>();
@@ -1344,9 +1455,17 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
+                            
                         }
                     }
                 }
+            }
+
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
             }
 
             if (criteria == true)
@@ -1401,12 +1520,19 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
                         }
                     }
                 }
             }
 
-            if(criteria == true)
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
+            }
+
+            if (criteria == true)
             {
 
                 List<Participant> NotAvailable = new List<Participant>();
@@ -1457,12 +1583,20 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
+                            
                         }
                     }
                 }
             }
 
-            if(criteria == true)
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
+            }
+
+            if (criteria == true)
             {
 
                 List<Participant> NotAvailable = new List<Participant>();
@@ -1514,9 +1648,17 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
+                            
                         }
                     }
                 }
+            }
+
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
             }
 
             if (criteria == false)
@@ -1570,12 +1712,20 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
+                           
                         }
                     }
                 }
             }
 
-            if(criteria == false)
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
+            }
+
+            if (criteria == false)
             {
 
                 List<Participant> NotAvailable = new List<Participant>();
@@ -1625,13 +1775,20 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
                         }
                     }
                 }
             }
 
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
+            }
 
-            if(criteria == true)
+
+            if (criteria == true)
             {
 
                 List<Participant> NotAvailable = new List<Participant>();
@@ -1681,13 +1838,21 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
+                            
                         }
                     }
                 }
             }
 
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
+            }
 
-            if(criteria == true){
+
+            if (criteria == true){
 
                 List<Participant> NotAvailable = new List<Participant>();
                 NotAvailable = m.GetUnavailable();
@@ -1736,9 +1901,16 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
                         }
                     }
                 }
+            }
+
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
             }
 
             if (criteria != false)
@@ -1790,9 +1962,16 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
                         }
                     }
                 }
+            }
+
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
             }
 
             if (criteria != false)
@@ -1845,9 +2024,16 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
                         }
                     }
                 }
+            }
+
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
             }
 
             if (criteria != false)
@@ -1900,9 +2086,16 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
                         }
                     }
                 }
+            }
+
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
             }
 
             if (criteria != false)
@@ -1955,9 +2148,17 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
+                            
                         }
                     }
                 }
+            }
+
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
             }
 
             if (criteria != false)
@@ -2010,9 +2211,17 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
+                           
                         }
                     }
                 }
+            }
+
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
             }
 
             if (criteria != false)
@@ -2065,9 +2274,16 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
                         }
                     }
                 }
+            }
+
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
             }
 
             if (criteria != false)
@@ -2120,9 +2336,16 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
                         }
                     }
                 }
+            }
+
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
             }
 
             if (criteria != false)
@@ -2176,9 +2399,18 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
                         }
                     }
                 }
+
+
+            }
+
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
             }
 
             if (criteria != false)
@@ -2233,9 +2465,17 @@ namespace Meeting_Scheduler_Prototype
                         {
                             MessageBox.Show("This Meeting cannot be scheduled. Please select a new slot");
                             criteria = false;
+
+                         
                         }
                     }
                 }
+            }
+
+            if (CheckImportance(m) == false)
+            {
+                MessageBox.Show("This Meeting cannot be scheduled. Important Participant cannot attend");
+                criteria = false;
             }
 
             if (criteria != false)
