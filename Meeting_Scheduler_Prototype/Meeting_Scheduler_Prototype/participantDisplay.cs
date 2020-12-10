@@ -68,6 +68,7 @@ namespace Meeting_Scheduler_Prototype
 
 
             label52.Text = User.GetName();
+            label14.Text = User.GetPsType();
             Meeting m1 = new Meeting();
             Participant p = new Participant();
 
@@ -1307,6 +1308,11 @@ namespace Meeting_Scheduler_Prototype
         }
 
         private void CancelCon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label52_Click(object sender, EventArgs e)
         {
 
         }

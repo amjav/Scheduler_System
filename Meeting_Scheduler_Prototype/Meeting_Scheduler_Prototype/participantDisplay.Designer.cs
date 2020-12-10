@@ -110,6 +110,7 @@ namespace Meeting_Scheduler_Prototype
             this.Meeting = new System.Windows.Forms.Label();
             this.listBox9 = new System.Windows.Forms.ListBox();
             this.label53 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.meetingSchBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -1088,19 +1089,20 @@ namespace Meeting_Scheduler_Prototype
             this.label52.AutoSize = true;
             this.label52.BackColor = System.Drawing.Color.Lavender;
             this.label52.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label52.Location = new System.Drawing.Point(887, 10);
+            this.label52.Location = new System.Drawing.Point(906, 36);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(112, 42);
             this.label52.TabIndex = 11;
             this.label52.Text = "Name";
             this.label52.UseWaitCursor = true;
+            this.label52.Click += new System.EventHandler(this.label52_Click);
             // 
             // Meeting
             // 
             this.Meeting.AutoSize = true;
             this.Meeting.BackColor = System.Drawing.Color.Lavender;
             this.Meeting.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Meeting.Location = new System.Drawing.Point(1005, 11);
+            this.Meeting.Location = new System.Drawing.Point(906, 120);
             this.Meeting.Name = "Meeting";
             this.Meeting.Size = new System.Drawing.Size(309, 42);
             this.Meeting.TabIndex = 12;
@@ -1111,9 +1113,9 @@ namespace Meeting_Scheduler_Prototype
             // 
             this.listBox9.FormattingEnabled = true;
             this.listBox9.ItemHeight = 16;
-            this.listBox9.Location = new System.Drawing.Point(898, 117);
+            this.listBox9.Location = new System.Drawing.Point(904, 218);
             this.listBox9.Name = "listBox9";
-            this.listBox9.Size = new System.Drawing.Size(392, 196);
+            this.listBox9.Size = new System.Drawing.Size(392, 84);
             this.listBox9.TabIndex = 13;
             this.listBox9.UseWaitCursor = true;
             this.listBox9.SelectedIndexChanged += new System.EventHandler(this.listBox9_SelectedIndexChanged);
@@ -1123,18 +1125,31 @@ namespace Meeting_Scheduler_Prototype
             this.label53.AutoSize = true;
             this.label53.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.label53.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.Location = new System.Drawing.Point(892, 83);
+            this.label53.Location = new System.Drawing.Point(898, 184);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(412, 31);
             this.label53.TabIndex = 14;
             this.label53.Text = "Meetings Awaiting Confirmation";
             this.label53.UseWaitCursor = true;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Lavender;
+            this.label14.Font = new System.Drawing.Font("Neue Haas Grotesk Text Pro", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(906, 78);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(151, 42);
+            this.label14.TabIndex = 15;
+            this.label14.Text = "PS Type";
+            this.label14.UseWaitCursor = true;
+            // 
             // participantDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1322, 676);
+            this.ClientSize = new System.Drawing.Size(1449, 676);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.label53);
             this.Controls.Add(this.listBox9);
             this.Controls.Add(this.Meeting);
@@ -1240,5 +1255,6 @@ namespace Meeting_Scheduler_Prototype
         private System.Windows.Forms.Label Meeting;
         private ListBox listBox9;
         private Label label53;
+        private Label label14;
     }
 }
