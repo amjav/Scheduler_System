@@ -23,15 +23,15 @@ namespace Meeting_Scheduler_Prototype
         List<Participant> MeetingAttendees = new List<Participant>();
 
         //lauren is the intiator
-        Participant p1 = new Participant("Lauren", "low", true, "in", true, new List<string> { "S4", "S9", "S11" });
-        Participant p7 = new Participant("Santa Claus", "low", true, "in", true, new List<string> { "S1", "S2", "S3" });
+        Participant p1 = new Participant("Lauren", "low", true, "Initiator", true, new List<string> { "S4", "S9", "S11" });
+        Participant p7 = new Participant("Santa Claus", "low", true, "Initiator", true, new List<string> { "S1", "S2", "S3" });
 
         //participants
-        Participant p2 = new Participant("Mrs Claus", "low", true, "ps", false, new List<string> {"S1","S2","S3"});
-        Participant p3 = new Participant("Soraya", "high", true, "ps", false, new List<string> { "S10", "S5", "S8"});
-        Participant p4 = new Participant("Sanaa", "high", false, "ps", false, new List<string> { "S1", "S3", "S5" });
-        Participant p5 = new Participant("Rudolf", "high", false, "ps", false, new List<string> { null, null, null });
-        Participant p6 = new Participant("Jack Skellington", "high", false, "ps", false, new List<string> { null, null, null });
+        Participant p2 = new Participant("Mrs Claus", "low", true, "Participant", false, new List<string> {"S1","S2","S3"});
+        Participant p3 = new Participant("Soraya", "high", true, "Guest Speaker", false, new List<string> { "S10", "S5", "S8"});
+        Participant p4 = new Participant("Sanaa", "high", false, "Participant", false, new List<string> { "S1", "S3", "S5" });
+        Participant p5 = new Participant("Rudolf", "high", false, "Participant", false, new List<string> { null, null, null });
+        Participant p6 = new Participant("Jack Skellington", "high", false, "Participant", false, new List<string> { null, null, null });
 
         //to run the duntions in the classes
         Participant p = new Participant();

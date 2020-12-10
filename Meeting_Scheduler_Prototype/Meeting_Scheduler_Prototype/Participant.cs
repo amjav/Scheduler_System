@@ -45,6 +45,11 @@ namespace Meeting_Scheduler_Prototype
 
         }
 
+        public string GetPsType()
+        {
+            return Type;
+        }
+
        
 
         public bool returnInitiator()
