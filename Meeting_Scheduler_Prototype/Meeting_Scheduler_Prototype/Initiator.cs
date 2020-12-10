@@ -89,8 +89,9 @@ namespace Meeting_Scheduler_Prototype
                         {
                             par.RemoveFromMeetingPending(m);
                         }
-
+                        UpdateLists();
                     }
+                    UpdateLists();
                 }
             }
 
@@ -337,7 +338,7 @@ namespace Meeting_Scheduler_Prototype
                         }
                     }
 
-                    if (i == 5 && j == 2)
+                    if (i == 4 && j == 2)
                     {
                         if (allMeetings.Count > 1 && allMeetings[1] != null)
                         {
@@ -356,7 +357,7 @@ namespace Meeting_Scheduler_Prototype
 
                     }
 
-                    if (i == 6 && j == 2)
+                    if (i == 5 && j == 2)
                     {
 
                         List<Participant> p1 = new List<Participant>();
@@ -381,7 +382,7 @@ namespace Meeting_Scheduler_Prototype
 
                     }
 
-                    if (i == 7 && j == 1)
+                    if (i == 6 && j == 1)
                     {
 
                         List<Participant> p1 = new List<Participant>();
@@ -407,7 +408,7 @@ namespace Meeting_Scheduler_Prototype
 
                     }
 
-                    if (i == 8 && j == 1)
+                    if (i == 7 && j == 1)
                     {
                         List<Control> b = new List<Control>();
 
@@ -1758,7 +1759,7 @@ namespace Meeting_Scheduler_Prototype
 
         private void button13_Click(object sender, EventArgs e)
         {
-            string s = button7.Text;
+            string s = button13.Text;
 
             Meeting m = allMeetings[2];
 

@@ -23,12 +23,12 @@ namespace Meeting_Scheduler_Prototype
         List<Participant> MeetingAttendees = new List<Participant>();
 
         //lauren is the intiator
-        Participant p1 = new Participant("Lauren", "low", true, "Initiator", true, new List<string> { "S4", "S9", "S11" });
+        Participant p1 = new Participant("Lauren", "low", true, "Initiator", true, new List<string> { "S4", "S2", "S5" });
         Participant p7 = new Participant("Santa Claus", "low", true, "Initiator", true, new List<string> { "S1", "S2", "S3" });
 
         //participants
         Participant p2 = new Participant("Mrs Claus", "low", true, "Participant", false, new List<string> {"S1","S2","S3"});
-        Participant p3 = new Participant("Soraya", "high", true, "Guest Speaker", false, new List<string> { "S10", "S5", "S8"});
+        Participant p3 = new Participant("Soraya", "high", true, "Guest Speaker", false, new List<string> { "S1", "S5", "S3"});
         Participant p4 = new Participant("Sanaa", "high", false, "Participant", false, new List<string> { "S1", "S3", "S5" });
         Participant p5 = new Participant("Rudolf", "high", false, "Participant", false, new List<string> { null, null, null });
         Participant p6 = new Participant("Jack Skellington", "high", false, "Participant", false, new List<string> { null, null, null });
@@ -63,6 +63,7 @@ namespace Meeting_Scheduler_Prototype
             AddMeeting1();
             AddMeeting2();
             AddMeeting3();
+            AddMeeting4();
             RunStart();
 
         }
@@ -136,6 +137,31 @@ namespace Meeting_Scheduler_Prototype
 
 
             Meeting meet1 = new Meeting(p1.GetName(), "Owen 225", "Reindeer Route Planning", "Pending", slot, meetingAttendee, requestAttendee);
+
+            p2.AddToMeetingListInvited(meet1);
+            p4.AddToMeetingListInvited(meet1);
+            p5.AddToMeetingListInvited(meet1);
+
+        }
+
+        private void AddMeeting4()
+        {
+            List<String> slot = new List<string>();
+            List<Participant> requestAttendee = new List<Participant>();
+            List<Participant> meetingAttendee = new List<Participant>();
+
+            slot.Add("S1");
+            slot.Add("S2");
+            slot.Add("S3");
+            slot.Add("S4");
+            slot.Add("S5");
+
+            requestAttendee.Add(p2);
+            requestAttendee.Add(p4);
+            requestAttendee.Add(p5);
+
+
+            Meeting meet1 = new Meeting(p1.GetName(), "Owen 225", "Sledge Repairs", "Pending", slot, meetingAttendee, requestAttendee);
 
             p2.AddToMeetingListInvited(meet1);
             p4.AddToMeetingListInvited(meet1);
