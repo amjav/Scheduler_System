@@ -1013,7 +1013,7 @@ namespace Meeting_Scheduler_Prototype
 
                 if (!allpending.Contains(false))
                 {
-                    m1.SetAllAccepted();
+                   
                     return "All Accepted";
                 }
                 else if (User.GetPending().Contains(m1))
